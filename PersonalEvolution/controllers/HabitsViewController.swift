@@ -102,5 +102,13 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let habit = habitsList[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "singleHabit") as! SingleHabitViewController
+        vc.habit = habit
+        present(vc, animated: true, completion: nil)
+    }
 }
 

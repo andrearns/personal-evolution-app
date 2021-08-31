@@ -69,13 +69,30 @@
         <!--Single Habit View Controller-->
         <scene sceneID="lV9-wy-uQO">
             <objects>
-                <viewController id="jWD-OQ-VSO" customClass="SingleHabitViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="singleHabit" id="jWD-OQ-VSO" customClass="SingleHabitViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Akt-gQ-Uxw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hábito" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKr-Di-HcB">
+                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2XO-DG-Ojg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wKr-Di-HcB" firstAttribute="centerY" secondItem="2XO-DG-Ojg" secondAttribute="centerY" id="1fD-E3-YOM"/>
+                            <constraint firstItem="wKr-Di-HcB" firstAttribute="centerX" secondItem="2XO-DG-Ojg" secondAttribute="centerX" id="5La-jN-DjW"/>
+                            <constraint firstItem="wKr-Di-HcB" firstAttribute="height" secondItem="Akt-gQ-Uxw" secondAttribute="height" id="6Lf-Yj-2kd"/>
+                            <constraint firstItem="wKr-Di-HcB" firstAttribute="width" secondItem="Akt-gQ-Uxw" secondAttribute="width" id="Qip-hz-d2P"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="habitTitleLabel" destination="wKr-Di-HcB" id="1rt-WB-Rxx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JF5-dQ-uBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
