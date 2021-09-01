@@ -10,6 +10,7 @@ import UIKit
 class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var habitsTableView: UITableView!
+    @IBOutlet var addHabitButton: UIButton!
     
     var habitsList: [String] = []
     
@@ -18,11 +19,10 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Explore novos hábitos"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
-        
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(swipeDownToReload), for: .valueChanged)
+        
+        self.addHabitButton.layer.cornerRadius = 5
         
         self.habitsTableView.dataSource = self
         self.habitsTableView.delegate = self
@@ -60,19 +60,19 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    @objc func didTapAdd() {
-        let alert = UIAlertController(title: "Adicionar hábito", message: nil, preferredStyle: .alert)
-        alert.addTextField { field in
-            field.placeholder = "Digite o nome do hábito..."
-        }
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { [weak self] _ in
-            if let field = alert.textFields?.first, let text = field.text, !text.isEmpty {
-                self?.save(habit: text)
-            }
-        }))
-        present(alert, animated: true)
-    }
+//    @IBAction func addNewHabit(_ sender: Any) {
+//        let alert = UIAlertController(title: "Adicionar hábito", message: nil, preferredStyle: .alert)
+//        alert.addTextField { field in
+//            field.placeholder = "Digite o nome do hábito..."
+//        }
+//        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+//        alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { [weak self] _ in
+//            if let field = alert.textFields?.first, let text = field.text, !text.isEmpty {
+//                self?.save(habit: text)
+//            }
+//        }))
+//        present(alert, animated: true)
+//    }
     
     @objc func save(habit: String) {
         let record = CKRecord(recordType: "Habit")
@@ -84,6 +84,15 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 DispatchQueue.main.async {
                     self.fetchHabits()
                 }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? CreateNewHabitViewController {
+            vc.onSave = {
+                self.fetchHabits()
+                self.habitsTableView.reloadData()
             }
         }
     }

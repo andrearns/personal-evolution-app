@@ -16,6 +16,7 @@
 		5B0CE74326DDCEA00065E1A9 /* SingleHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE74226DDCEA00065E1A9 /* SingleHabitViewController.swift */; };
 		5B0CE74626DDCFEA0065E1A9 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE74526DDCFEA0065E1A9 /* HabitsViewController.swift */; };
 		5B0CE74A26DDD1250065E1A9 /* HabitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE74926DDD1250065E1A9 /* HabitTableViewCell.swift */; };
+		5B1A9A7626E0109A0001F3CF /* CreateNewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9A7526E0109A0001F3CF /* CreateNewHabitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		5B0CE74226DDCEA00065E1A9 /* SingleHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleHabitViewController.swift; sourceTree = "<group>"; };
 		5B0CE74526DDCFEA0065E1A9 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		5B0CE74926DDD1250065E1A9 /* HabitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTableViewCell.swift; sourceTree = "<group>"; };
+		5B1A9A7526E0109A0001F3CF /* CreateNewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewHabitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			children = (
 				5B0CE74226DDCEA00065E1A9 /* SingleHabitViewController.swift */,
 				5B0CE74526DDCFEA0065E1A9 /* HabitsViewController.swift */,
+				5B1A9A7526E0109A0001F3CF /* CreateNewHabitViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				5B0CE72B26DDCD040065E1A9 /* AppDelegate.swift in Sources */,
 				5B0CE72D26DDCD040065E1A9 /* SceneDelegate.swift in Sources */,
+				5B1A9A7626E0109A0001F3CF /* CreateNewHabitViewController.swift in Sources */,
 				5B0CE74A26DDD1250065E1A9 /* HabitTableViewCell.swift in Sources */,
 				5B0CE74326DDCEA00065E1A9 /* SingleHabitViewController.swift in Sources */,
 				5B0CE74626DDCFEA0065E1A9 /* HabitsViewController.swift in Sources */,
