@@ -37,6 +37,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         database.perform(query, inZoneWith: nil) { records, error in
             guard let records = records, error == nil else { return }
             DispatchQueue.main.async {
+                
                 self.habitsList = records.compactMap({ $0.value(forKey: "Name") as? String})
                 self.habitsTableView.reloadData()
                 print(self.habitsList)
@@ -56,34 +57,6 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.habitsTableView.reloadData()
                 print(self.habitsList)
                 self.habitsTableView.refreshControl?.endRefreshing()
-            }
-        }
-    }
-    
-//    @IBAction func addNewHabit(_ sender: Any) {
-//        let alert = UIAlertController(title: "Adicionar hábito", message: nil, preferredStyle: .alert)
-//        alert.addTextField { field in
-//            field.placeholder = "Digite o nome do hábito..."
-//        }
-//        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-//        alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { [weak self] _ in
-//            if let field = alert.textFields?.first, let text = field.text, !text.isEmpty {
-//                self?.save(habit: text)
-//            }
-//        }))
-//        present(alert, animated: true)
-//    }
-    
-    @objc func save(habit: String) {
-        let record = CKRecord(recordType: "Habit")
-        record.setValue(habit, forKey: "Name")
-        
-        database.save(record) { record, error in
-            if record != nil, error == nil {
-                print("Salvo")
-                DispatchQueue.main.async {
-                    self.fetchHabits()
-                }
             }
         }
     }

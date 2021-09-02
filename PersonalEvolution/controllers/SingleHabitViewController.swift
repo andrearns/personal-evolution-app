@@ -18,5 +18,8 @@ class SingleHabitViewController: UIViewController {
         habitTitleLabel.text = habit
     }
     
-
+    @IBAction func backToHabits(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

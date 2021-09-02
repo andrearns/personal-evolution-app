@@ -15,16 +15,31 @@ class CreateNewHabitViewController: UIViewController {
     
     @IBOutlet var habitNameTextField: UITextField!
     @IBOutlet var createButton: UIButton!
+    @IBOutlet var descriptionTextView: UITextView!
+    @IBOutlet var isPublicSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         createButton.layer.cornerRadius = 10
+        descriptionTextView.layer.cornerRadius = 10
     }
 
     @IBAction func saveHabit(_ sender: Any) {
         let record = CKRecord(recordType: "Habit")
         record.setValue(habitNameTextField.text, forKey: "Name")
+        record.setValue(descriptionTextView.text, forKey: "Description")
+        
+        // Using Int because CloudKit does not accept Bool
+        // 0 -> False
+        // 1 -> True
+        var isPublic: Int = 0
+        
+        if isPublicSwitch.isOn {
+            isPublic = 1
+        }
+        
+        record.setValue(isPublic, forKey: "isPublic")
         
         database.save(record) { record, error in
             if record != nil, error == nil {
@@ -34,5 +49,5 @@ class CreateNewHabitViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
-
+    
 }
