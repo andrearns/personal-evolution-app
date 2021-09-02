@@ -9,7 +9,7 @@ import UIKit
 
 class HabitTableViewCell: UITableViewCell {
 
-    var habit: String!
+    var habit: Habit!
     
     @IBOutlet var habitLabel: UILabel!
     
@@ -24,10 +24,10 @@ class HabitTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setup(habit: String) {
+    func setup(habit: Habit) {
         self.habit = habit
         
-        self.habitLabel.text = habit
+        self.habitLabel.text = habit.name
     }
 
 }

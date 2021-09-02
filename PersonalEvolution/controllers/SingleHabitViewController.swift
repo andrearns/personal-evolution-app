@@ -9,13 +9,13 @@ import UIKit
 
 class SingleHabitViewController: UIViewController {
 
-    var habit: String!
+    var habit: Habit!
 
     @IBOutlet var habitTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        habitTitleLabel.text = habit
+        habitTitleLabel.text = habit.name
     }
     
     @IBAction func backToHabits(_ sender: Any) {
