@@ -11,6 +11,8 @@ struct Habit: Identifiable {
     var id = UUID()
     var recordID: CKRecord.ID?
     var name: String
+    var imageData: Data?
     var description: String
-    var isPublic: Int // 0 -> False // 1 -> True
+//    var checkinList: [Checkin]
+//    var users: [User]
 }
