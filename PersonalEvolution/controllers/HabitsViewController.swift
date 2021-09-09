@@ -10,82 +10,72 @@ import UIKit
 class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var habitsTableView: UITableView!
+    @IBOutlet var addHabitButton: UIButton!
     
-    var habitsList: [String] = []
+    var habitsList: [Habit] = []
     
     private let database = CKContainer(identifier: "iCloud.PersonalEvolution").publicCloudDatabase
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Explore novos hábitos"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
+        self.fetchHabits()
         
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(swipeDownToReload), for: .valueChanged)
+        self.habitsTableView.refreshControl = control
+        
+        self.addHabitButton.layer.cornerRadius = 5
+        self.addHabitButton.layer.shadowColor = UIColor.black.cgColor
+        self.addHabitButton.layer.shadowOpacity = 0.05
+        self.addHabitButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.addHabitButton.layer.shadowRadius = 20
+        self.addHabitButton.layer.shadowPath = UIBezierPath(rect: addHabitButton.bounds).cgPath
+        self.addHabitButton.layer.shouldRasterize = true
         
         self.habitsTableView.dataSource = self
         self.habitsTableView.delegate = self
-        self.habitsTableView.refreshControl = control
         
-        fetchHabits()
-    }
-    
-    @objc func fetchHabits() {
-        let query = CKQuery(recordType: "Habit", predicate: NSPredicate(value: true))
-        
-        database.perform(query, inZoneWith: nil) { records, error in
-            guard let records = records, error == nil else { return }
-            DispatchQueue.main.async {
-                self.habitsList = records.compactMap({ $0.value(forKey: "Name") as? String})
-                self.habitsTableView.reloadData()
-                print(self.habitsList)
-            }
-        }
     }
     
     @objc func swipeDownToReload() {
         self.habitsTableView.refreshControl?.beginRefreshing()
-        
-        let query = CKQuery(recordType: "Habit", predicate: NSPredicate(value: true))
-        
-        database.perform(query, inZoneWith: nil) { records, error in
-            guard let records = records, error == nil else { return }
-            DispatchQueue.main.async {
-                self.habitsList = records.compactMap({ $0.value(forKey: "Name") as? String})
-                self.habitsTableView.reloadData()
-                print(self.habitsList)
-                self.habitsTableView.refreshControl?.endRefreshing()
+        self.fetchHabits()
+        self.habitsTableView.refreshControl?.endRefreshing()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? CreateNewHabitViewController {
+            vc.onSave = {
+                self.fetchHabits()
             }
         }
     }
     
-    @objc func didTapAdd() {
-        let alert = UIAlertController(title: "Adicionar hábito", message: nil, preferredStyle: .alert)
-        alert.addTextField { field in
-            field.placeholder = "Digite o nome do hábito..."
-        }
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { [weak self] _ in
-            if let field = alert.textFields?.first, let text = field.text, !text.isEmpty {
-                self?.save(habit: text)
-            }
-        }))
-        present(alert, animated: true)
-    }
-    
-    @objc func save(habit: String) {
-        let record = CKRecord(recordType: "Habit")
-        record.setValue(habit, forKey: "Name")
-        
-        database.save(record) { record, error in
-            if record != nil, error == nil {
-                print("Salvo")
-                DispatchQueue.main.async {
-                    self.fetchHabits()
+    func fetchHabits() {
+        DispatchQueue.main.async {
+            var habits: [Habit] = []
+            CloudKitHelper.fetchHabits { (result) in
+                switch result {
+                case .success(let newItem):
+                    habits.append(newItem)
+                    print(newItem)
+                    print("Successfully fetched item")
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
             }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.habitsList = habits
+                self.habitsTableView.reloadData()
+            }
         }
+    }
+    
+    @IBAction func addHabit(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "CreateNewHabit") as? CreateNewHabitViewController
+        navigationController?.showDetailViewController(vc!, sender: self)
     }
     
     // MARK: - Table
@@ -108,7 +98,24 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "singleHabit") as! SingleHabitViewController
         vc.habit = habit
-        present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            CloudKitHelper.delete(recordID: habitsList[indexPath.row].recordID!) { (result) in
+                switch result {
+                case .success(let recordID):
+                    self.habitsList.removeAll{ (habit) -> Bool in
+                        return habit.recordID == recordID
+                    }
+                    print("Successfully deleted habit")
+                    self.fetchHabits()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
 
