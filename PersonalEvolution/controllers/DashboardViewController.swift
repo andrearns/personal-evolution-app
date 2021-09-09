@@ -40,7 +40,7 @@ class DashboardViewController: UIViewController, UITableViewDataSource, UITableV
         let habit = habits[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "singleHabit") as! SingleHabitViewController
-        vc.habit = habit
+//        vc.habit = habit
         present(vc, animated: true, completion: nil)
     }
 
