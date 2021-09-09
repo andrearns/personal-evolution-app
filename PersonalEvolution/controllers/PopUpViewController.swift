@@ -32,6 +32,21 @@ class PopUpViewController: UIViewController {
         if popUp.type == .inviteFriends {
             print("Abrir compartilhamento")
             
+            let message = "Descrição"
+            let image : UIImage = popUp.image
+            
+            if let link = NSURL(string: "https://andrearns.com.br") {
+                let objectsToShare = [message, link, image] as [Any]
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                
+//                activityVC.popoverPresentationController?.sourceView = self.view
+//                activityVC.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
+//                activityVC.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
+//
+//                activityVC.isModalInPresentation = true
+                activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.openInIBooks, UIActivity.ActivityType.postToTencentWeibo]
+                self.present(activityVC, animated: true, completion: nil)
+            }
         }
         
         self.dismiss(animated: true)

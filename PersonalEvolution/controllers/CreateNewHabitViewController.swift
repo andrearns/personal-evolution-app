@@ -60,7 +60,7 @@ class CreateNewHabitViewController: UIViewController, UITextViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "singleHabit") as! SingleHabitViewController
         vc.habit = newHabit
-        present(vc, animated: true, completion: nil)
+        present(vc, animated: true)
     }
 }
 

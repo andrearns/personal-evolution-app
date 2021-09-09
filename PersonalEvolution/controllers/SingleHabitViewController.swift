@@ -30,7 +30,22 @@ class SingleHabitViewController: UIViewController {
     }
     
     @IBAction func backToHabits(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        print("b")
+        if navigationController?.viewControllers == nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "TabBar") as? UITabBarController
+            vc?.tabBarController?.selectedIndex = 2
+            present(vc!, animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+        
+    }
+    
+    @IBAction func checkin(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "Checkin") as? CheckinViewController
+        navigationController?.showDetailViewController(vc!, sender: self)
     }
     
     @IBAction func inviteFriends(_ sender: Any) {
