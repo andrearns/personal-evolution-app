@@ -8,7 +8,7 @@ import UIKit
 
 class CreateNewHabitViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet var habitNameTextField: UITextField!
+    @IBOutlet var habitNameTextField: CustomTextField!
     @IBOutlet var createButton: UIButton!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var descriptionPlaceholderLabel: UILabel!
@@ -21,16 +21,22 @@ class CreateNewHabitViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        createButton.layer.cornerRadius = 10
-        descriptionTextView.layer.cornerRadius = 10
+        habitNameTextField.layer.cornerRadius = 10
+        habitNameTextField.attributedPlaceholder = NSAttributedString(string: "Nome do hábito", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
         
+        addImageButton.layer.cornerRadius = 10
+        
+        createButton.layer.cornerRadius = 10
+        
+        descriptionTextView.layer.cornerRadius = 10
         descriptionTextView.delegate = self
         descriptionTextView.text = "Digite aqui a descrição e as regras"
-        descriptionTextView.textColor = UIColor.lightGray
+        descriptionTextView.textColor = UIColor.systemGray
+        descriptionTextView.leftSpace()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
+        if textView.textColor == UIColor.systemGray {
             textView.text = nil
             textView.textColor = UIColor.black
         }
@@ -39,7 +45,7 @@ class CreateNewHabitViewController: UIViewController, UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Digite aqui a descrição e as regras"
-            textView.textColor = UIColor.lightGray
+            textView.textColor = UIColor.systemGray
         }
     }
 
