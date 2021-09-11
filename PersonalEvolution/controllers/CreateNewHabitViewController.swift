@@ -5,6 +5,8 @@
 //  Created by André Arns on 01/09/21.
 //
 import UIKit
+import ALCameraViewController
+import Photos
 
 class CreateNewHabitViewController: UIViewController, UITextViewDelegate {
     
@@ -50,12 +52,22 @@ class CreateNewHabitViewController: UIViewController, UITextViewDelegate {
     }
 
     @IBAction func addImage(_ sender: Any) {
-        print("Adicionar imagem ao hábito")
-        let vc = UIImagePickerController()
-        vc.sourceType = .photoLibrary
-        vc.delegate = self
-        vc.allowsEditing = true
-        present(vc, animated: true)
+        let croppingParameters = CroppingParameters(isEnabled: true, allowResizing: false, allowMoving: true, minimumSize: CGSize(width: 300, height: 150))
+
+        let cameraViewController = CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: true, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
+
+            // Do something with your image here
+            self?.addImageButton.setBackgroundImage(image, for: .normal)
+            self!.addImageButton.setImage(nil, for: .normal)
+            self!.addImageButton.layer.cornerRadius = 10
+            if image?.pngData() != nil {
+                self!.newHabit.imageData = image!.pngData()
+            }
+            self?.dismiss(animated: true, completion: nil)
+        }
+        cameraViewController.modalPresentationStyle = .fullScreen
+
+        present(cameraViewController, animated: true, completion: nil)
     }
     
     @IBAction func createNewHabit(_ sender: Any) {
@@ -67,24 +79,5 @@ class CreateNewHabitViewController: UIViewController, UITextViewDelegate {
         let vc = storyboard.instantiateViewController(identifier: "singleHabit") as! SingleHabitViewController
         vc.habit = newHabit
         present(vc, animated: true)
-    }
-}
-
-extension CreateNewHabitViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
-            addImageButton.setBackgroundImage(image, for: .normal)
-            addImageButton.setTitle("", for: .normal)
-            addImageButton.setImage(nil, for: .normal)
-            addImageButton.layer.cornerRadius = 10
-            newHabit.imageData = image.pngData()
-        }
-        
-        picker.dismiss(animated: true)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
     }
 }

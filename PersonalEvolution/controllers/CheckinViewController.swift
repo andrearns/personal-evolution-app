@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import ALCameraViewController
 
 class CheckinViewController: UIViewController {
 
     @IBOutlet var addImageButton: UIButton!
     @IBOutlet var saveButton: UIButton!
-    @IBOutlet var descriptionTextField: UITextField!
+    @IBOutlet var descriptionTextField: CustomTextField!
     
     var newCheckin = Checkin(image: nil, description: "", user: nil, date: Date())
     
@@ -20,15 +21,21 @@ class CheckinViewController: UIViewController {
         
         addImageButton.layer.cornerRadius = 10
         saveButton.layer.cornerRadius = 10
+        descriptionTextField.layer.cornerRadius = 10
     }
     
     @IBAction func addImage(_ sender: Any) {
-        print("Adicionar imagem ao checkin")
-        let vc = UIImagePickerController()
-        vc.sourceType = .photoLibrary
-        vc.delegate = self
-        vc.allowsEditing = true
-        present(vc, animated: true)
+        let croppingParameters = CroppingParameters(isEnabled: true, allowResizing: false, allowMoving: true, minimumSize: CGSize(width: 300, height: 150))
+        
+        let cameraViewController = CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: false, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
+            self?.addImageButton.setBackgroundImage(image, for: .normal)
+            self?.newCheckin.image = image
+            self?.addImageButton.setTitle("", for: .normal)
+            self?.addImageButton.setImage(nil, for: .normal)
+            self?.dismiss(animated: true, completion: nil)
+        }
+        
+        present(cameraViewController, animated: true, completion: nil)
     }
     
     @IBAction func saveCheckin(_ sender: Any) {
@@ -37,24 +44,5 @@ class CheckinViewController: UIViewController {
         CloudKitHelper.save(checkin: newCheckin)
         print("Checkin done at \(Date())")
         self.dismiss(animated: true)
-    }
-}
-
-extension CheckinViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
-            addImageButton.setBackgroundImage(image, for: .normal)
-            newCheckin.image = image
-            addImageButton.setTitle("", for: .normal)
-            addImageButton.setImage(nil, for: .normal)
-            addImageButton.layer.cornerRadius = 10
-        }
-        
-        picker.dismiss(animated: true)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
     }
 }
