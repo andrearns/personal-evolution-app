@@ -22,6 +22,7 @@ class CheckinViewController: UIViewController {
         addImageButton.layer.cornerRadius = 10
         saveButton.layer.cornerRadius = 10
         descriptionTextField.layer.cornerRadius = 10
+        descriptionTextField.delegate = self
     }
     
     @IBAction func addImage(_ sender: Any) {
@@ -44,5 +45,12 @@ class CheckinViewController: UIViewController {
         CloudKitHelper.save(checkin: newCheckin)
         print("Checkin done at \(Date())")
         self.dismiss(animated: true)
+    }
+}
+
+extension CheckinViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

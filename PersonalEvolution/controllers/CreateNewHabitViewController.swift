@@ -8,7 +8,7 @@ import UIKit
 import ALCameraViewController
 import Photos
 
-class CreateNewHabitViewController: UIViewController, UITextViewDelegate {
+class CreateNewHabitViewController: UIViewController {
     
     @IBOutlet var habitNameTextField: CustomTextField!
     @IBOutlet var createButton: UIButton!
@@ -23,18 +23,22 @@ class CreateNewHabitViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        habitNameTextField.delegate = self
+        descriptionTextView.delegate = self
+        
         habitNameTextField.layer.cornerRadius = 10
         habitNameTextField.attributedPlaceholder = NSAttributedString(string: "Nome do hábito", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
-        
         addImageButton.layer.cornerRadius = 10
-        
         createButton.layer.cornerRadius = 10
-        
         descriptionTextView.layer.cornerRadius = 10
-        descriptionTextView.delegate = self
         descriptionTextView.text = "Digite aqui a descrição e as regras"
         descriptionTextView.textColor = UIColor.systemGray
         descriptionTextView.leftSpace()
+        descriptionTextView.addDoneButton(title: "Pronto", target: self, selector: #selector(tapDone(sender:)))
+    }
+    
+    @objc func tapDone(sender: Any) {
+        self.view.endEditing(true)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -81,3 +85,11 @@ class CreateNewHabitViewController: UIViewController, UITextViewDelegate {
         present(vc, animated: true)
     }
 }
+
+extension CreateNewHabitViewController: UITextFieldDelegate, UITextViewDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
