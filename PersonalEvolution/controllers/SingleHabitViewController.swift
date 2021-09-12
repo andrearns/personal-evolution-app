@@ -45,6 +45,7 @@ class SingleHabitViewController: UIViewController {
     @IBAction func checkin(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "Checkin") as? CheckinViewController
+        vc!.habit = self.habit
         navigationController?.showDetailViewController(vc!, sender: self)
     }
     

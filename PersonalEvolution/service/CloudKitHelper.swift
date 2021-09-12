@@ -46,6 +46,7 @@ struct CloudKitHelper {
         habitRecord.setValue(habit.name, forKey: "Name")
         habitRecord.setValue(habit.description, forKey: "Description")
         
+        
         publicDatabase.save(habitRecord) { record, error in
             do { try FileManager().removeItem(at: url!) }
             catch let error { print("Error deleting temp file: \(error)")}
@@ -80,18 +81,11 @@ struct CloudKitHelper {
                     completion(.failure(CloudKitHelperError.castFailure))
                     return
                 }
+                
                 let data = NSData(contentsOf: (file.fileURL)!)
-                let image = UIImage(data: data as! Data)
+                let image = UIImage(data: data! as Data)
                 
-                
-                
-//                guard let image = record["Image"] as? CKAsset else {
-//                    completion(.failure(CloudKitHelperError.castFailure))
-//                    return }
-//
-//                let imageData = NSData(contentsOf: (image.fileURL!))
-                
-                let habit = Habit(recordID: id, name: name, image: image, description: description)
+                let habit = Habit(recordID: id, name: name, image: image, description: description, checkinList: [])
                 completion(.success(habit))
             }
         }
@@ -132,7 +126,7 @@ struct CloudKitHelper {
     // MARK: - Checkin
     
     // Create
-    static func save(checkin: Checkin) {
+    static func save(checkin: Checkin, habit: Habit) {
         
         let checkinRecord = CKRecord(recordType: RecordType.Checkin)
         
@@ -145,7 +139,8 @@ struct CloudKitHelper {
             return
         }
         checkinRecord["Image"] = CKAsset(fileURL: url!)
-        checkinRecord.setValue(checkin.description, forKey: "Description")
+        checkinRecord["Description"] = checkin.description as String
+        checkinRecord["CheckinList"] = CKRecord.Reference(recordID: habit.recordID!, action: .deleteSelf)
         
         publicDatabase.save(checkinRecord) { record, error in
             do { try FileManager().removeItem(at: url!) }

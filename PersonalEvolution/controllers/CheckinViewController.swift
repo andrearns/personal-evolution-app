@@ -10,6 +10,8 @@ import ALCameraViewController
 
 class CheckinViewController: UIViewController {
 
+    var habit: Habit!
+    
     @IBOutlet var addImageButton: UIButton!
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var descriptionTextField: CustomTextField!
@@ -42,7 +44,7 @@ class CheckinViewController: UIViewController {
     @IBAction func saveCheckin(_ sender: Any) {
         newCheckin.image = addImageButton.currentBackgroundImage
         newCheckin.description = descriptionTextField.text!
-        CloudKitHelper.save(checkin: newCheckin)
+        CloudKitHelper.save(checkin: newCheckin, habit: self.habit)
         print("Checkin done at \(Date())")
         self.dismiss(animated: true)
     }
