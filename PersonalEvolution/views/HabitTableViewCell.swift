@@ -20,14 +20,12 @@ class HabitTableViewCell: UITableViewCell {
         // Initialization code
         cellBackgroundView.layer.cornerRadius = 5
         cellBackgroundView.layer.shadowColor = UIColor.black.cgColor
-        cellBackgroundView.layer.shadowOpacity = 0.05
-        cellBackgroundView.layer.shadowOffset = CGSize(width: 4, height: 4)
+        cellBackgroundView.layer.shadowOpacity = 0.1
+        cellBackgroundView.layer.shadowOffset = CGSize(width: 0, height: 0)
         cellBackgroundView.layer.shadowRadius = 5
         cellBackgroundView.layer.shadowPath = UIBezierPath(rect: cellBackgroundView.bounds).cgPath
         
-        habitImageView.layer.cornerRadius = 5
-//        habitImageView.image = UIImage(data: habit.imageData!)
-        
+        habitImageView.layer.cornerRadius = 31
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,8 +36,8 @@ class HabitTableViewCell: UITableViewCell {
     
     func setup(habit: Habit) {
         self.habit = habit
-        
         self.habitLabel.text = habit.name
+        self.habitImageView.image = habit.image
     }
 
 }

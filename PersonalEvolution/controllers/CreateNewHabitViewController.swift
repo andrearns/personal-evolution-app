@@ -18,7 +18,7 @@ class CreateNewHabitViewController: UIViewController {
     
     var onSave: (() -> Void)?
     
-    var newHabit = Habit(name: "", description: "")
+    var newHabit = Habit(name: "", image: nil, description: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +64,8 @@ class CreateNewHabitViewController: UIViewController {
             self?.addImageButton.setBackgroundImage(image, for: .normal)
             self!.addImageButton.setImage(nil, for: .normal)
             self!.addImageButton.layer.cornerRadius = 10
-            if image?.pngData() != nil {
-                self!.newHabit.imageData = image!.pngData()
+            if image != nil {
+                self!.newHabit.image = image
             }
             self?.dismiss(animated: true, completion: nil)
         }
@@ -77,6 +77,7 @@ class CreateNewHabitViewController: UIViewController {
     @IBAction func createNewHabit(_ sender: Any) {
         newHabit.name = habitNameTextField.text!
         newHabit.description = descriptionTextView.text
+        newHabit.image = addImageButton.currentBackgroundImage
         CloudKitHelper.save(habit: newHabit)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

@@ -24,8 +24,8 @@ class SingleHabitViewController: UIViewController {
         checkinButton.layer.cornerRadius = 5
         inviteButton.layer.cornerRadius = 5
         
-        if habit.imageData != nil {
-            habitImageView.image = UIImage(data: habit.imageData!)
+        if habit.image != nil {
+            habitImageView.image = habit.image
         }
     }
     
