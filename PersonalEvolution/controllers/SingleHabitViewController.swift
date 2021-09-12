@@ -25,12 +25,11 @@ class SingleHabitViewController: UIViewController {
         inviteButton.layer.cornerRadius = 5
         
         if habit.image != nil {
-            habitImageView.image = habit.image
+            habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)
         }
     }
     
     @IBAction func backToHabits(_ sender: Any) {
-        print("b")
         if navigationController?.viewControllers == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "TabBar") as? UITabBarController

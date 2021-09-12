@@ -61,12 +61,14 @@ class CreateNewHabitViewController: UIViewController {
         let cameraViewController = CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: true, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
 
             // Do something with your image here
-            self?.addImageButton.setBackgroundImage(image, for: .normal)
-            self!.addImageButton.setImage(nil, for: .normal)
-            self!.addImageButton.layer.cornerRadius = 10
             if image != nil {
+                let croppedImage = CropImage.shared.crop(image: image!, aspectRatio: 1.5)
+                self?.addImageButton.setBackgroundImage(croppedImage, for: .normal)
+                self!.addImageButton.setImage(nil, for: .normal)
+                self!.addImageButton.layer.cornerRadius = 10
                 self!.newHabit.image = image
             }
+            
             self?.dismiss(animated: true, completion: nil)
         }
         cameraViewController.modalPresentationStyle = .fullScreen
@@ -77,7 +79,7 @@ class CreateNewHabitViewController: UIViewController {
     @IBAction func createNewHabit(_ sender: Any) {
         newHabit.name = habitNameTextField.text!
         newHabit.description = descriptionTextView.text
-        newHabit.image = addImageButton.currentBackgroundImage
+        
         CloudKitHelper.save(habit: newHabit)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
