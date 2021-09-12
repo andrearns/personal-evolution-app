@@ -26,4 +26,5 @@ extension UITextView {
         toolBar.setItems([flexible, barButton], animated: false)
         self.inputAccessoryView = toolBar
     }
+    
 }

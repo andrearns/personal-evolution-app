@@ -56,3 +56,4 @@ extension CheckinViewController: UITextFieldDelegate {
         return true
     }
 }
+
