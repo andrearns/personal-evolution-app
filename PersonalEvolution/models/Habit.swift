@@ -13,6 +13,7 @@ struct Habit: Identifiable {
     var name: String
     var imageData: Data?
     var description: String
+//    var streak: Int
 //    var checkinList: [Checkin]
 //    var users: [User]
 }
