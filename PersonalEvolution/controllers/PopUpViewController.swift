@@ -9,6 +9,7 @@ import UIKit
 
 class PopUpViewController: UIViewController {
 
+    var habit: Habit!
     var popUp: PopUp!
     
     @IBOutlet var backgroundView: UIView!
@@ -32,8 +33,8 @@ class PopUpViewController: UIViewController {
         if popUp.type == .inviteFriends {
             print("Abrir compartilhamento")
             
-            let message = "Descrição"
-            let image : UIImage = popUp.image
+            let message = "Junte-se a mim para fazermos juntos o hábito de \(habit.name)"
+            let image : UIImage = habit.image!
             
             if let link = NSURL(string: "https://andrearns.com.br") {
                 let objectsToShare = [message, link, image] as [Any]
@@ -44,12 +45,12 @@ class PopUpViewController: UIViewController {
 //                activityVC.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
 //
 //                activityVC.isModalInPresentation = true
-                activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.openInIBooks, UIActivity.ActivityType.postToTencentWeibo]
+                activityVC.excludedActivityTypes = [ UIActivity.ActivityType.openInIBooks, UIActivity.ActivityType.postToTencentWeibo]
                 self.present(activityVC, animated: true, completion: nil)
             }
         }
         
-        self.dismiss(animated: true)
+//        self.dismiss(animated: true)
     }
     
     @IBAction func touchOutsidePopup(_ sender: Any) {
