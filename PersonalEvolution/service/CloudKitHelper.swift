@@ -33,13 +33,23 @@ struct CloudKitHelper {
     static func save(habit: Habit) {
         
         let habitRecord = CKRecord(recordType: RecordType.Habit)
+        
+        let imageData = habit.image?.pngData()
+        let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
+        do {
+            try imageData?.write(to: url!, options: [])
+        } catch let error as NSError {
+            print("Error! \(error)")
+            return
+        }
+        habitRecord["Image"] = CKAsset(fileURL: url!)
         habitRecord.setValue(habit.name, forKey: "Name")
         habitRecord.setValue(habit.description, forKey: "Description")
         
+        
         publicDatabase.save(habitRecord) { record, error in
-            if record == record && error == nil {
-                
-            }
+            do { try FileManager().removeItem(at: url!) }
+            catch let error { print("Error deleting temp file: \(error)")}
         }
     }
     
@@ -59,19 +69,23 @@ struct CloudKitHelper {
                 
                 guard let name = record["Name"] as? String else {
                     completion(.failure(CloudKitHelperError.castFailure))
-                    return }
+                    return
+                }
                 
                 guard let description = record["Description"] as? String else {
                     completion(.failure(CloudKitHelperError.castFailure))
-                    return }
+                    return
+                }
                 
-//                guard let image = record["Image"] as? CKAsset else {
-//                    completion(.failure(CloudKitHelperError.castFailure))
-//                    return }
-//
-//                let imageData = NSData(contentsOf: (image.fileURL!))
+                guard let file = record["Image"] as? CKAsset else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
                 
-                let habit = Habit(recordID: id, name: name, description: description)
+                let data = NSData(contentsOf: (file.fileURL)!)
+                let image = UIImage(data: data! as Data)
+                
+                let habit = Habit(recordID: id, name: name, image: image, description: description, checkinList: [])
                 completion(.success(habit))
             }
         }
@@ -112,7 +126,7 @@ struct CloudKitHelper {
     // MARK: - Checkin
     
     // Create
-    static func save(checkin: Checkin) {
+    static func save(checkin: Checkin, habit: Habit) {
         
         let checkinRecord = CKRecord(recordType: RecordType.Checkin)
         
@@ -125,7 +139,8 @@ struct CloudKitHelper {
             return
         }
         checkinRecord["Image"] = CKAsset(fileURL: url!)
-        checkinRecord.setValue(checkin.description, forKey: "Description")
+        checkinRecord["Description"] = checkin.description as String
+        checkinRecord["CheckinList"] = CKRecord.Reference(recordID: habit.recordID!, action: .deleteSelf)
         
         publicDatabase.save(checkinRecord) { record, error in
             do { try FileManager().removeItem(at: url!) }

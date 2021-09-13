@@ -1,18 +1,22 @@
 PODS:
+  - ALCameraViewController (3.1)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
 
 DEPENDENCIES:
+  - ALCameraViewController
   - Charts
 
 SPEC REPOS:
   trunk:
+    - ALCameraViewController
     - Charts
 
 SPEC CHECKSUMS:
+  ALCameraViewController: 144dea45fd749a623aafd8cb7b10cea88499fcc3
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
 
-PODFILE CHECKSUM: 2c60732b1f6a913155a11e534d9bc72b805fcd88
+PODFILE CHECKSUM: ee5ef9527327af982e67cb801eebe52c628364b3
 
-COCOAPODS: 1.11.0
+COCOAPODS: 1.10.1
