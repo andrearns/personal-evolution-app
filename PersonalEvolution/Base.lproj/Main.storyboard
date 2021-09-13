@@ -296,13 +296,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fazer check-in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drb-lu-9mc">
-                                <rect key="frame" x="16" y="84" width="178.66666666666666" height="31.666666666666671"/>
+                                <rect key="frame" x="16" y="84" width="178.66666666666666" height="31.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Y6-CO-Z8o">
-                                <rect key="frame" x="16" y="139.66666666666663" width="358" height="358"/>
+                                <rect key="frame" x="16" y="139.33333333333337" width="358" height="358"/>
                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Y6-CO-Z8o" secondAttribute="height" multiplier="1:1" id="mue-Dp-LNB"/>
@@ -319,7 +319,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPw-Id-BUQ">
-                                <rect key="frame" x="16" y="597.66666666666663" width="358" height="52"/>
+                                <rect key="frame" x="16" y="597.33333333333337" width="358" height="52"/>
                                 <color key="backgroundColor" red="0.50980392159999999" green="0.87843137250000003" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="KMY-kL-1YN"/>
@@ -334,7 +334,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Adicione uma descrição" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nrh-3N-uA3" customClass="CustomTextField" customModule="PersonalEvolution" customModuleProvider="target">
-                                <rect key="frame" x="16" y="521.66666666666663" width="358" height="52"/>
+                                <rect key="frame" x="16" y="521.33333333333337" width="358" height="52"/>
                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="kr9-aD-9yt"/>
@@ -354,6 +354,7 @@
                             <constraint firstItem="Nrh-3N-uA3" firstAttribute="top" secondItem="8Y6-CO-Z8o" secondAttribute="bottom" constant="24" id="KaD-Av-96u"/>
                             <constraint firstItem="HRT-OP-gB0" firstAttribute="trailing" secondItem="kPw-Id-BUQ" secondAttribute="trailing" constant="16" id="LeE-Mh-AhQ"/>
                             <constraint firstItem="kPw-Id-BUQ" firstAttribute="leading" secondItem="HRT-OP-gB0" secondAttribute="leading" constant="16" id="WYH-zs-zRj"/>
+                            <constraint firstItem="HRT-OP-gB0" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kPw-Id-BUQ" secondAttribute="bottom" constant="30" id="d2G-TM-obc"/>
                             <constraint firstItem="drb-lu-9mc" firstAttribute="leading" secondItem="HRT-OP-gB0" secondAttribute="leading" constant="16" id="dCd-Ji-LkW"/>
                             <constraint firstItem="HRT-OP-gB0" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="drb-lu-9mc" secondAttribute="trailing" constant="16" id="hll-Oz-mES"/>
                             <constraint firstItem="drb-lu-9mc" firstAttribute="top" secondItem="HRT-OP-gB0" secondAttribute="top" constant="40" id="oXV-up-Qpz"/>
@@ -364,7 +365,9 @@
                     <connections>
                         <outlet property="addImageButton" destination="8Y6-CO-Z8o" id="uhJ-6x-qo0"/>
                         <outlet property="descriptionTextField" destination="Nrh-3N-uA3" id="Hzl-Wh-Gyc"/>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="d2G-TM-obc" id="fbA-eL-zwa"/>
                         <outlet property="saveButton" destination="kPw-Id-BUQ" id="b72-Hz-LOT"/>
+                        <outlet property="topLayoutConstraint" destination="oXV-up-Qpz" id="I37-V2-wD7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXk-U0-EqJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
