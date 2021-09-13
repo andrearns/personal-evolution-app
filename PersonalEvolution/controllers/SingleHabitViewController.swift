@@ -29,6 +29,10 @@ class SingleHabitViewController: UIViewController {
         }
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     @IBAction func backToHabits(_ sender: Any) {
         if navigationController?.viewControllers == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
