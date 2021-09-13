@@ -21,8 +21,8 @@ class SingleHabitViewController: UIViewController {
         super.viewDidLoad()
         habitTitleLabel.text = habit.name
         habitDescriptionLabel.text = habit.description
-        checkinButton.layer.cornerRadius = 5
-        inviteButton.layer.cornerRadius = 5
+        checkinButton.layer.cornerRadius = 15
+        inviteButton.layer.cornerRadius = 15
         
         if habit.image != nil {
             habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)

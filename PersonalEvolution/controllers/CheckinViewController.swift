@@ -21,9 +21,9 @@ class CheckinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addImageButton.layer.cornerRadius = 10
-        saveButton.layer.cornerRadius = 10
-        descriptionTextField.layer.cornerRadius = 10
+        addImageButton.layer.cornerRadius = 15
+        saveButton.layer.cornerRadius = 15
+        descriptionTextField.layer.cornerRadius = 15
         descriptionTextField.delegate = self
     }
     
