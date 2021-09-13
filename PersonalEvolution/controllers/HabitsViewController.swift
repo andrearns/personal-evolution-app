@@ -65,7 +65,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     print(error.localizedDescription)
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.habitsList = habits
                 self.habitsTableView.reloadData()
             }

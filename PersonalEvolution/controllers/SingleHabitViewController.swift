@@ -24,13 +24,16 @@ class SingleHabitViewController: UIViewController {
         checkinButton.layer.cornerRadius = 5
         inviteButton.layer.cornerRadius = 5
         
-        if habit.imageData != nil {
-            habitImageView.image = UIImage(data: habit.imageData!)
+        if habit.image != nil {
+            habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)
         }
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     @IBAction func backToHabits(_ sender: Any) {
-        print("b")
         if navigationController?.viewControllers == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "TabBar") as? UITabBarController
@@ -45,6 +48,7 @@ class SingleHabitViewController: UIViewController {
     @IBAction func checkin(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "Checkin") as? CheckinViewController
+        vc!.habit = self.habit
         navigationController?.showDetailViewController(vc!, sender: self)
     }
     
@@ -53,6 +57,7 @@ class SingleHabitViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "Pop Up") as? PopUpViewController
+        vc?.habit = self.habit
         vc?.popUp = PopUp(image: UIImage(named: "defaultPopupImage")!, title: "Convide seus amiguinhos pra participar!", subtitle: "Evoluir em conjunto é mais legal e pode te ajudar a se motivar em momentos difíceis :)", buttonTitle: "   Compartilhar", type: .inviteFriends)
         present(vc!, animated: true)
     }
