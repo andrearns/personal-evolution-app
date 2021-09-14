@@ -80,7 +80,9 @@ class SingleHabitViewController: UIViewController {
 }
 
 extension SingleHabitViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Checkin image selected")
+    }
 }
 
 extension SingleHabitViewController: UICollectionViewDataSource {
