@@ -16,8 +16,8 @@ class SingleHabitViewController: UIViewController {
     @IBOutlet var habitDescriptionLabel: UILabel!
     @IBOutlet var checkinButton: UIButton!
     @IBOutlet var inviteButton: UIButton!
-    @IBOutlet var personalGaleryCollectionView: UICollectionView!
     @IBOutlet var playPersonalRetrospectiveButton: UIButton!
+    @IBOutlet var personalGalleryButtons: [UIButton]!
     
     var checkins: [Checkin] = [
         Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 1", user: nil, date: Date()),
@@ -31,9 +31,6 @@ class SingleHabitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        personalGaleryCollectionView.delegate = self
-        personalGaleryCollectionView.dataSource = self
-        
         habitTitleLabel.text = habit.name
         habitDescriptionLabel.text = habit.description
         checkinButton.layer.cornerRadius = 15
@@ -43,10 +40,19 @@ class SingleHabitViewController: UIViewController {
         if habit.image != nil {
             habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)
         }
+        drawPersonalGallery()
     }
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func drawPersonalGallery() {
+        for i in 0..<personalGalleryButtons.count - 1 {
+            personalGalleryButtons[i].setBackgroundImage(checkins[i].image, for: .normal)
+            // Not working
+            personalGalleryButtons[i].layer.cornerRadius = 15
+        }
     }
     
     @IBAction func backToHabits(_ sender: Any) {
@@ -58,7 +64,6 @@ class SingleHabitViewController: UIViewController {
         } else {
             navigationController?.popViewController(animated: true)
         }
-        
     }
     
     @IBAction func checkin(_ sender: Any) {
@@ -77,24 +82,31 @@ class SingleHabitViewController: UIViewController {
         vc?.popUp = PopUp(image: UIImage(named: "defaultPopupImage")!, title: "Convide seus amiguinhos pra participar!", subtitle: "Evoluir em conjunto é mais legal e pode te ajudar a se motivar em momentos difíceis :)", buttonTitle: "   Compartilhar", type: .inviteFriends)
         present(vc!, animated: true)
     }
-}
-
-extension SingleHabitViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Checkin image selected")
-    }
-}
-
-extension SingleHabitViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+    
+    @IBAction func modifyHabit(_ sender: Any) {
+        let updatedHabit = Habit(id: self.habit.id, recordID: self.habit.recordID, name: "AAAA", image: nil, description: "AAAA", checkinList: [])
+        CloudKitHelper.modify(habit: updatedHabit) { (result) in
+            switch result {
+            case .success(let habit):
+                print("Successfuly edited habit")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = personalGaleryCollectionView.dequeueReusableCell(withReuseIdentifier: "checkinCell", for: indexPath) as? GaleryCollectionViewCell
-        cell?.checkinImageView.image = checkins[indexPath.row].image
-        return cell!
+    @IBAction func openPersonalGallery(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "PhotoGallery") as? PhotoGalleryViewController
+        vc?.checkinList = self.checkins
+        vc?.galleryType = .personal
+        present(vc!, animated: true, completion: nil)
     }
     
+    @IBAction func playRestrospective(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "Retrospective") as? RetrospectiveViewController
+        present(vc!, animated: true, completion: nil)
+    }
     
 }
