@@ -25,7 +25,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         control.addTarget(self, action: #selector(swipeDownToReload), for: .valueChanged)
         self.habitsTableView.refreshControl = control
         
-        self.addHabitButton.layer.cornerRadius = 5
+        self.addHabitButton.layer.cornerRadius = 15
         self.addHabitButton.layer.shadowColor = UIColor.black.cgColor
         self.addHabitButton.layer.shadowOpacity = 0.05
         self.addHabitButton.layer.shadowOffset = CGSize(width: 0, height: 0)

@@ -30,13 +30,13 @@ class CreateNewHabitViewController: UIViewController {
         daysOfWeekCollectionView.delegate = self
         daysOfWeekCollectionView.dataSource = self
         
-        daysOfWeekCollectionView.layer.cornerRadius = 10
+        daysOfWeekCollectionView.layer.cornerRadius = 15
         
-        habitNameTextField.layer.cornerRadius = 10
+        habitNameTextField.layer.cornerRadius = 15
         habitNameTextField.attributedPlaceholder = NSAttributedString(string: "Nome do hábito", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
-        addImageButton.layer.cornerRadius = 10
-        createButton.layer.cornerRadius = 10
-        descriptionTextView.layer.cornerRadius = 10
+        addImageButton.layer.cornerRadius = 15
+        createButton.layer.cornerRadius = 15
+        descriptionTextView.layer.cornerRadius = 15
         descriptionTextView.text = "Digite aqui a descrição e as regras"
         descriptionTextView.textColor = UIColor.systemGray
         descriptionTextView.leftSpace()
@@ -65,7 +65,7 @@ class CreateNewHabitViewController: UIViewController {
                 let croppedImage = CropImage.shared.crop(image: image!, aspectRatio: 1.5)
                 self?.addImageButton.setBackgroundImage(croppedImage, for: .normal)
                 self!.addImageButton.setImage(nil, for: .normal)
-                self!.addImageButton.layer.cornerRadius = 10
+                self!.addImageButton.layer.cornerRadius = 15
                 self!.newHabit.image = image
             }
             

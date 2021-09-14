@@ -20,8 +20,8 @@ class PopUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundView.layer.cornerRadius = 10
-        actionButton.layer.cornerRadius = 10
+        backgroundView.layer.cornerRadius = 15
+        actionButton.layer.cornerRadius = 15
         
         popUpImageView.image = popUp.image
         titleLabel.text = popUp.title

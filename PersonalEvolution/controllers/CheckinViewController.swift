@@ -15,16 +15,50 @@ class CheckinViewController: UIViewController {
     @IBOutlet var addImageButton: UIButton!
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var descriptionTextField: CustomTextField!
+    @IBOutlet var topLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
     var newCheckin = Checkin(image: nil, description: "", user: nil, date: Date())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addImageButton.layer.cornerRadius = 10
-        saveButton.layer.cornerRadius = 10
-        descriptionTextField.layer.cornerRadius = 10
+        addImageButton.layer.cornerRadius = 15
+        saveButton.layer.cornerRadius = 15
+        descriptionTextField.layer.cornerRadius = 15
         descriptionTextField.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardDidChangeFrameNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardNotification(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        let endFrameY = endFrame?.origin.y ?? 0
+        let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+        let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+        let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+        let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+        
+        if endFrameY >= UIScreen.main.bounds.size.height {
+            self.keyboardHeightLayoutConstraint?.constant = 0.0
+            self.topLayoutConstraint.constant = 30.0
+        } else {
+            self.keyboardHeightLayoutConstraint?.constant = (endFrame?.size.height)!/2
+            self.topLayoutConstraint.constant = -(endFrame?.size.height)!/2
+        }
+        
+        UIView.animate(
+            withDuration: duration,
+            delay: TimeInterval(0),
+            options: animationCurve,
+            animations: { self.view.layoutIfNeeded() },
+            completion: nil)
     }
     
     @IBAction func addImage(_ sender: Any) {
