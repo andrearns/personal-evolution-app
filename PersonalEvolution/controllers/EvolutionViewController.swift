@@ -56,6 +56,7 @@ class EvolutionViewController: UIViewController, ChartViewDelegate{
         evoutionChart.gridBackgroundColor = UIColor.orange
         evoutionChart.leftAxis.enabled = false
         evoutionChart.xAxis.enabled = false
+        evoutionChart.legend.enabled = false
         
         let xAxis = evoutionChart.xAxis
         xAxis.setLabelCount(5, force: true)
