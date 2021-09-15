@@ -113,6 +113,16 @@ struct CloudKitHelper {
                     return
                 }
                 guard let record = record else { return }
+            
+                let imageData = habit.image?.pngData()
+                let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
+                do {
+                    try imageData?.write(to: url!, options: [])
+                } catch let error as NSError {
+                    print("Error! \(error)")
+                    return
+                }
+                record["Image"] = CKAsset(fileURL: url!)
                 record["Name"] = habit.name as CKRecordValue
                 record["Description"] = habit.description as CKRecordValue
                 
@@ -127,11 +137,11 @@ struct CloudKitHelper {
                         let id = recordID
                         guard let name = record["Name"] as? String else { return }
                         guard let description = record["Description"] as? String else { return }
-//                        guard let file = record["Image"] as? CKAsset else { return }
-//                        let data = NSData(contentsOf: (file.fileURL)!)
-//                        let image = UIImage(data: data! as Data)
+                        guard let file = record["Image"] as? CKAsset else { return }
+                        let data = NSData(contentsOf: (file.fileURL)!)
+                        let image = UIImage(data: data! as Data)
                         
-                        let habit = Habit(recordID: id, name: name, image: nil, description: description, checkinList: [])
+                        let habit = Habit(recordID: id, name: name, image: image, description: description, checkinList: [])
                         completion(.success(habit))
                     }
                 }
