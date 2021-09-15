@@ -21,7 +21,4 @@ class RetrospectiveViewController: UIViewController {
             retrospectiveTitleLabel.text = "Retrospectiva do grupo"
         }
     }
-
-    
-
 }
