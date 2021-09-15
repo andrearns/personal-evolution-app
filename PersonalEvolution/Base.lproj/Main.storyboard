@@ -824,61 +824,9 @@
                     <view key="view" contentMode="scaleToFill" id="tDE-pi-3HA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Galeria pessoal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoe-3K-ZtR">
-                                <rect key="frame" x="16" y="76" width="181" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="IBd-G7-EhS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3WZ-tb-Fva">
-                                <rect key="frame" x="16" y="124" width="382" height="632"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zmY-xl-UND">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="p6X-3Y-Qbx">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cSE-gn-Bl9">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xx fotos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cet-Cw-hLD">
-                                <rect key="frame" x="160.5" y="780" width="93" height="32"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rM7-QX-Mzc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Hoe-3K-ZtR" firstAttribute="top" secondItem="rM7-QX-Mzc" secondAttribute="top" constant="32" id="8i9-5B-vee"/>
-                            <constraint firstItem="rM7-QX-Mzc" firstAttribute="trailing" secondItem="3WZ-tb-Fva" secondAttribute="trailing" constant="16" id="HTn-jn-iUD"/>
-                            <constraint firstItem="3WZ-tb-Fva" firstAttribute="top" secondItem="Hoe-3K-ZtR" secondAttribute="bottom" constant="16" id="Jaa-JQ-NDq"/>
-                            <constraint firstItem="3WZ-tb-Fva" firstAttribute="leading" secondItem="rM7-QX-Mzc" secondAttribute="leading" constant="16" id="QTV-ZM-7zt"/>
-                            <constraint firstItem="Cet-Cw-hLD" firstAttribute="top" secondItem="3WZ-tb-Fva" secondAttribute="bottom" constant="24" id="XVM-7R-r7j"/>
-                            <constraint firstItem="Hoe-3K-ZtR" firstAttribute="leading" secondItem="rM7-QX-Mzc" secondAttribute="leading" constant="16" id="cXI-HG-wAY"/>
-                            <constraint firstItem="rM7-QX-Mzc" firstAttribute="bottom" secondItem="Cet-Cw-hLD" secondAttribute="bottom" constant="50" id="dQz-kk-Q4A"/>
-                            <constraint firstItem="rM7-QX-Mzc" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hoe-3K-ZtR" secondAttribute="trailing" constant="16" id="fcD-eK-dkd"/>
-                            <constraint firstItem="Cet-Cw-hLD" firstAttribute="centerX" secondItem="rM7-QX-Mzc" secondAttribute="centerX" id="g6X-Eu-Hgq"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="galleryTitleLabel" destination="Hoe-3K-ZtR" id="DL7-hu-I8P"/>
-                        <outlet property="photosCountLabel" destination="Cet-Cw-hLD" id="ah5-kJ-BS6"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9h-8K-yIO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

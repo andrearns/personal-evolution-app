@@ -103,7 +103,7 @@ class CreateOrEditHabitViewController: UIViewController {
             vc.habit = newHabit
             present(vc, animated: true)
         } else if currentMode == .edit {
-            let updatedHabit = Habit(id: newHabit.id, recordID: newHabit.recordID, name: newHabit.name, image: newHabit.image, description: newHabit.description, checkinList: [])
+            let updatedHabit = Habit(id: newHabit.id, recordID: newHabit.recordID, name: newHabit.name, image: newHabit.image, description: newHabit.description, checkinList: [], frequency: newHabit.frequency)
             
             CloudKitHelper.modify(habit: updatedHabit) { (result) in
                 switch result {
@@ -146,10 +146,12 @@ extension CreateOrEditHabitViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.allowsMultipleSelection = true
         daysOfWeek[indexPath.row].isSelected = true
+        newHabit.frequency[indexPath.row] = 1
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         daysOfWeek[indexPath.row].isSelected = false
+        newHabit.frequency[indexPath.row] = 0
     }
 }
 

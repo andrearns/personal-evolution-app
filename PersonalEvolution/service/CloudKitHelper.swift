@@ -46,6 +46,7 @@ struct CloudKitHelper {
         habitRecord.setValue(habit.name, forKey: "Name")
         habitRecord.setValue(habit.description, forKey: "Description")
         habitRecord.setValue([], forKey: "CheckinList")
+        habitRecord.setValue(habit.frequency, forKey: "Frequency")
         
         publicDatabase.save(habitRecord) { record, error in
             do { try FileManager().removeItem(at: url!) }
@@ -84,6 +85,12 @@ struct CloudKitHelper {
                 
                 let data = NSData(contentsOf: (file.fileURL)!)
                 let image = UIImage(data: data! as Data)
+                
+//                guard let frequency = record["Frequency"] as? [Int64] else {
+//                    completion(.failure(CloudKitHelperError.castFailure))
+//                    print("Erro para puxar a frequência")
+//                    return
+//                }
                 
                 let habit = Habit(recordID: id, name: name, image: image, description: description, checkinList: [])
                 completion(.success(habit))
