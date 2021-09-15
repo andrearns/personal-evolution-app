@@ -31,6 +31,8 @@
 		5B27FC7226EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FC7126EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift */; };
 		5B27FC7626EDBAF600C917D9 /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FC7526EDBAF600C917D9 /* DayOfWeek.swift */; };
 		5B27FC7926EEB8E100C917D9 /* CropImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FC7826EEB8E000C917D9 /* CropImage.swift */; };
+		5B27FC7D26F13EDE00C917D9 /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FC7C26F13EDE00C917D9 /* PhotoGalleryViewController.swift */; };
+		5B27FC7F26F1424000C917D9 /* RetrospectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FC7E26F1423F00C917D9 /* RetrospectiveViewController.swift */; };
 		5B2D539726E6D6D200558BDD /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539626E6D6D200558BDD /* CheckinViewController.swift */; };
 		5B2D539926E6FEDA00558BDD /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539826E6FEDA00558BDD /* Checkin.swift */; };
 		5B2D539B26E6FF4100558BDD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539A26E6FF4100558BDD /* User.swift */; };
@@ -68,6 +70,8 @@
 		5B27FC7126EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfWeekCollectionViewCell.swift; sourceTree = "<group>"; };
 		5B27FC7526EDBAF600C917D9 /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
 		5B27FC7826EEB8E000C917D9 /* CropImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropImage.swift; sourceTree = "<group>"; };
+		5B27FC7C26F13EDE00C917D9 /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
+		5B27FC7E26F1423F00C917D9 /* RetrospectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrospectiveViewController.swift; sourceTree = "<group>"; };
 		5B2D539626E6D6D200558BDD /* CheckinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
 		5B2D539826E6FEDA00558BDD /* Checkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
 		5B2D539A26E6FF4100558BDD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				5B2D539C26E86DC800558BDD /* PopUpViewController.swift */,
 				0E98C19126E158A400C6FFF8 /* DashboardViewController.swift */,
 				0E4FF3AB26EA439B00437262 /* EvolutionViewController.swift */,
+				5B27FC7C26F13EDE00C917D9 /* PhotoGalleryViewController.swift */,
+				5B27FC7E26F1423F00C917D9 /* RetrospectiveViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -332,9 +338,11 @@
 				0E98C19426E163AF00C6FFF8 /* MonthCollectionViewCell.swift in Sources */,
 				5B0CE74326DDCEA00065E1A9 /* SingleHabitViewController.swift in Sources */,
 				5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */,
+				5B27FC7F26F1424000C917D9 /* RetrospectiveViewController.swift in Sources */,
 				5B1A9A7B26E1470C0001F3CF /* CloudKitHelper.swift in Sources */,
 				5B0CE74626DDCFEA0065E1A9 /* HabitsViewController.swift in Sources */,
 				5B27FC7626EDBAF600C917D9 /* DayOfWeek.swift in Sources */,
+				5B27FC7D26F13EDE00C917D9 /* PhotoGalleryViewController.swift in Sources */,
 				5B2D539926E6FEDA00558BDD /* Checkin.swift in Sources */,
 				5B2D539B26E6FF4100558BDD /* User.swift in Sources */,
 				0E98C19626E25DAD00C6FFF8 /* DashboardHabitTableViewCell.swift in Sources */,

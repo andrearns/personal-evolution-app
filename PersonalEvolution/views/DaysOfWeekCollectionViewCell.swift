@@ -21,7 +21,7 @@ class DaysOfWeekCollectionViewCell: UICollectionViewCell {
                 }
             } else {
                 UIView.animate(withDuration: 0.4) {
-                    self.dayBackgroundView.layer.backgroundColor = UIColor.systemGray6.cgColor
+                    self.dayBackgroundView.layer.backgroundColor = UIColor(named: "TextFieldBackgroundColor")?.cgColor
                     self.dayLabel.textColor = UIColor.systemGray2
                 }
                 

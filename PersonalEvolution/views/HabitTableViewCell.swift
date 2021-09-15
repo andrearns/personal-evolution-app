@@ -18,12 +18,8 @@ class HabitTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        cellBackgroundView.layer.cornerRadius = 5
-        cellBackgroundView.layer.shadowColor = UIColor.black.cgColor
-        cellBackgroundView.layer.shadowOpacity = 0.1
-        cellBackgroundView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        cellBackgroundView.layer.shadowRadius = 5
-        cellBackgroundView.layer.shadowPath = UIBezierPath(rect: cellBackgroundView.bounds).cgPath
+        cellBackgroundView.dropShadow()
+        cellBackgroundView.layer.cornerRadius = 15
         
         habitImageView.layer.cornerRadius = 31
     }
