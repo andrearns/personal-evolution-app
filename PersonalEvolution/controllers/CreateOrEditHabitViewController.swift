@@ -41,7 +41,6 @@ class CreateOrEditHabitViewController: UIViewController {
         addImageButton.layer.cornerRadius = 15
         createButton.layer.cornerRadius = 15
         descriptionTextView.layer.cornerRadius = 15
-        descriptionTextView.textColor = UIColor.systemGray
         descriptionTextView.leftSpace()
         descriptionTextView.addDoneButton(title: "Pronto", target: self, selector: #selector(tapDone(sender:)))
         let layout = UICollectionViewFlowLayout()
@@ -55,11 +54,13 @@ class CreateOrEditHabitViewController: UIViewController {
         if currentMode == .create {
             titleLabel.text = "Criar novo hábito"
             descriptionTextView.text = "Digite aqui a descrição e as regras"
+            descriptionTextView.textColor = UIColor.systemGray
             createButton.setTitle("Criar hábito", for: .normal)
         } else if currentMode == .edit {
             titleLabel.text = "Editar hábito"
             habitNameTextField.text = habit?.name
             descriptionTextView.text = habit?.description
+            descriptionTextView.textColor = UIColor.black
             let buttonImage = CropImage.shared.crop(image: (habit?.image)!, aspectRatio: 1.5)
             addImageButton.setBackgroundImage(buttonImage, for: .normal)
             createButton.setTitle("Salvar", for: .normal)
