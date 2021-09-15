@@ -8,9 +8,6 @@
 import UIKit
 
 class PhotoGalleryViewController: UIViewController {
-
-    @IBOutlet var photosCountLabel: UILabel!
-    @IBOutlet var galleryTitleLabel: UILabel!
     
     var checkinList: [Checkin]!
     var galleryType: GalleryType!
@@ -18,16 +15,7 @@ class PhotoGalleryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        photosCountLabel.text = "\(checkinList.count) fotos"
-        
-        if galleryType == .group {
-            galleryTitleLabel.text = "Galeria do grupo"
-        } else {
-            galleryTitleLabel.text = "Galeria pessoal"
-        }
     }
-
-
 }
 
 enum GalleryType {

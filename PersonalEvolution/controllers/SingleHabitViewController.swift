@@ -94,17 +94,12 @@ class SingleHabitViewController: UIViewController {
         present(vc!, animated: true)
     }
     
-//    @IBAction func modifyHabit(_ sender: Any) {
-//        let updatedHabit = Habit(id: self.habit.id, recordID: self.habit.recordID, name: "AAAA", image: nil, description: "AAAA", checkinList: [])
-//        CloudKitHelper.modify(habit: updatedHabit) { (result) in
-//            switch result {
-//            case .success(let habit):
-//                print("Successfuly edited habit")
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
+    @IBAction func editHabit(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "CreateOrEditHabit") as? CreateOrEditHabitViewController
+        vc?.habit = self.habit
+        navigationController?.showDetailViewController(vc!, sender: self)
+    }
     
     @IBAction func openPhotoGallery(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
