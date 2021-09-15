@@ -9,10 +9,17 @@ import UIKit
 
 class RetrospectiveViewController: UIViewController {
 
+    var retrospectiveType: RetrospectiveType!
+    @IBOutlet var retrospectiveTitleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if retrospectiveType == .personal {
+            retrospectiveTitleLabel.text = "Sua retrospectiva"
+        } else if retrospectiveType == .group {
+            retrospectiveTitleLabel.text = "Retrospectiva do grupo"
+        }
     }
 
     

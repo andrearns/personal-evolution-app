@@ -17,9 +17,20 @@ class SingleHabitViewController: UIViewController {
     @IBOutlet var checkinButton: UIButton!
     @IBOutlet var inviteButton: UIButton!
     @IBOutlet var playPersonalRetrospectiveButton: UIButton!
+    @IBOutlet var playGroupRetrospectiveButton: UIButton!
     @IBOutlet var personalGalleryButtons: [UIButton]!
+    @IBOutlet var groupGalleryButtons: [UIButton]!
     
-    var checkins: [Checkin] = [
+    var personalCheckins: [Checkin] = [
+        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 1", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 2", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 3", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 4", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 5", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 6", user: nil, date: Date()),
+    ]
+    
+    var groupCheckins: [Checkin] = [
         Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 1", user: nil, date: Date()),
         Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 2", user: nil, date: Date()),
         Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 3", user: nil, date: Date()),
@@ -36,22 +47,22 @@ class SingleHabitViewController: UIViewController {
         checkinButton.layer.cornerRadius = 15
         inviteButton.layer.cornerRadius = 15
         playPersonalRetrospectiveButton.layer.cornerRadius = 15
+        playGroupRetrospectiveButton.layer.cornerRadius = 15
         
         if habit.image != nil {
             habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)
         }
-        drawPersonalGallery()
+        drawGallery(buttons: personalGalleryButtons, checkins: personalCheckins)
+        drawGallery(buttons: groupGalleryButtons, checkins: groupCheckins)
     }
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
-    func drawPersonalGallery() {
-        for i in 0..<personalGalleryButtons.count - 1 {
-            personalGalleryButtons[i].setBackgroundImage(checkins[i].image, for: .normal)
-            // Not working
-            personalGalleryButtons[i].layer.cornerRadius = 15
+    func drawGallery(buttons: [UIButton], checkins: [Checkin]) {
+        for i in 0..<4 {
+            buttons[i].setBackgroundImage(checkins[i].image, for: .normal)
         }
     }
     
@@ -83,30 +94,47 @@ class SingleHabitViewController: UIViewController {
         present(vc!, animated: true)
     }
     
-    @IBAction func modifyHabit(_ sender: Any) {
-        let updatedHabit = Habit(id: self.habit.id, recordID: self.habit.recordID, name: "AAAA", image: nil, description: "AAAA", checkinList: [])
-        CloudKitHelper.modify(habit: updatedHabit) { (result) in
-            switch result {
-            case .success(let habit):
-                print("Successfuly edited habit")
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
+//    @IBAction func modifyHabit(_ sender: Any) {
+//        let updatedHabit = Habit(id: self.habit.id, recordID: self.habit.recordID, name: "AAAA", image: nil, description: "AAAA", checkinList: [])
+//        CloudKitHelper.modify(habit: updatedHabit) { (result) in
+//            switch result {
+//            case .success(let habit):
+//                print("Successfuly edited habit")
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
     
-    @IBAction func openPersonalGallery(_ sender: UIButton) {
+    @IBAction func openPhotoGallery(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "PhotoGallery") as? PhotoGalleryViewController
-        vc?.checkinList = self.checkins
-        vc?.galleryType = .personal
+        
+        if sender.tag == 0 {
+            vc?.galleryType = .personal
+            vc?.checkinList = personalCheckins
+        } else if sender.tag == 1 {
+            vc?.galleryType = .group
+            vc?.checkinList = groupCheckins
+        }
         present(vc!, animated: true, completion: nil)
     }
     
-    @IBAction func playRestrospective(_ sender: Any) {
+    @IBAction func playRetrospective(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "Retrospective") as? RetrospectiveViewController
+        
+        if sender.tag == 0 {
+            vc?.retrospectiveType = .personal
+        } else if sender.tag == 1 {
+            vc?.retrospectiveType = .group
+        }
+        
         present(vc!, animated: true, completion: nil)
     }
-    
+}
+
+enum RetrospectiveType {
+    case personal
+    case group
 }
