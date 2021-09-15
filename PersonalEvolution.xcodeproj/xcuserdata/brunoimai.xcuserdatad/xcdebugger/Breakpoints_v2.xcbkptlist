@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "CA0BDF64-BF27-496E-93D8-D19B0D8E94E0"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C08CC9B-A764-4520-9AC4-4D3B2801C24B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PersonalEvolution/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "7C08CC9B-A764-4520-9AC4-4D3B2801C24B - 12a2169f9e62a604"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PersonalEvolution.AppDelegate.__allocating_init() -&gt; PersonalEvolution.AppDelegate"
+                  moduleName = "PersonalEvolution"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunoimai/Development/personal-evolution-app/PersonalEvolution/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "7C08CC9B-A764-4520-9AC4-4D3B2801C24B - cc833c9e4162df89"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PersonalEvolution.AppDelegate.init() -&gt; PersonalEvolution.AppDelegate"
+                  moduleName = "PersonalEvolution"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunoimai/Development/personal-evolution-app/PersonalEvolution/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "93">
+               </Location>
+               <Location
+                  uuid = "7C08CC9B-A764-4520-9AC4-4D3B2801C24B - 2c6bea8f7e5fd300"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PersonalEvolution.AppDelegate.__deallocating_deinit"
+                  moduleName = "PersonalEvolution"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunoimai/Development/personal-evolution-app/PersonalEvolution/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "7C08CC9B-A764-4520-9AC4-4D3B2801C24B - 3acf6238c733b99"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "PersonalEvolution"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunoimai/Development/personal-evolution-app/PersonalEvolution/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "17">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
