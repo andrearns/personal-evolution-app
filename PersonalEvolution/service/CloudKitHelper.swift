@@ -86,7 +86,7 @@ struct CloudKitHelper {
                 let data = NSData(contentsOf: (file.fileURL)!)
                 let image = UIImage(data: data! as Data)
                 
-//                guard let frequency = record["Frequency"] as? [Int64] else {
+//                guard let frequency = record["Frequency"] as? CKValue else {
 //                    completion(.failure(CloudKitHelperError.castFailure))
 //                    print("Erro para puxar a frequência")
 //                    return

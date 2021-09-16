@@ -20,6 +20,7 @@ class SingleHabitViewController: UIViewController {
     @IBOutlet var playGroupRetrospectiveButton: UIButton!
     @IBOutlet var personalGalleryButtons: [UIButton]!
     @IBOutlet var groupGalleryButtons: [UIButton]!
+    @IBOutlet var usersProfileImageButtons: [UIButton]!
     
     var personalCheckins: [Checkin] = [
         Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 1", user: nil, date: Date()),
@@ -39,6 +40,21 @@ class SingleHabitViewController: UIViewController {
         Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 6", user: nil, date: Date()),
     ]
     
+    var usersParticipating: [User] = [
+        User(name: "André", image: UIImage(named: "profileImageTest")),
+        User(name: "Bruno", image: UIImage(named: "profileImageTest")),
+        User(name: "Carol", image: UIImage(named: "profileImageTest")),
+        User(name: "Nati", image: UIImage(named: "profileImageTest")),
+        User(name: "Rafael", image: UIImage(named: "profileImageTest")),
+        User(name: "Alfredo", image: UIImage(named: "profileImageTest")),
+        User(name: "Jorginho", image: UIImage(named: "profileImageTest")),
+        User(name: "Babiruba", image: UIImage(named: "profileImageTest")),
+//        User(name: "Jujubinha", image: UIImage(named: "profileImageTest")),
+//        User(name: "Princesa caroço", image: UIImage(named: "profileImageTest")),
+//        User(name: "Rei gelado", image: UIImage(named: "profileImageTest")),
+//        User(name: "Flin", image: UIImage(named: "profileImageTest")),
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,12 +64,17 @@ class SingleHabitViewController: UIViewController {
         inviteButton.layer.cornerRadius = 15
         playPersonalRetrospectiveButton.layer.cornerRadius = 15
         playGroupRetrospectiveButton.layer.cornerRadius = 15
+        checkinButton.dropShadow()
+        playGroupRetrospectiveButton.dropShadow()
+        playPersonalRetrospectiveButton.dropShadow()
+        inviteButton.dropShadow()
         
         if habit.image != nil {
             habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)
         }
         drawGallery(buttons: personalGalleryButtons, checkins: personalCheckins)
         drawGallery(buttons: groupGalleryButtons, checkins: groupCheckins)
+        drawUserImages(buttons: usersProfileImageButtons, users: usersParticipating)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -63,6 +84,28 @@ class SingleHabitViewController: UIViewController {
     func drawGallery(buttons: [UIButton], checkins: [Checkin]) {
         for i in 0..<4 {
             buttons[i].setBackgroundImage(checkins[i].image, for: .normal)
+        }
+    }
+    
+    func drawUserImages(buttons: [UIButton], users: [User]) {
+        if users.count > 7 {
+            for i in 0..<7 {
+                buttons[i].setBackgroundImage(users[i].image, for: .normal)
+                buttons[i].tag = 1
+            }
+            buttons[7].backgroundColor = UIColor(named: "TextFieldBackgroundColor")
+            buttons[7].layer.borderWidth = 2
+            buttons[7].layer.borderColor = UIColor.systemGray3.cgColor
+            buttons[7].setTitle("+\(users.count - 7)", for: .normal)
+            buttons[7].setTitleColor(UIColor.systemGray3, for: .normal)
+            buttons[7].layer.cornerRadius = buttons[7].frame.width / 2
+            buttons[7].tag = 1
+        } else {
+            for i in 0..<users.count {
+                buttons[i].setBackgroundImage(users[i].image, for: .normal)
+                buttons[i].tag = 1
+            }
+            buttons[7].backgroundColor = .white
         }
     }
     
@@ -126,6 +169,15 @@ class SingleHabitViewController: UIViewController {
         }
         
         present(vc!, animated: true, completion: nil)
+    }
+    
+    @IBAction func openUsersParticipatingList(_ sender: UIButton) {
+        if sender.tag == 1 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "usersParticipating") as? UsersParticipatingListViewController
+            vc?.usersList = usersParticipating
+            navigationController?.showDetailViewController(vc!, sender: self)
+        }
     }
 }
 
