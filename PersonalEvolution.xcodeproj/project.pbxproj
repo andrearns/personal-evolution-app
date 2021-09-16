@@ -21,7 +21,7 @@
 		5B0CE74326DDCEA00065E1A9 /* SingleHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE74226DDCEA00065E1A9 /* SingleHabitViewController.swift */; };
 		5B0CE74626DDCFEA0065E1A9 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE74526DDCFEA0065E1A9 /* HabitsViewController.swift */; };
 		5B0CE74A26DDD1250065E1A9 /* HabitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE74926DDD1250065E1A9 /* HabitTableViewCell.swift */; };
-		5B1A9A7626E0109A0001F3CF /* CreateNewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9A7526E0109A0001F3CF /* CreateNewHabitViewController.swift */; };
+		5B1A9A7626E0109A0001F3CF /* CreateOrEditHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9A7526E0109A0001F3CF /* CreateOrEditHabitViewController.swift */; };
 		5B1A9A7826E145CA0001F3CF /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9A7726E145CA0001F3CF /* Habit.swift */; };
 		5B1A9A7B26E1470C0001F3CF /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1A9A7A26E1470C0001F3CF /* CloudKitHelper.swift */; };
 		5B27FC6C26ED39B200C917D9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27FC6B26ED39B200C917D9 /* CustomTextField.swift */; };
@@ -36,6 +36,7 @@
 		5B2D539B26E6FF4100558BDD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539A26E6FF4100558BDD /* User.swift */; };
 		5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539C26E86DC800558BDD /* PopUpViewController.swift */; };
 		6A47017C35D818D27B4D8171 /* Pods_PersonalEvolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */; };
+		EC71C83526F26FA80010F929 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +59,7 @@
 		5B0CE74226DDCEA00065E1A9 /* SingleHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleHabitViewController.swift; sourceTree = "<group>"; };
 		5B0CE74526DDCFEA0065E1A9 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		5B0CE74926DDD1250065E1A9 /* HabitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTableViewCell.swift; sourceTree = "<group>"; };
-		5B1A9A7526E0109A0001F3CF /* CreateNewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewHabitViewController.swift; sourceTree = "<group>"; };
+		5B1A9A7526E0109A0001F3CF /* CreateOrEditHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrEditHabitViewController.swift; sourceTree = "<group>"; };
 		5B1A9A7726E145CA0001F3CF /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		5B1A9A7A26E1470C0001F3CF /* CloudKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		5B27FC6B26ED39B200C917D9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		5B2D539A26E6FF4100558BDD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B2D539C26E86DC800558BDD /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		8BAE0C3BCDF072B7B5D56EDD /* Pods-PersonalEvolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.release.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.release.xcconfig"; sourceTree = "<group>"; };
+		EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +141,7 @@
 			children = (
 				5B0CE74226DDCEA00065E1A9 /* SingleHabitViewController.swift */,
 				5B0CE74526DDCFEA0065E1A9 /* HabitsViewController.swift */,
-				5B1A9A7526E0109A0001F3CF /* CreateNewHabitViewController.swift */,
+				5B1A9A7526E0109A0001F3CF /* CreateOrEditHabitViewController.swift */,
 				5B2D539626E6D6D200558BDD /* CheckinViewController.swift */,
 				5B2D539C26E86DC800558BDD /* PopUpViewController.swift */,
 				0E98C19126E158A400C6FFF8 /* DashboardViewController.swift */,
@@ -158,6 +160,7 @@
 				5B27FC6B26ED39B200C917D9 /* CustomTextField.swift */,
 				5B27FC6D26ED3E2700C917D9 /* UITextView.swift */,
 				5B27FC7126EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift */,
+				EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -319,7 +322,7 @@
 				0E85D58B26E958F1001A814F /* Day.swift in Sources */,
 				5B27FC7226EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift in Sources */,
 				5B0CE72D26DDCD040065E1A9 /* SceneDelegate.swift in Sources */,
-				5B1A9A7626E0109A0001F3CF /* CreateNewHabitViewController.swift in Sources */,
+				5B1A9A7626E0109A0001F3CF /* CreateOrEditHabitViewController.swift in Sources */,
 				5B27FC6C26ED39B200C917D9 /* CustomTextField.swift in Sources */,
 				5B27FC6E26ED3E2700C917D9 /* UITextView.swift in Sources */,
 				5B27FC7926EEB8E100C917D9 /* CropImage.swift in Sources */,
@@ -329,6 +332,8 @@
 				5B0CE74A26DDD1250065E1A9 /* HabitTableViewCell.swift in Sources */,
 				0E4FF3AC26EA439B00437262 /* EvolutionViewController.swift in Sources */,
 				0E98C19026E1577A00C6FFF8 /* Month.swift in Sources */,
+				0E98C19426E163AF00C6FFF8 /* MonthCollectionViewCell.swift in Sources */,
+				EC71C83526F26FA80010F929 /* GalleryCollectionViewCell.swift in Sources */,
 				5B0CE74326DDCEA00065E1A9 /* SingleHabitViewController.swift in Sources */,
 				5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */,
 				5B27FC7F26F1424000C917D9 /* RetrospectiveViewController.swift in Sources */,

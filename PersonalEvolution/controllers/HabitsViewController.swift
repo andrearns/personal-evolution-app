@@ -70,7 +70,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? CreateNewHabitViewController {
+        if let vc = segue.destination as? CreateOrEditHabitViewController {
             vc.onSave = {
                 self.fetchHabits()
             }
@@ -177,7 +177,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBAction func addHabit(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "CreateNewHabit") as? CreateNewHabitViewController
+        let vc = storyboard.instantiateViewController(identifier: "CreateOrEditHabit") as? CreateOrEditHabitViewController
         navigationController?.showDetailViewController(vc!, sender: self)
     }
     

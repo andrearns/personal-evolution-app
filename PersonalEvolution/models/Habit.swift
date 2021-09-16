@@ -14,6 +14,7 @@ struct Habit: Identifiable {
     var image: UIImage?
     var description: String
     var checkinList: [Checkin] = []
+    var frequency: [Int] = [0, 0, 0, 0, 0, 0, 0]
 //    var streak: Int
 //    var checkinList: [Checkin]
 //    var users: [User]
