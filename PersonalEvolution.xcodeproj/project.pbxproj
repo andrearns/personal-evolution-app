@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0E4FF3AC26EA439B00437262 /* EvolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FF3AB26EA439B00437262 /* EvolutionViewController.swift */; };
-		0E85D58926E9587B001A814F /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85D58826E9587B001A814F /* DayCollectionViewCell.swift */; };
+		0E5147F626F3C40400D57BB0 /* PopUpDailyMoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5147F526F3C40400D57BB0 /* PopUpDailyMoodViewController.swift */; };
 		0E85D58B26E958F1001A814F /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85D58A26E958F1001A814F /* Day.swift */; };
 		0E98C19026E1577A00C6FFF8 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98C18F26E1577A00C6FFF8 /* Month.swift */; };
 		0E98C19226E158A400C6FFF8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98C19126E158A400C6FFF8 /* DashboardViewController.swift */; };
-		0E98C19426E163AF00C6FFF8 /* MonthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98C19326E163AF00C6FFF8 /* MonthCollectionViewCell.swift */; };
-		0E98C19626E25DAD00C6FFF8 /* DashboardHabitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98C19526E25DAD00C6FFF8 /* DashboardHabitTableViewCell.swift */; };
 		5B0CE72B26DDCD040065E1A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE72A26DDCD040065E1A9 /* AppDelegate.swift */; };
 		5B0CE72D26DDCD040065E1A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE72C26DDCD040065E1A9 /* SceneDelegate.swift */; };
 		5B0CE73226DDCD040065E1A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0CE73026DDCD040065E1A9 /* Main.storyboard */; };
@@ -42,12 +40,10 @@
 
 /* Begin PBXFileReference section */
 		0E4FF3AB26EA439B00437262 /* EvolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionViewController.swift; sourceTree = "<group>"; };
-		0E85D58826E9587B001A814F /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
+		0E5147F526F3C40400D57BB0 /* PopUpDailyMoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpDailyMoodViewController.swift; sourceTree = "<group>"; };
 		0E85D58A26E958F1001A814F /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		0E98C18F26E1577A00C6FFF8 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		0E98C19126E158A400C6FFF8 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		0E98C19326E163AF00C6FFF8 /* MonthCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCollectionViewCell.swift; sourceTree = "<group>"; };
-		0E98C19526E25DAD00C6FFF8 /* DashboardHabitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHabitTableViewCell.swift; sourceTree = "<group>"; };
 		4516008CEF580DC2A9A4A3E1 /* Pods-PersonalEvolution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.debug.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.debug.xcconfig"; sourceTree = "<group>"; };
 		50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersonalEvolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0CE72726DDCD040065E1A9 /* PersonalEvolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalEvolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +146,7 @@
 				0E4FF3AB26EA439B00437262 /* EvolutionViewController.swift */,
 				5B27FC7C26F13EDE00C917D9 /* PhotoGalleryViewController.swift */,
 				5B27FC7E26F1423F00C917D9 /* RetrospectiveViewController.swift */,
+				0E5147F526F3C40400D57BB0 /* PopUpDailyMoodViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -158,9 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				5B0CE74926DDD1250065E1A9 /* HabitTableViewCell.swift */,
-				0E98C19326E163AF00C6FFF8 /* MonthCollectionViewCell.swift */,
-				0E98C19526E25DAD00C6FFF8 /* DashboardHabitTableViewCell.swift */,
-				0E85D58826E9587B001A814F /* DayCollectionViewCell.swift */,
 				5B27FC6B26ED39B200C917D9 /* CustomTextField.swift */,
 				5B27FC6D26ED3E2700C917D9 /* UITextView.swift */,
 				5B27FC7126EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift */,
@@ -323,7 +317,6 @@
 				5B0CE72B26DDCD040065E1A9 /* AppDelegate.swift in Sources */,
 				0E98C19226E158A400C6FFF8 /* DashboardViewController.swift in Sources */,
 				0E85D58B26E958F1001A814F /* Day.swift in Sources */,
-				0E85D58926E9587B001A814F /* DayCollectionViewCell.swift in Sources */,
 				5B27FC7226EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift in Sources */,
 				5B0CE72D26DDCD040065E1A9 /* SceneDelegate.swift in Sources */,
 				5B1A9A7626E0109A0001F3CF /* CreateNewHabitViewController.swift in Sources */,
@@ -331,11 +324,11 @@
 				5B27FC6E26ED3E2700C917D9 /* UITextView.swift in Sources */,
 				5B27FC7926EEB8E100C917D9 /* CropImage.swift in Sources */,
 				5B1A9A7826E145CA0001F3CF /* Habit.swift in Sources */,
+				0E5147F626F3C40400D57BB0 /* PopUpDailyMoodViewController.swift in Sources */,
 				5B2D539726E6D6D200558BDD /* CheckinViewController.swift in Sources */,
 				5B0CE74A26DDD1250065E1A9 /* HabitTableViewCell.swift in Sources */,
 				0E4FF3AC26EA439B00437262 /* EvolutionViewController.swift in Sources */,
 				0E98C19026E1577A00C6FFF8 /* Month.swift in Sources */,
-				0E98C19426E163AF00C6FFF8 /* MonthCollectionViewCell.swift in Sources */,
 				5B0CE74326DDCEA00065E1A9 /* SingleHabitViewController.swift in Sources */,
 				5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */,
 				5B27FC7F26F1424000C917D9 /* RetrospectiveViewController.swift in Sources */,
@@ -345,7 +338,6 @@
 				5B27FC7D26F13EDE00C917D9 /* PhotoGalleryViewController.swift in Sources */,
 				5B2D539926E6FEDA00558BDD /* Checkin.swift in Sources */,
 				5B2D539B26E6FF4100558BDD /* User.swift in Sources */,
-				0E98C19626E25DAD00C6FFF8 /* DashboardHabitTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
