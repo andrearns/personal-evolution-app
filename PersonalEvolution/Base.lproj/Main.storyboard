@@ -1510,20 +1510,26 @@
         </scene>
     </scenes>
     <resources>
+<<<<<<< HEAD
         <image name="BlueBallShadow" width="55" height="55"/>
         <image name="Daily Comment" width="382" height="96"/>
         <image name="Daily Mood Panel" width="382" height="127"/>
         <image name="Daily Mood PopUp Koala" width="148" height="139"/>
         <image name="GreenBallShadow" width="55" height="55"/>
         <image name="KoalaHello" width="452" height="227"/>
+=======
+>>>>>>> dashboard
         <image name="Mood Empty" width="36" height="36"/>
         <image name="Mood Green" width="36" height="36"/>
         <image name="Mood Pink" width="36" height="36"/>
         <image name="Mood Purple" width="36" height="36"/>
         <image name="Mood Yellow" width="36" height="36"/>
         <image name="MoodBlue" width="36" height="35"/>
+<<<<<<< HEAD
         <image name="PinkBallShadow" width="55" height="55"/>
         <image name="PurpleBallShadow" width="55" height="55"/>
+=======
+>>>>>>> dashboard
         <image name="StreakComponent" width="75" height="78"/>
         <image name="YellowBallShadow" width="55" height="55"/>
         <image name="addPhotoIcon" width="36" height="36"/>
