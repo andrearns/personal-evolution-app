@@ -72,18 +72,16 @@ class SingleHabitViewController: UIViewController {
         if habit.image != nil {
             habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)
         }
+        
         drawGallery(buttons: personalGalleryButtons, checkins: personalCheckins)
         drawGallery(buttons: groupGalleryButtons, checkins: groupCheckins)
         drawUserImages(buttons: usersProfileImageButtons, users: usersParticipating)
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     func drawGallery(buttons: [UIButton], checkins: [Checkin]) {
         for i in 0..<4 {
             buttons[i].setBackgroundImage(checkins[i].image, for: .normal)
+            buttons[i].layer.cornerRadius = 15
         }
     }
     
@@ -93,7 +91,6 @@ class SingleHabitViewController: UIViewController {
                 buttons[i].setBackgroundImage(users[i].image, for: .normal)
                 buttons[i].tag = 1
             }
-            buttons[7].backgroundColor = UIColor(named: "TextFieldBackgroundColor")
             buttons[7].layer.borderWidth = 2
             buttons[7].layer.borderColor = UIColor.systemGray3.cgColor
             buttons[7].setTitle("+\(users.count - 7)", for: .normal)
@@ -105,7 +102,6 @@ class SingleHabitViewController: UIViewController {
                 buttons[i].setBackgroundImage(users[i].image, for: .normal)
                 buttons[i].tag = 1
             }
-            buttons[7].backgroundColor = .white
         }
     }
     
