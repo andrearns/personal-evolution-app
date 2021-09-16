@@ -23,21 +23,33 @@ class SingleHabitViewController: UIViewController {
     @IBOutlet var usersProfileImageButtons: [UIButton]!
     
     var personalCheckins: [Checkin] = [
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 1", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 2", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 3", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 4", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 5", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 6", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 1", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 2", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 3", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 4", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 5", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 6", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 1", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 2", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 3", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 4", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 5", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 6", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 1", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 2", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 3", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 4", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 5", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 6", user: nil, date: Date()),
     ]
     
     var groupCheckins: [Checkin] = [
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 1", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 2", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 3", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 4", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 5", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galeryImageTest"), description: "descrição 6", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 1", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 2", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 3", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 4", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 5", user: nil, date: Date()),
+        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 6", user: nil, date: Date()),
     ]
     
     var usersParticipating: [User] = [
@@ -160,8 +172,10 @@ class SingleHabitViewController: UIViewController {
         
         if sender.tag == 0 {
             vc?.retrospectiveType = .personal
+            vc?.checkinsList = self.personalCheckins
         } else if sender.tag == 1 {
             vc?.retrospectiveType = .group
+            vc?.checkinsList = self.groupCheckins
         }
         
         present(vc!, animated: true, completion: nil)
