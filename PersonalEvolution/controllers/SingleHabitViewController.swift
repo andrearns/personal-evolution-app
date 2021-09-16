@@ -61,10 +61,10 @@ class SingleHabitViewController: UIViewController {
         User(name: "Alfredo", image: UIImage(named: "profileImageTest")),
         User(name: "Jorginho", image: UIImage(named: "profileImageTest")),
         User(name: "Babiruba", image: UIImage(named: "profileImageTest")),
-//        User(name: "Jujubinha", image: UIImage(named: "profileImageTest")),
-//        User(name: "Princesa caroço", image: UIImage(named: "profileImageTest")),
-//        User(name: "Rei gelado", image: UIImage(named: "profileImageTest")),
-//        User(name: "Flin", image: UIImage(named: "profileImageTest")),
+        User(name: "Jujubinha", image: UIImage(named: "profileImageTest")),
+        User(name: "Princesa caroço", image: UIImage(named: "profileImageTest")),
+        User(name: "Rei gelado", image: UIImage(named: "profileImageTest")),
+        User(name: "Flin", image: UIImage(named: "profileImageTest")),
     ]
     
     override func viewDidLoad() {

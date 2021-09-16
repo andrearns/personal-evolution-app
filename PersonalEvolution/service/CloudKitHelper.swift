@@ -62,7 +62,7 @@ struct CloudKitHelper {
         query.sortDescriptors = [sort]
         
         let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["Name", "Description", "Image"]
+        operation.desiredKeys = ["Name", "Description", "Image", "Frequency"]
         
         operation.recordFetchedBlock = { record in
             DispatchQueue.main.async {
@@ -86,13 +86,13 @@ struct CloudKitHelper {
                 let data = NSData(contentsOf: (file.fileURL)!)
                 let image = UIImage(data: data! as Data)
                 
-//                guard let frequency = record["Frequency"] as? CKValue else {
-//                    completion(.failure(CloudKitHelperError.castFailure))
-//                    print("Erro para puxar a frequência")
-//                    return
-//                }
+                guard let frequency = record["Frequency"] as? [Int] else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar a frequência")
+                    return
+                }
                 
-                let habit = Habit(recordID: id, name: name, image: image, description: description, checkinList: [])
+                let habit = Habit(recordID: id, name: name, image: image, description: description, checkinList: [], frequency: frequency)
                 completion(.success(habit))
             }
         }
@@ -132,6 +132,7 @@ struct CloudKitHelper {
                 record["Image"] = CKAsset(fileURL: url!)
                 record["Name"] = habit.name as CKRecordValue
                 record["Description"] = habit.description as CKRecordValue
+                record["Frequency"] = habit.frequency as CKRecordValue
                 
                 publicDatabase.save(record) { (record, error) in
                     DispatchQueue.main.async {
@@ -147,8 +148,9 @@ struct CloudKitHelper {
                         guard let file = record["Image"] as? CKAsset else { return }
                         let data = NSData(contentsOf: (file.fileURL)!)
                         let image = UIImage(data: data! as Data)
+                        guard let frequency = record["Frequency"] as? [Int] else { return }
                         
-                        let habit = Habit(recordID: id, name: name, image: image, description: description, checkinList: [])
+                        let habit = Habit(recordID: id, name: name, image: image, description: description, checkinList: [], frequency: frequency)
                         completion(.success(habit))
                     }
                 }

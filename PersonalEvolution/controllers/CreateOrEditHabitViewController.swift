@@ -118,15 +118,13 @@ class CreateOrEditHabitViewController: UIViewController {
         }
     }
 }
-
-extension CreateOrEditHabitViewController: UITextFieldDelegate {
+ 
+extension CreateOrEditHabitViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-}
-
-extension CreateOrEditHabitViewController: UITextViewDelegate {
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.systemGray {
             textView.text = nil
@@ -142,32 +140,39 @@ extension CreateOrEditHabitViewController: UITextViewDelegate {
     }
 }
 
-extension CreateOrEditHabitViewController: UICollectionViewDelegate {
+extension CreateOrEditHabitViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.allowsMultipleSelection = true
         daysOfWeek[indexPath.row].isSelected = true
         newHabit.frequency[indexPath.row] = 1
+        print(newHabit.frequency)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         daysOfWeek[indexPath.row].isSelected = false
         newHabit.frequency[indexPath.row] = 0
+        print(newHabit.frequency)
     }
-}
-
-extension CreateOrEditHabitViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        collectionView.allowsMultipleSelection = true
+        collectionView.allowsSelection = true
         let cell = daysOfWeekCollectionView.dequeueReusableCell(withReuseIdentifier: "DaysOfWeekCell", for: indexPath) as! DaysOfWeekCollectionViewCell
         cell.dayLabel.text = daysOfWeek[indexPath.row].name
+        
+        if currentMode == .edit {
+            if habit?.frequency[indexPath.row] == 1 {
+                cell.dayBackgroundView.backgroundColor = UIColor(named: "Lilas")
+                cell.dayLabel.textColor = .white
+            }
+        }
+        
         return cell
     }
-}
-
-extension CreateOrEditHabitViewController: UICollectionViewDelegateFlowLayout{
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 4.0
     }
