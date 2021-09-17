@@ -187,13 +187,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		285E19EA790F28C7B2BF0F351335D724 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3D151B72D5CE9336C8AD8927D077A295;
-			remoteInfo = ALCameraViewController;
-		};
 		4BA5C52EF552C212AE71E38152F593E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -202,6 +195,13 @@
 			remoteInfo = iCarousel;
 		};
 		522E714BD22BE99730FBA6D3B44393A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF03B0B2B8B052092CB5F90CC5FB3757;
+			remoteInfo = Charts;
+		};
+		5B2E5F1426F50C3200BEAE3D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -265,7 +265,7 @@
 		396871E6A6AB062C20AF6D44254C8716 /* BarLineScatterCandleBubbleChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarLineScatterCandleBubbleChartDataProvider.swift; path = Source/Charts/Interfaces/BarLineScatterCandleBubbleChartDataProvider.swift; sourceTree = "<group>"; };
 		397A3F6164E8E4AA774213E0AB191DB2 /* BarHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BarHighlighter.swift; path = Source/Charts/Highlight/BarHighlighter.swift; sourceTree = "<group>"; };
 		39D1BDA714B1E8C777F0E69FE3D2CB54 /* PieChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PieChartRenderer.swift; path = Source/Charts/Renderers/PieChartRenderer.swift; sourceTree = "<group>"; };
-		3B871C0CF9BD143579259E5F34462507 /* Pods-PersonalEvolution */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-PersonalEvolution"; path = Pods_PersonalEvolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B871C0CF9BD143579259E5F34462507 /* ALCameraViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ALCameraViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9990C0502AECA8EACCDB2E19CFDF14 /* iCarousel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "iCarousel-Info.plist"; sourceTree = "<group>"; };
 		3CD388CDDF9230D7F17EF8FCAC49166F /* Range.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Range.swift; path = Source/Charts/Highlight/Range.swift; sourceTree = "<group>"; };
 		403EE6D36E524DA30BA5A7A3B8F9091F /* CombinedChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CombinedChartRenderer.swift; path = Source/Charts/Renderers/CombinedChartRenderer.swift; sourceTree = "<group>"; };
@@ -336,7 +336,7 @@
 		99FC59486618BE2E5300AEAC6D0A17FB /* IPieChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IPieChartDataSet.swift; path = Source/Charts/Data/Interfaces/IPieChartDataSet.swift; sourceTree = "<group>"; };
 		9A26C9818B029D3E2B829C71EE427047 /* IRadarChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IRadarChartDataSet.swift; path = Source/Charts/Data/Interfaces/IRadarChartDataSet.swift; sourceTree = "<group>"; };
 		9B0A2CA0EE17849F49116B89AC6D0496 /* Charts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Charts.modulemap; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E0EB6F73621C8AA463AAFF83B2C0984 /* CombinedChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CombinedChartDataProvider.swift; path = Source/Charts/Interfaces/CombinedChartDataProvider.swift; sourceTree = "<group>"; };
 		9E1296D54C854B7857B402A1816FA846 /* IFillFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IFillFormatter.swift; path = Source/Charts/Formatters/IFillFormatter.swift; sourceTree = "<group>"; };
 		9E6B73336B68FF782F78BDB6B602624B /* Pods-PersonalEvolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PersonalEvolution.release.xcconfig"; sourceTree = "<group>"; };
@@ -476,7 +476,6 @@
 				7558810F9C1290669677D4F3EAD08923 /* Resources */,
 				62EE3C9383AA79D5A7237C0B6AF064B8 /* Support Files */,
 			);
-			name = ALCameraViewController;
 			path = ALCameraViewController;
 			sourceTree = "<group>";
 		};
@@ -703,7 +702,6 @@
 				701C15A5295B883FCAF14C10AC34896D /* Core */,
 				15441D51D172B7E08C05E077B538C03E /* Support Files */,
 			);
-			name = Charts;
 			path = Charts;
 			sourceTree = "<group>";
 		};
@@ -723,7 +721,7 @@
 				EAFE620751F017A164ECE9CAA3FC056F /* ALCameraViewController */,
 				A1C1B977ED8804E8AEEC884E7359EE58 /* Charts */,
 				C8217EB109A6A34051F09192C29B676F /* iCarousel */,
-				3B871C0CF9BD143579259E5F34462507 /* Pods-PersonalEvolution */,
+				3B871C0CF9BD143579259E5F34462507 /* ALCameraViewController.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -765,7 +763,6 @@
 				20977785EBB8524B237113021B9C2FDA /* iCarousel.m */,
 				5C9C1BC52AE8823FB91E15C0004BE50F /* Support Files */,
 			);
-			name = iCarousel;
 			path = iCarousel;
 			sourceTree = "<group>";
 		};
@@ -775,34 +772,6 @@
 				311D02E11AD135183158949DC8AA559D /* Pods-PersonalEvolution */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		EE743A39F547ECEBF634037FAA315D16 /* SwiftVideoGenerator */ = {
-			isa = PBXGroup;
-			children = (
-				A3F4947D53AE3FAB6F0D89568F7A8517 /* AVAssetExtension.swift */,
-				E5D428DD573AAA67FB963550800B819E /* ImageExtension.swift */,
-				BB94E54E8398AD5FF8B4BF98329B0A03 /* VideoGenerator.swift */,
-				07899B5B82FEA18D9F3F88FA3159F939 /* VideoGeneratorError.swift */,
-				36BFD9829C68D75E1491B4E4940960AF /* Support Files */,
-			);
-			name = SwiftVideoGenerator;
-			path = SwiftVideoGenerator;
-			sourceTree = "<group>";
-		};
-		EFA43B70750C2D7561D2D0C00486219A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				8346F355AFB6828D8BEBCD2AD26FDAC7 /* Charts.modulemap */,
-				C0D7C87ABD8B4F8B9AB28FA14C5EC45E /* Charts-dummy.m */,
-				0ECFCDBC83AEA7AED75C8DD621C9DFAB /* Charts-Info.plist */,
-				046D26E325BC6A84ABDDB7537458AA32 /* Charts-prefix.pch */,
-				4BC75B1DBB9E2DC3C9591E63D4368D69 /* Charts-umbrella.h */,
-				89A5ADC1495AE26D94F108B319C28F88 /* Charts.debug.xcconfig */,
-				32B8AEDCF951D07D785E1F8D7BFD47BF /* Charts.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Charts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -898,17 +867,13 @@
 			);
 			name = "Pods-PersonalEvolution";
 			productName = Pods_PersonalEvolution;
-			productReference = 3B871C0CF9BD143579259E5F34462507 /* Pods-PersonalEvolution */;
+			productReference = 3B871C0CF9BD143579259E5F34462507 /* ALCameraViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		877B00E6DE7D4DC1416DB002A9C00848 /* SwiftVideoGenerator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1724A198A67E010CF80B54FD8855ADF2 /* Build configuration list for PBXNativeTarget "SwiftVideoGenerator" */;
+			buildConfigurationList = 5B2E5F1826F50D1400BEAE3D /* Build configuration list */;
 			buildPhases = (
-				3F6474B1E7728649E803D43C0D25ED55 /* Headers */,
-				69D65BCDCC321851AF1DEB957C6ABF4C /* Sources */,
-				24E55CE839D5566E1CFA4371F85758C0 /* Frameworks */,
-				9FCA31D9A2755C107F3A2C27E98FCD62 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -916,7 +881,6 @@
 			);
 			name = SwiftVideoGenerator;
 			productName = SwiftVideoGenerator;
-			productReference = 59036D9DF8516C51E1F6C0AF6F40EFB0 /* SwiftVideoGenerator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		BF03B0B2B8B052092CB5F90CC5FB3757 /* Charts */ = {
@@ -1202,13 +1166,7 @@
 			isa = PBXTargetDependency;
 			name = Charts;
 			target = BF03B0B2B8B052092CB5F90CC5FB3757 /* Charts */;
-			targetProxy = A0B3C7B1E27C0D631F39E30A4EFF639C /* PBXContainerItemProxy */;
-		};
-		56AE5D73A3AC1466288820FA8EA5DE30 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ALCameraViewController;
-			target = 3D151B72D5CE9336C8AD8927D077A295 /* ALCameraViewController */;
-			targetProxy = 285E19EA790F28C7B2BF0F351335D724 /* PBXContainerItemProxy */;
+			targetProxy = 5B2E5F1426F50C3200BEAE3D /* PBXContainerItemProxy */;
 		};
 		44A2AE34DCFBEFF6BC64BEC073DBE98D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1225,6 +1183,34 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5B2E5F1526F50C3200BEAE3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Pods_PersonalEvolution;
+			};
+			name = Release;
+		};
+		5B2E5F1626F50C3200BEAE3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = SwiftVideoGenerator;
+			};
+			name = Debug;
+		};
+		5B2E5F1726F50C3200BEAE3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = SwiftVideoGenerator;
+			};
+			name = Release;
+		};
 		5B6381638BF904497B44A966844F2AB6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 486C8BD3274C218113837CF7961939AD /* iCarousel.release.xcconfig */;
@@ -1329,7 +1315,7 @@
 			};
 			name = Debug;
 		};
-		858A9FE5D8A81F8C120BAC5849DA476D /* Release */ = {
+		858A9FE5D8A81F8C120BAC5849DA476D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E6B73336B68FF782F78BDB6B602624B /* Pods-PersonalEvolution.release.xcconfig */;
 			buildSettings = {
@@ -1653,6 +1639,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		5B2E5F1826F50D1400BEAE3D /* Build configuration list */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B2E5F1626F50C3200BEAE3D /* Debug */,
+				5B2E5F1726F50C3200BEAE3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		63BB9764CEAD02DF3D818053FCDA3A4D /* Build configuration list for PBXNativeTarget "iCarousel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1666,7 +1661,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6D204B0559C587CB351F22FDD49614E6 /* Debug */,
-				858A9FE5D8A81F8C120BAC5849DA476D /* Release */,
+				858A9FE5D8A81F8C120BAC5849DA476D /* Debug */,
+				5B2E5F1526F50C3200BEAE3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
