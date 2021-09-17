@@ -7,11 +7,12 @@
 
 import UIKit
 
-class PhotoGalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class PhotoGalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     var checkinList: [Checkin]!
     var galleryType: GalleryType!
+    let collectionSpacing = CGFloat(1)
     
     @IBOutlet var galleryCollectionView: UICollectionView!
     @IBOutlet var galleryCountLabel: UILabel!
@@ -30,6 +31,7 @@ class PhotoGalleryViewController: UIViewController, UICollectionViewDelegate, UI
             titleLabel.text = "Galeria do grupo"
         }
         galleryCountLabel.text = "\(checkinList.count) Fotos"
+        
 
     }
     
@@ -44,8 +46,25 @@ class PhotoGalleryViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let checkin = checkinList[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "FullScreenImageView") as! FullScreenImageViewController
+        vc.checkin = checkin
+        present(vc, animated: true, completion: nil)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return collectionSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionWidth = collectionView.frame.width
+        let columns = CGFloat(4)
+        let cellWidth = (collectionWidth - (columns - 1) * collectionSpacing) / columns
+        return CGSize(width: cellWidth, height: cellWidth)
+    }
+    
+    
 }
 
 enum GalleryType {
