@@ -39,6 +39,7 @@
 		5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539C26E86DC800558BDD /* PopUpViewController.swift */; };
 		6A47017C35D818D27B4D8171 /* Pods_PersonalEvolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */; };
 		EC71C83526F26FA80010F929 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */; };
+		EC71C83726F3CCC30010F929 /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71C83626F3CCC30010F929 /* FullScreenImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		5B2D539C26E86DC800558BDD /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		8BAE0C3BCDF072B7B5D56EDD /* Pods-PersonalEvolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.release.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.release.xcconfig"; sourceTree = "<group>"; };
 		EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC71C83626F3CCC30010F929 /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				5B27FC6D26ED3E2700C917D9 /* UITextView.swift */,
 				5B27FC7126EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift */,
 				EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */,
+				EC71C83626F3CCC30010F929 /* FullScreenImageViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				5B27FC6E26ED3E2700C917D9 /* UITextView.swift in Sources */,
 				5B27FC7926EEB8E100C917D9 /* CropImage.swift in Sources */,
 				5B1A9A7826E145CA0001F3CF /* Habit.swift in Sources */,
+				EC71C83726F3CCC30010F929 /* FullScreenImageViewController.swift in Sources */,
 				5B2D539726E6D6D200558BDD /* CheckinViewController.swift in Sources */,
 				5B0CE74A26DDD1250065E1A9 /* HabitTableViewCell.swift in Sources */,
 				0E4FF3AC26EA439B00437262 /* EvolutionViewController.swift in Sources */,
