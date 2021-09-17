@@ -10,5 +10,9 @@ import UIKit
 class GalleryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var photoImageView: UIImageView!
-    
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        photoImageView.frame = contentView.bounds
+    }
 }
