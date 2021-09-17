@@ -12,6 +12,8 @@ import AVKit
 
 class RetrospectiveViewController: UIViewController {
 
+    var habit: Habit!
+    
     var checkinsList: [Checkin]!
     var retrospectiveType: RetrospectiveType!
     var images: [UIImage] = []
@@ -31,10 +33,6 @@ class RetrospectiveViewController: UIViewController {
         } else if retrospectiveType == .group {
             retrospectiveTitleLabel.text = "Retrospectiva do grupo"
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         for i in 0..<checkinsList.count {
             if checkinsList[i].image != nil {
@@ -43,6 +41,7 @@ class RetrospectiveViewController: UIViewController {
         }
         
         if let audioURL = Bundle.main.url(forResource: "Audio1", withExtension: "mp3") {
+            LoadingView.lockView()
             
             VideoGenerator.fileName = "newVideo"
             VideoGenerator.videoBackgroundColor = .black
@@ -53,6 +52,7 @@ class RetrospectiveViewController: UIViewController {
             VideoGenerator.current.generate(withImages: self.images, andAudios: [audioURL], andType: .singleAudioMultipleImage, { (progress) in
                 print(progress)
             }) { (result) in
+                LoadingView.unlockView()
                 switch result {
                 case .success(let url):
                     self.videoURL = url
@@ -82,7 +82,14 @@ class RetrospectiveViewController: UIViewController {
     }
     
     @IBAction func shareVideo(_ sender: Any) {
-        
+        let message = "Dá uma olhada na minha evolução fazendo o hábito de \(habit.name) no app WeDo!"
+        let videoData = try? Data(contentsOf: videoURL!)
+
+        let objectsToShare = [message, videoData as Any] as [Any]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+        activityVC.excludedActivityTypes = [UIActivity.ActivityType.openInIBooks, UIActivity.ActivityType.postToWeibo]
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     fileprivate func createAlertView(message: String?) {

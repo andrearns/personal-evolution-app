@@ -40,6 +40,7 @@
 		5B2D539B26E6FF4100558BDD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539A26E6FF4100558BDD /* User.swift */; };
 		5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539C26E86DC800558BDD /* PopUpViewController.swift */; };
 		5B2E5F1126F2EDB600BEAE3D /* Audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B2E5F1026F2EDB600BEAE3D /* Audio1.mp3 */; };
+		5B2E5F1326F420BB00BEAE3D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F1226F420BB00BEAE3D /* LoadingView.swift */; };
 		6A47017C35D818D27B4D8171 /* Pods_PersonalEvolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */; };
 		EC71C83526F26FA80010F929 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		5B2D539A26E6FF4100558BDD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B2D539C26E86DC800558BDD /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		5B2E5F1026F2EDB600BEAE3D /* Audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Audio1.mp3; path = ../../../../../Downloads/Audio1.mp3; sourceTree = "<group>"; };
+		5B2E5F1226F420BB00BEAE3D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8BAE0C3BCDF072B7B5D56EDD /* Pods-PersonalEvolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.release.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.release.xcconfig"; sourceTree = "<group>"; };
 		EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +178,7 @@
 				5B27FC7126EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift */,
 				EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */,
 				5B27FC8226F2AB0100C917D9 /* UsersParticipatingTableViewCell.swift */,
+				5B2E5F1226F420BB00BEAE3D /* LoadingView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */,
 				5B27FC7F26F1424000C917D9 /* RetrospectiveViewController.swift in Sources */,
 				5B1A9A7B26E1470C0001F3CF /* CloudKitHelper.swift in Sources */,
+				5B2E5F1326F420BB00BEAE3D /* LoadingView.swift in Sources */,
 				5B0CE74626DDCFEA0065E1A9 /* HabitsViewController.swift in Sources */,
 				5B27FC7626EDBAF600C917D9 /* DayOfWeek.swift in Sources */,
 				5B27FC7D26F13EDE00C917D9 /* PhotoGalleryViewController.swift in Sources */,

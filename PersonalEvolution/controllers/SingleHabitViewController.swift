@@ -85,7 +85,6 @@ class SingleHabitViewController: UIViewController {
         DispatchQueue.main.async {
             self.fetchHabitCheckinList()
             self.drawGallery(buttons: self.personalGalleryButtons, checkins: self.personalCheckins)
-            self.drawGallery(buttons: self.groupGalleryButtons, checkins: self.groupCheckins)
             self.drawUserImages(buttons: self.usersProfileImageButtons, users: self.usersParticipating)
         }
     }
@@ -102,11 +101,10 @@ class SingleHabitViewController: UIViewController {
                 }
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                
-                let filteredCheckins = checkinList.filter {
+                self.groupCheckins = checkinList.filter {
                     $0.habitRef?.recordID == self.habit.recordID
                 }
-                self.groupCheckins = filteredCheckins
+                self.drawGallery(buttons: self.groupGalleryButtons, checkins: self.groupCheckins)
                 print(self.groupCheckins)
             }
         }
@@ -198,6 +196,7 @@ class SingleHabitViewController: UIViewController {
     @IBAction func playRetrospective(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "Retrospective") as? RetrospectiveViewController
+        vc?.habit = self.habit
         
         if sender.tag == 0 {
             vc?.retrospectiveType = .personal
