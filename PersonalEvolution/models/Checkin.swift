@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
 struct Checkin: Identifiable {
     var id = UUID()
@@ -14,4 +15,6 @@ struct Checkin: Identifiable {
     var description: String
     var user: User?
     var date: Date
+    var recordID: CKRecord.ID?
+    var habitRef: CKRecord.Reference?
 }

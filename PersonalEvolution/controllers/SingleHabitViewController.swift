@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class SingleHabitViewController: UIViewController {
 
@@ -43,14 +44,7 @@ class SingleHabitViewController: UIViewController {
         Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 6", user: nil, date: Date()),
     ]
     
-    var groupCheckins: [Checkin] = [
-        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 1", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 2", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 3", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 4", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 5", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 6", user: nil, date: Date()),
-    ]
+    var groupCheckins: [Checkin] = []
     
     var usersParticipating: [User] = [
         User(name: "André", image: UIImage(named: "profileImageTest")),
@@ -84,16 +78,51 @@ class SingleHabitViewController: UIViewController {
         if habit.image != nil {
             habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)
         }
-        
-        drawGallery(buttons: personalGalleryButtons, checkins: personalCheckins)
-        drawGallery(buttons: groupGalleryButtons, checkins: groupCheckins)
-        drawUserImages(buttons: usersProfileImageButtons, users: usersParticipating)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            self.fetchHabitCheckinList()
+            self.drawGallery(buttons: self.personalGalleryButtons, checkins: self.personalCheckins)
+            self.drawGallery(buttons: self.groupGalleryButtons, checkins: self.groupCheckins)
+            self.drawUserImages(buttons: self.usersProfileImageButtons, users: self.usersParticipating)
+        }
+    }
+    
+    func fetchHabitCheckinList() {
+        DispatchQueue.main.async {
+            var checkinList: [Checkin] = []
+            CloudKitHelper.fetchCheckins { (result) in
+                switch result {
+                case .success(let newItem):
+                    checkinList.append(newItem)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                
+                let filteredCheckins = checkinList.filter {
+                    $0.habitRef?.recordID == self.habit.recordID
+                }
+                self.groupCheckins = filteredCheckins
+                print(self.groupCheckins)
+            }
+        }
     }
     
     func drawGallery(buttons: [UIButton], checkins: [Checkin]) {
-        for i in 0..<4 {
-            buttons[i].setBackgroundImage(checkins[i].image, for: .normal)
-            buttons[i].layer.cornerRadius = 15
+        if checkins.count > 4 {
+            for i in 0..<4 {
+                buttons[i].setBackgroundImage(checkins[i].image, for: .normal)
+                buttons[i].layer.cornerRadius = 15
+            }
+        } else {
+            for i in 0..<checkins.count {
+                buttons[i].setBackgroundImage(checkins[i].image, for: .normal)
+                buttons[i].layer.cornerRadius = 15
+            }
         }
     }
     

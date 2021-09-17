@@ -103,11 +103,11 @@ class CreateOrEditHabitViewController: UIViewController {
             vc.habit = newHabit
             present(vc, animated: true)
         } else if currentMode == .edit {
-            let updatedHabit = Habit(id: newHabit.id, recordID: newHabit.recordID, name: newHabit.name, image: newHabit.image, description: newHabit.description, checkinList: [], frequency: newHabit.frequency)
+            let updatedHabit = Habit(id: newHabit.id, recordID: newHabit.recordID, name: newHabit.name, image: newHabit.image, description: newHabit.description, frequency: newHabit.frequency)
             
             CloudKitHelper.modify(habit: updatedHabit) { (result) in
                 switch result {
-                case .success(let habit):
+                case .success(_):
                     print("Successfuly edited habit")
                 case .failure(let error):
                     print(error.localizedDescription)
