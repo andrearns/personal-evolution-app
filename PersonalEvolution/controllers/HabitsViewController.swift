@@ -6,11 +6,14 @@
 //
 import CloudKit
 import UIKit
+import iCarousel
 
-class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, iCarouselDataSource, iCarouselDelegate {
+    @IBOutlet weak var dailyComment: UIView!
+    @IBOutlet weak var dailyMood: UIView!
     
+   
     @IBOutlet var habitsTableView: UITableView!
-    @IBOutlet var addHabitButton: UIButton!
     
     var habitsList: [Habit] = []
     
@@ -19,23 +22,45 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.fetchHabits()
-        
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(swipeDownToReload), for: .valueChanged)
         self.habitsTableView.refreshControl = control
         
-        self.addHabitButton.layer.cornerRadius = 15
-        self.addHabitButton.layer.shadowColor = UIColor.black.cgColor
-        self.addHabitButton.layer.shadowOpacity = 0.05
-        self.addHabitButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.addHabitButton.layer.shadowRadius = 20
-        self.addHabitButton.layer.shadowPath = UIBezierPath(rect: addHabitButton.bounds).cgPath
-        self.addHabitButton.layer.shouldRasterize = true
-        
         self.habitsTableView.dataSource = self
         self.habitsTableView.delegate = self
         
+        view.addSubview(carousel)
+        carousel.frame = CGRect(x: 0, y: 155, width: view.frame.size.width, height: 70)
+        carousel.dataSource = self
+        carousel.delegate = self
+        carousel.stopAtItemBoundary = true
+        carousel.scrollToItem(at: 2, animated: true)
+        
+        fetchHabits()
+        self.habitsTableView.reloadData()
+    }
+    
+    func updateMoodPanel(index : Int){
+        if index == currentDay(){
+            dailyComment.isHidden = true
+            dailyMood.isHidden = false
+            
+        } else if index > currentDay(){
+            dailyComment.isHidden = true
+            dailyMood.isHidden = true
+        }
+        else{
+            dailyComment.isHidden = false
+            dailyMood.isHidden = true
+        }
+    }
+    
+    func currentDay() -> Int{
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        
+        return day
     }
     
     @objc func swipeDownToReload() {
@@ -71,6 +96,84 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
+    
+    // MARK: - Carousel
+    
+    let carousel: iCarousel = {
+        let view = iCarousel()
+        view.type = .linear
+        return view
+    }()
+    
+    func numberOfItems(in carousel: iCarousel) -> Int {
+        return 30
+    }
+    
+    func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
+        carousel.reloadData()
+    }
+
+    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        switch (option) {
+        case .spacing: return 1.045 // 2 points spacing
+
+            default: return value
+        }
+    }
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        
+        let curentView = self.carousel.currentItemIndex
+        
+        updateMoodPanel(index: curentView + 1)
+        
+        if self.carousel.currentItemIndex == index{
+            let view = setupCarouselView()
+            view.frame = CGRect(x: -5, y: -5, width: view.frame.width * 1.2, height:  view.frame.height * 1.2)
+            let label = setupCarouselLabel(view: view)
+            
+            view.backgroundColor = UIColor(named: "Lilas")
+            view.addSubview(label)
+
+            label.frame = CGRect(x: 0, y: 0, width: view.frame.width, height:  view.frame.height)
+            label.text = "\(index + 1)"
+            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: 22)
+            return view
+        }else {
+            let view = setupCarouselView()
+            let label = setupCarouselLabel(view: view)
+            
+            view.addSubview(label)
+            label.textColor = UIColor(named: "FontColorBlack")
+            label.text = "\(index + 1)"
+            return view
+        }
+    }
+    
+    func setupCarouselView() -> UIView {
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        view.backgroundColor = UIColor(named: "TextFieldBackgroundColor")
+        view.layer.cornerRadius = 15
+        view.dropShadow()
+        
+        return view
+    }
+    
+    func setupCarouselLabel(view : UIView) -> UILabel {
+        
+        let label = UILabel(frame: view.bounds)
+        label.center = view.center
+        label.textAlignment = .center
+        label.contentMode = .center
+        label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        label.font = UIFont.systemFont(ofSize: 18)
+
+        
+        return label
+    }
+    
+    
     
     @IBAction func addHabit(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -118,4 +221,5 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 }
+
 

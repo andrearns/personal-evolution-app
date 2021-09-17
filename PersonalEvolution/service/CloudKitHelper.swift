@@ -45,7 +45,6 @@ struct CloudKitHelper {
         habitRecord["Image"] = CKAsset(fileURL: url!)
         habitRecord.setValue(habit.name, forKey: "Name")
         habitRecord.setValue(habit.description, forKey: "Description")
-        habitRecord.setValue([], forKey: "CheckinList")
         habitRecord.setValue(habit.frequency, forKey: "Frequency")
         
         publicDatabase.save(habitRecord) { record, error in
@@ -62,7 +61,7 @@ struct CloudKitHelper {
         query.sortDescriptors = [sort]
         
         let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["Name", "Description", "Image"]
+        operation.desiredKeys = ["Name", "Description", "Image", "Frequency"]
         
         operation.recordFetchedBlock = { record in
             DispatchQueue.main.async {
@@ -86,13 +85,13 @@ struct CloudKitHelper {
                 let data = NSData(contentsOf: (file.fileURL)!)
                 let image = UIImage(data: data! as Data)
                 
-//                guard let frequency = record["Frequency"] as? [Int64] else {
-//                    completion(.failure(CloudKitHelperError.castFailure))
-//                    print("Erro para puxar a frequência")
-//                    return
-//                }
+                guard let frequency = record["Frequency"] as? [Int] else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar a frequência")
+                    return
+                }
                 
-                let habit = Habit(recordID: id, name: name, image: image, description: description, checkinList: [])
+                let habit = Habit(recordID: id, name: name, image: image, description: description, frequency: frequency)
                 completion(.success(habit))
             }
         }
@@ -132,6 +131,7 @@ struct CloudKitHelper {
                 record["Image"] = CKAsset(fileURL: url!)
                 record["Name"] = habit.name as CKRecordValue
                 record["Description"] = habit.description as CKRecordValue
+                record["Frequency"] = habit.frequency as CKRecordValue
                 
                 publicDatabase.save(record) { (record, error) in
                     DispatchQueue.main.async {
@@ -147,8 +147,9 @@ struct CloudKitHelper {
                         guard let file = record["Image"] as? CKAsset else { return }
                         let data = NSData(contentsOf: (file.fileURL)!)
                         let image = UIImage(data: data! as Data)
+                        guard let frequency = record["Frequency"] as? [Int] else { return }
                         
-                        let habit = Habit(recordID: id, name: name, image: image, description: description, checkinList: [])
+                        let habit = Habit(recordID: id, name: name, image: image, description: description, frequency: frequency)
                         completion(.success(habit))
                     }
                 }
@@ -168,17 +169,67 @@ struct CloudKitHelper {
                     completion(.failure(CloudKitHelperError.castFailure))
                     return
                 }
-                completion(.success(recordID))
+                completion(.success(recordId))
             }
         }
     }
     
     // MARK: - Checkin
     
+    // Read
+    static func fetchCheckins(completion: @escaping (Result<Checkin, Error>) -> ()) {
+        let predicate = NSPredicate(value: true)
+        let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+        let query = CKQuery(recordType: RecordType.Checkin, predicate: predicate)
+        query.sortDescriptors = [sort]
+        
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["Description", "Image", "HabitRef"]
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let description = record["Description"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let file = record["Image"] as? CKAsset else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                let data = NSData(contentsOf: (file.fileURL)!)
+                let image = UIImage(data: data! as Data)
+                
+                guard let habitRef = record["HabitRef"] as? CKRecord.Reference else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar a a referência do hábito")
+                    return
+                }
+                
+                let checkin = Checkin(image: image, description: description, user: nil, date: record.creationDate!, recordID: id, habitRef: habitRef)
+                completion(.success(checkin))
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        publicDatabase.add(operation)
+    }
+    
     // Create
     static func save(checkin: Checkin, habit: Habit) {
         
         let checkinRecord = CKRecord(recordType: RecordType.Checkin)
+        let habitRecord = CKRecord(recordType: RecordType.Habit)
         
         let data = checkin.image?.pngData()
         let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
@@ -190,16 +241,17 @@ struct CloudKitHelper {
         }
         checkinRecord["Image"] = CKAsset(fileURL: url!)
         checkinRecord["Description"] = checkin.description as String
-        checkinRecord["Habit"] = CKRecord.Reference(recordID: habit.recordID!, action: .deleteSelf)
+        checkinRecord["HabitRef"] = CKRecord.Reference(recordID: habit.recordID!, action: .deleteSelf)
+        
+        var checkinRefs = habit.checkinRefs
+        checkinRefs?.append(CKRecord.Reference(record: checkinRecord, action: .deleteSelf))
+        habitRecord["CheckinRefs"] = checkinRefs
+        
         
         publicDatabase.save(checkinRecord) { record, error in
             do { try FileManager().removeItem(at: url!) }
             catch let error { print("Error deleting temp file: \(error)")}
         }
-    }
-    
-    // Read
-    static func fetchCheckinList(completion: @escaping (Result<Checkin, Error>) -> ()) {
         
     }
     

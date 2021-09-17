@@ -13,7 +13,7 @@ struct Habit: Identifiable {
     var name: String
     var image: UIImage?
     var description: String
-    var checkinList: [Checkin] = []
+    var checkinRefs: [CKRecord.Reference]?
     var frequency: [Int] = [0, 0, 0, 0, 0, 0, 0]
 //    var streak: Int
 //    var checkinList: [Checkin]

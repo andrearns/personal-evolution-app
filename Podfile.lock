@@ -3,20 +3,29 @@ PODS:
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - iCarousel (1.8.3)
+  - SwiftVideoGenerator (1.4.0)
 
 DEPENDENCIES:
   - ALCameraViewController
   - Charts
+  - iCarousel
+  - SwiftVideoGenerator
 
 SPEC REPOS:
   trunk:
     - ALCameraViewController
     - Charts
+    - iCarousel
+    - SwiftVideoGenerator
 
 SPEC CHECKSUMS:
   ALCameraViewController: 144dea45fd749a623aafd8cb7b10cea88499fcc3
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  SwiftVideoGenerator: 804637c18f68a4f205d806e305ebceb4adcf3d25
 
-PODFILE CHECKSUM: ee5ef9527327af982e67cb801eebe52c628364b3
+PODFILE CHECKSUM: 3252e8446cd6c4ab65346b023726256313c4a1d1
+PODFILE CHECKSUM: 5a368d217588f38c106974dc57c789a9eee7f39c
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.0
