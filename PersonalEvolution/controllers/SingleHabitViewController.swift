@@ -111,15 +111,24 @@ class SingleHabitViewController: UIViewController {
     }
     
     func drawGallery(buttons: [UIButton], checkins: [Checkin]) {
-        if checkins.count > 4 {
+        
+        if checkins.count > 5 {
+            
             for i in 0..<4 {
                 buttons[i].setBackgroundImage(checkins[i].image, for: .normal)
-                buttons[i].layer.cornerRadius = 15
             }
+            buttons[4].backgroundColor = UIColor(named: "TextFieldBackgroundColor")
+            buttons[4].setImage(UIImage(systemName: "chevron.right"), for: .normal)
+            
+        } else if checkins.count == 5 {
+            
+            for i in 0..<5 {
+                buttons[i].setBackgroundImage(checkins[i].image, for: .normal)
+            }
+            
         } else {
             for i in 0..<checkins.count {
                 buttons[i].setBackgroundImage(checkins[i].image, for: .normal)
-                buttons[i].layer.cornerRadius = 15
             }
         }
     }

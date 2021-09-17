@@ -20,6 +20,7 @@ class RetrospectiveViewController: UIViewController {
     var videoURL: URL?
     var player: AVPlayer?
     
+    @IBOutlet var playVideoButton: UIButton!
     @IBOutlet var shareButton: UIButton!
     @IBOutlet var retrospectiveTitleLabel: UILabel!
     
@@ -27,6 +28,7 @@ class RetrospectiveViewController: UIViewController {
         super.viewDidLoad()
 
         shareButton.layer.cornerRadius = 15
+        playVideoButton.setBackgroundImage(checkinsList[checkinsList.count - 1].image, for: .normal)
         
         if retrospectiveType == .personal {
             retrospectiveTitleLabel.text = "Sua retrospectiva"
@@ -43,9 +45,9 @@ class RetrospectiveViewController: UIViewController {
         if let audioURL = Bundle.main.url(forResource: "Audio1", withExtension: "mp3") {
             LoadingView.lockView()
             
-            VideoGenerator.fileName = "newVideo"
+            VideoGenerator.fileName = "Wedo-Retrospective"
             VideoGenerator.videoBackgroundColor = .black
-            VideoGenerator.videoDurationInSeconds = 30
+            VideoGenerator.maxVideoLengthInSeconds = 2 * Double(self.images.count)
             VideoGenerator.scaleWidth = 1000
             VideoGenerator.shouldOptimiseImageForVideo = true
             

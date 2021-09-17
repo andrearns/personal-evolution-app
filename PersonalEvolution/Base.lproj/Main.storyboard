@@ -527,13 +527,12 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hon-S1-bQT">
                                                         <rect key="frame" x="3" y="3" width="65.5" height="65.5"/>
-                                                        <color key="backgroundColor" name="TextFieldBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="hon-S1-bQT" secondAttribute="height" multiplier="1:1" id="3oN-7G-RTE"/>
                                                         </constraints>
                                                         <color key="tintColor" name="ChartColorLine"/>
                                                         <state key="normal">
-                                                            <imageReference key="image" image="chevron.right" catalog="system" symbolScale="large"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                                         </state>
                                                         <connections>
@@ -656,13 +655,12 @@
                                                 <subviews>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faF-V5-moH">
                                                         <rect key="frame" x="3" y="3" width="65.5" height="65.5"/>
-                                                        <color key="backgroundColor" name="TextFieldBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="faF-V5-moH" secondAttribute="height" multiplier="1:1" id="ltv-Wj-KY2"/>
                                                         </constraints>
                                                         <color key="tintColor" name="ChartColorLine"/>
                                                         <state key="normal">
-                                                            <imageReference key="image" image="chevron.right" catalog="system" symbolScale="large"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                                         </state>
                                                         <connections>
@@ -739,7 +737,7 @@
                                     <constraint firstItem="wKr-Di-HcB" firstAttribute="top" secondItem="meq-22-ViL" secondAttribute="bottom" constant="16" id="j9K-r5-h1D"/>
                                     <constraint firstItem="YWA-r9-Wi7" firstAttribute="top" secondItem="4Fh-cn-I5x" secondAttribute="bottom" constant="32" id="l8f-ex-X19"/>
                                     <constraint firstItem="cx5-Bf-zzW" firstAttribute="top" secondItem="wKr-Di-HcB" secondAttribute="bottom" constant="16" id="m1B-N0-J7g"/>
-                                    <constraint firstAttribute="bottom" secondItem="s8B-jT-XrY" secondAttribute="bottom" constant="70" id="nDc-pR-6HT"/>
+                                    <constraint firstAttribute="bottom" secondItem="s8B-jT-XrY" secondAttribute="bottom" constant="150" id="nDc-pR-6HT"/>
                                     <constraint firstItem="oX0-YA-0AO" firstAttribute="top" secondItem="bZO-OS-Ded" secondAttribute="bottom" constant="16" id="ozq-x9-uDJ"/>
                                     <constraint firstItem="bfm-VN-l3A" firstAttribute="top" secondItem="8hJ-dG-Q1d" secondAttribute="bottom" constant="16" id="p1E-CQ-dPj"/>
                                     <constraint firstAttribute="trailing" secondItem="meq-22-ViL" secondAttribute="trailing" constant="-5" id="sbF-kz-VhL"/>
@@ -751,11 +749,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuN-Au-ah8" userLabel="Custom Navigation Bar">
                                 <rect key="frame" x="0.0" y="88" width="390" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRK-dS-ifn" userLabel="Back Button">
-                                        <rect key="frame" x="16" y="12.5" width="25" height="25"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRK-dS-ifn" userLabel="Back Button">
+                                        <rect key="frame" x="16" y="12.5" width="15" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="1AQ-uo-gXs"/>
-                                            <constraint firstAttribute="width" constant="25" id="Eo3-ee-Da5"/>
+                                            <constraint firstAttribute="width" constant="15" id="Eo3-ee-Da5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="tintColor" name="Lilas"/>
@@ -766,15 +764,16 @@
                                             <action selector="backToHabits:" destination="jWD-OQ-VSO" eventType="touchUpInside" id="iBo-G8-nfe"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMS-2j-5YG" userLabel="Edit Button">
-                                        <rect key="frame" x="349" y="12.5" width="25" height="25"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMS-2j-5YG" userLabel="Edit Button">
+                                        <rect key="frame" x="319" y="12.5" width="55" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="kSj-dx-Rb2"/>
-                                            <constraint firstAttribute="width" constant="25" id="xWQ-6R-Fn9"/>
+                                            <constraint firstAttribute="width" constant="55" id="xWQ-6R-Fn9"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="tintColor" name="ChartColorLine"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="large"/>
+                                        <state key="normal" title="Editar">
+                                            <color key="titleColor" name="Lilas"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" weight="semibold"/>
                                         </state>
                                         <connections>
@@ -782,7 +781,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtA-UE-8do">
-                                        <rect key="frame" x="41" y="9" width="98" height="32"/>
+                                        <rect key="frame" x="36" y="9" width="98" height="32"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <state key="normal" title="Seus hábitos">
                                             <color key="titleColor" name="Lilas"/>
@@ -794,7 +793,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="JtA-UE-8do" firstAttribute="leading" secondItem="FRK-dS-ifn" secondAttribute="trailing" id="5NS-NV-6AR"/>
+                                    <constraint firstItem="JtA-UE-8do" firstAttribute="leading" secondItem="FRK-dS-ifn" secondAttribute="trailing" constant="5" id="5NS-NV-6AR"/>
                                     <constraint firstAttribute="height" constant="50" id="FPx-3F-3zO"/>
                                     <constraint firstItem="JMS-2j-5YG" firstAttribute="centerY" secondItem="cuN-Au-ah8" secondAttribute="centerY" id="G0P-O6-NWf"/>
                                     <constraint firstItem="FRK-dS-ifn" firstAttribute="leading" secondItem="cuN-Au-ah8" secondAttribute="leading" constant="16" id="Mpf-Yx-2f3"/>
@@ -1186,6 +1185,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="playVideoButton" destination="d0D-mz-1LG" id="yTa-O1-uIi"/>
                         <outlet property="retrospectiveTitleLabel" destination="cej-uv-prf" id="nXk-gj-Ugs"/>
                         <outlet property="shareButton" destination="pgF-oL-oN4" id="5r5-gd-zHr"/>
                     </connections>
@@ -1813,7 +1813,6 @@
         <image name="StreakComponent" width="75" height="78"/>
         <image name="addPhotoIcon" width="36" height="36"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="defaultPopupImage" width="142" height="143"/>
         <image name="galleryImageTest" width="72" height="72.5"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
@@ -1822,7 +1821,6 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <namedColor name="ChartColorLine">
             <color red="0.68199998140335083" green="0.68199998140335083" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

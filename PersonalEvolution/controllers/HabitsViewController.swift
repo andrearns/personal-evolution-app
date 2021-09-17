@@ -34,6 +34,8 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.habitsTableView.dataSource = self
         self.habitsTableView.delegate = self
         
+        fetchHabits()
+        self.habitsTableView.reloadData()
     }
     
     @objc func swipeDownToReload() {
