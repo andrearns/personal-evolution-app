@@ -2,3 +2,4 @@ ${PODS_ROOT}/Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution-
 ${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework
+${BUILT_PRODUCTS_DIR}/SwiftVideoGenerator/SwiftVideoGenerator.framework

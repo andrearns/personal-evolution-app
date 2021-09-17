@@ -9,4 +9,6 @@ target 'PersonalEvolution' do
 	pod 'Charts'
   pod 'ALCameraViewController'
   pod 'iCarousel'
+  pod 'SwiftVideoGenerator'
+
 end

@@ -22,8 +22,6 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.fetchHabits()
-        
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(swipeDownToReload), for: .valueChanged)
         self.habitsTableView.refreshControl = control
@@ -38,6 +36,8 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         carousel.stopAtItemBoundary = true
         carousel.scrollToItem(at: 2, animated: true)
         
+        fetchHabits()
+        self.habitsTableView.reloadData()
     }
     
     func updateMoodPanel(index : Int){
