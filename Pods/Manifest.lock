@@ -3,20 +3,24 @@ PODS:
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - iCarousel (1.8.3)
 
 DEPENDENCIES:
   - ALCameraViewController
   - Charts
+  - iCarousel
 
 SPEC REPOS:
   trunk:
     - ALCameraViewController
     - Charts
+    - iCarousel
 
 SPEC CHECKSUMS:
   ALCameraViewController: 144dea45fd749a623aafd8cb7b10cea88499fcc3
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
 
-PODFILE CHECKSUM: ee5ef9527327af982e67cb801eebe52c628364b3
+PODFILE CHECKSUM: 3252e8446cd6c4ab65346b023726256313c4a1d1
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.0

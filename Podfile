@@ -8,5 +8,5 @@ target 'PersonalEvolution' do
   # Pods for PersonalEvolution
 	pod 'Charts'
   pod 'ALCameraViewController'
-
+  pod 'iCarousel'
 end
