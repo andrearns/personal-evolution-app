@@ -39,6 +39,7 @@
 		5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539C26E86DC800558BDD /* PopUpViewController.swift */; };
 		5B2E5F1326F420BB00BEAE3D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F1226F420BB00BEAE3D /* LoadingView.swift */; };
 		6A47017C35D818D27B4D8171 /* Pods_PersonalEvolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */; };
+		C66A54BF26F5338800B63CE8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A54BE26F5338800B63CE8 /* LoginViewController.swift */; };
 		EC71C83526F26FA80010F929 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */; };
 		EC71C83726F3CCC30010F929 /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71C83626F3CCC30010F929 /* FullScreenImageViewController.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		5B2D539C26E86DC800558BDD /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		5B2E5F1226F420BB00BEAE3D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8BAE0C3BCDF072B7B5D56EDD /* Pods-PersonalEvolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.release.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.release.xcconfig"; sourceTree = "<group>"; };
+		C66A54BE26F5338800B63CE8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC71C83626F3CCC30010F929 /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 				5B27FC7E26F1423F00C917D9 /* RetrospectiveViewController.swift */,
 				0E5147F526F3C40400D57BB0 /* PopUpDailyMoodViewController.swift */,
 				5B27FC8026F2A98100C917D9 /* UsersParticipatingListViewController.swift */,
+				C66A54BE26F5338800B63CE8 /* LoginViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				0E4FF3AC26EA439B00437262 /* EvolutionViewController.swift in Sources */,
 				5B27FC8326F2AB0100C917D9 /* UsersParticipatingTableViewCell.swift in Sources */,
 				0E98C19026E1577A00C6FFF8 /* Month.swift in Sources */,
+				C66A54BF26F5338800B63CE8 /* LoginViewController.swift in Sources */,
 				EC71C83526F26FA80010F929 /* GalleryCollectionViewCell.swift in Sources */,
 				5B0CE74326DDCEA00065E1A9 /* SingleHabitViewController.swift in Sources */,
 				5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */,
@@ -509,6 +513,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VWZ6P536SX;
 				INFOPLIST_FILE = PersonalEvolution/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,6 +535,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VWZ6P536SX;
 				INFOPLIST_FILE = PersonalEvolution/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

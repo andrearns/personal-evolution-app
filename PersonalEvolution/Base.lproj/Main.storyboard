@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="85S-Em-REp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NGe-8F-LxO">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -62,13 +62,13 @@
                                 <rect key="frame" x="0.0" y="403.33333333333337" width="390" height="332.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="cmN-76-Uhs">
-                                    <rect key="frame" x="0.0" y="148.66666828502309" width="390" height="40"/>
+                                    <rect key="frame" x="0.0" y="156" width="390" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="habitCell" rowHeight="100" id="CHq-8F-WRi" customClass="HabitTableViewCell" customModule="PersonalEvolution" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="390" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CHq-8F-WRi" id="4KJ-Nj-XvE">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
@@ -1292,13 +1292,13 @@
                                 <rect key="frame" x="16" y="124" width="358" height="654"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="kZL-bM-nA4">
-                                    <rect key="frame" x="0.0" y="108.66666828502309" width="358" height="60"/>
+                                    <rect key="frame" x="0.0" y="116" width="358" height="60"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="usersParticipatingCell" rowHeight="60" id="zVc-RI-YQq" customClass="UsersParticipatingTableViewCell" customModule="PersonalEvolution" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.333333969116211" width="358" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="358" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zVc-RI-YQq" id="XHY-yK-d7N">
                                             <rect key="frame" x="0.0" y="0.0" width="358" height="60"/>
@@ -2069,6 +2069,84 @@
             </objects>
             <point key="canvasLocation" x="4079.7101449275365" y="979.6875"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="atP-gR-NcA">
+            <objects>
+                <viewController id="NGe-8F-LxO" customClass="LoginViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8qh-Q9-6Xw">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4J-1q-RAg">
+                                <rect key="frame" x="30" y="169" width="330" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="LS4-gV-me8"/>
+                                </constraints>
+                                <string key="text">Bem- vindo ao Wedo, 
+Personalize seu App para começar:</string>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                <color key="textColor" red="0.98132756330000004" green="0.99921494720000004" blue="0.98579940929999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="highlightedColor" name="ChartColorBG"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FQ-2S-wOF">
+                                <rect key="frame" x="105" y="293" width="180" height="180"/>
+                                <color key="backgroundColor" name="TextFieldBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Ab7-2r-QjS"/>
+                                    <constraint firstAttribute="width" secondItem="6FQ-2S-wOF" secondAttribute="height" multiplier="1:1" id="d8N-0o-9HA"/>
+                                </constraints>
+                                <state key="normal">
+                                    <imageReference key="image" image="addPhotoIcon" symbolScale="medium"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Adicionar um apelido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQ0-C7-Opm" customClass="CustomTextField" customModule="PersonalEvolution" customModuleProvider="target">
+                                <rect key="frame" x="16" y="497" width="358" height="60"/>
+                                <color key="backgroundColor" name="TextFieldBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="oNt-Vh-7qk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txj-xV-91w">
+                                <rect key="frame" x="16" y="581" width="358" height="60"/>
+                                <color key="backgroundColor" red="0.32363328959999998" green="0.98521453140000004" blue="0.84196615399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="bbY-sc-sJ7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Próximo">
+                                    <color key="titleColor" red="0.97879068250000001" green="0.99911791090000002" blue="0.99032899480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dPb-5d-eMY"/>
+                        <color key="backgroundColor" name="Lilas"/>
+                        <constraints>
+                            <constraint firstItem="6FQ-2S-wOF" firstAttribute="centerX" secondItem="dPb-5d-eMY" secondAttribute="centerX" id="6wx-xW-Jd8"/>
+                            <constraint firstItem="txj-xV-91w" firstAttribute="top" secondItem="VQ0-C7-Opm" secondAttribute="bottom" constant="24" id="7ZX-xZ-i63"/>
+                            <constraint firstItem="dPb-5d-eMY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="txj-xV-91w" secondAttribute="bottom" constant="60" id="VM3-XH-1hr"/>
+                            <constraint firstItem="Q4J-1q-RAg" firstAttribute="leading" secondItem="dPb-5d-eMY" secondAttribute="leading" constant="30" id="dLa-Go-PKU"/>
+                            <constraint firstItem="txj-xV-91w" firstAttribute="leading" secondItem="dPb-5d-eMY" secondAttribute="leading" constant="16" id="goJ-xM-vHd"/>
+                            <constraint firstItem="VQ0-C7-Opm" firstAttribute="leading" secondItem="dPb-5d-eMY" secondAttribute="leading" constant="16" id="okC-OR-di2"/>
+                            <constraint firstItem="VQ0-C7-Opm" firstAttribute="top" secondItem="6FQ-2S-wOF" secondAttribute="bottom" constant="24" id="olD-AH-QmA"/>
+                            <constraint firstItem="dPb-5d-eMY" firstAttribute="trailing" secondItem="VQ0-C7-Opm" secondAttribute="trailing" constant="16" id="qId-SU-QkS"/>
+                            <constraint firstItem="dPb-5d-eMY" firstAttribute="trailing" secondItem="txj-xV-91w" secondAttribute="trailing" constant="16" id="rvf-zT-WK1"/>
+                            <constraint firstItem="6FQ-2S-wOF" firstAttribute="top" secondItem="Q4J-1q-RAg" secondAttribute="bottom" constant="24" id="sCi-ag-aer"/>
+                            <constraint firstItem="Q4J-1q-RAg" firstAttribute="top" secondItem="dPb-5d-eMY" secondAttribute="top" constant="125" id="sXv-wX-jqA"/>
+                            <constraint firstItem="dPb-5d-eMY" firstAttribute="trailing" secondItem="Q4J-1q-RAg" secondAttribute="trailing" constant="30" id="xc5-c9-7m6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoButton" destination="6FQ-2S-wOF" id="y7b-Tn-LFo"/>
+                        <outlet property="saveUserButton" destination="txj-xV-91w" id="ABk-Tn-EmC"/>
+                        <outlet property="userNameTextField" destination="VQ0-C7-Opm" id="hTX-xL-XJc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AMY-OM-Jav" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2760" y="280.80568720379148"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BlueBallShadow" width="55" height="55"/>
@@ -2096,6 +2174,9 @@
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <namedColor name="ChartColorBG">
+            <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="ChartColorLine">
             <color red="0.68199998140335083" green="0.68199998140335083" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
