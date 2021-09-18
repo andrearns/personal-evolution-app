@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "877B00E6DE7D4DC1416DB002A9C00848"
-               BuildableName = "SwiftVideoGenerator"
+               BuildableName = "SwiftVideoGenerator.framework"
                BlueprintName = "SwiftVideoGenerator"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
