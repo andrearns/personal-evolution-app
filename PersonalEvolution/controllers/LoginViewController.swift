@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
         photoButton.clipsToBounds = true
         userNameTextField.layer.cornerRadius = 15
         userNameTextField.delegate = self
+        userNameTextField.text = ""
         saveUserButton.layer.cornerRadius = 15
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardDidChangeFrameNotification, object: nil)
@@ -86,8 +87,14 @@ class LoginViewController: UIViewController {
 //            print(result)
 //        }
         print("Verificar se o nome já existe")
+        
     }
-
+    @IBAction func editingDidBegin(_ sender: Any) {
+        if !userNameTextField.text!.starts(with: "@") {
+            userNameTextField.text = "@\(userNameTextField.text ?? "")"
+        }
+    }
+    
 }
 
 extension LoginViewController: UITextFieldDelegate {

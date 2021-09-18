@@ -329,11 +329,11 @@ struct CloudKitHelper {
     // Validate username -> Does username already exist?
 //    static func doesNameAlreadyExist(username: String, equalTo: String, _ completion: @escaping (Bool) -> ()) {
 //        var result = false
-//        
+//
 //        let predicate = NSPredicate(format: "username == %@", equalTo)
 //        let query = CKQuery(recordType: "Name", predicate: predicate)
 //        publicDatabase.perform(query, inZoneWith: nil) { results, error in
-//            
+//
 //            if results != nil {
 //                print(results?.count)
 //                if results?.count == 1 {
