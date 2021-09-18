@@ -17,6 +17,7 @@ struct CloudKitHelper {
     struct RecordType {
         static let Habit = "Habit"
         static let Checkin = "Checkin"
+        static let User = "User"
     }
     
     // Errors
@@ -260,5 +261,93 @@ struct CloudKitHelper {
         
     }
     
+    // MARK: - User
+    
+    // Read
+    static func fetchUsers(completion: @escaping (Result<User, Error>) -> ()) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: RecordType.Checkin, predicate: predicate)
+    
+        
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["Name", "Image"]
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let name = record["Name"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let file = record["Image"] as? CKAsset else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                let data = NSData(contentsOf: (file.fileURL)!)
+                let image = UIImage(data: data! as Data)
+                
+                let user = User(name: name, image: image, recordID: id)
+                completion(.success(user))
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        publicDatabase.add(operation)
+    }
+    
+    // Create
+    static func save(user: User) {
+        let userRecord = CKRecord(recordType: RecordType.User)
+        
+        let data = user.image?.pngData()
+        let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
+        do {
+            try data?.write(to: url!, options: [])
+        } catch let error as NSError {
+            print("Error! \(error)")
+            return
+        }
+        userRecord["Image"] = CKAsset(fileURL: url!)
+        userRecord["Name"] = user.name as String
+        
+        publicDatabase.save(userRecord) { record, error in
+            do { try FileManager().removeItem(at: url!) }
+            catch let error { print("Error deleting temp file: \(error)")}
+        }
+    }
+    
+    // Validate username -> Does username already exist?
+//    static func doesNameAlreadyExist(username: String, equalTo: String, _ completion: @escaping (Bool) -> ()) {
+//        var result = false
+//        
+//        let predicate = NSPredicate(format: "username == %@", equalTo)
+//        let query = CKQuery(recordType: "Name", predicate: predicate)
+//        publicDatabase.perform(query, inZoneWith: nil) { results, error in
+//            
+//            if results != nil {
+//                print(results?.count)
+//                if results?.count == 1 {
+//                    print(results?.count)
+//                    result = true
+//                }
+//            }
+//        }
+//        completion(result)
+//    }
+    
+    // Update
+    static func modify(user: User, completion: @escaping (Result<User, Error>) -> ()) {
+        
+    }
     
 }

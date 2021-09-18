@@ -11,8 +11,6 @@ import iCarousel
 class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, iCarouselDataSource, iCarouselDelegate {
     @IBOutlet weak var dailyComment: UIView!
     @IBOutlet weak var dailyMood: UIView!
-    
-   
     @IBOutlet var habitsTableView: UITableView!
     
     var habitsList: [Habit] = []

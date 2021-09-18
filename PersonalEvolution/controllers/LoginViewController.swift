@@ -11,7 +11,7 @@ import ALCameraViewController
 class LoginViewController: UIViewController {
 
     @IBOutlet var saveUserButton: UIButton!
-    @IBOutlet var userNameTextField: CustomTextField!
+    @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var photoButton: UIButton!
     @IBOutlet var topLayoutConstraint: NSLayoutConstraint!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint!
@@ -70,6 +70,24 @@ class LoginViewController: UIViewController {
         
         present(cameraViewController, animated: true, completion: nil)
     }
+    
+    @IBAction func createUser(_ sender: Any) {
+        newUser.name = userNameTextField.text ?? ""
+        
+        CloudKitHelper.save(user: newUser)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
+        present(vc!, animated: true, completion: nil)
+    }
+    
+    @IBAction func verifyIfUsernameAlreadyExist(_ sender: Any) {
+//        CloudKitHelper.doesNameAlreadyExist(username: userNameTextField.text!, equalTo: userNameTextField.text!) { (result) in
+//            print(result)
+//        }
+        print("Verificar se o nome já existe")
+    }
+
 }
 
 extension LoginViewController: UITextFieldDelegate {

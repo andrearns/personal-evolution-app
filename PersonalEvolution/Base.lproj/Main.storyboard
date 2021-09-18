@@ -16,7 +16,7 @@
             <objects>
                 <viewController storyboardIdentifier="Habits" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="HabitsViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="kFm-CT-F4f">
@@ -2102,14 +2102,17 @@ Personalize seu App para começar:</string>
                                     <action selector="chooseUserImage:" destination="NGe-8F-LxO" eventType="touchUpInside" id="2Lq-Lr-qDO"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Adicionar um apelido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQ0-C7-Opm" customClass="CustomTextField" customModule="PersonalEvolution" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Adicionar um apelido" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQ0-C7-Opm">
                                 <rect key="frame" x="16" y="508" width="358" height="60"/>
                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="oNt-Vh-7qk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="verifyIfUsernameAlreadyExist:" destination="NGe-8F-LxO" eventType="editingChanged" id="KBN-fR-Yuh"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txj-xV-91w">
                                 <rect key="frame" x="16" y="592" width="358" height="60"/>
@@ -2121,6 +2124,9 @@ Personalize seu App para começar:</string>
                                 <state key="normal" title="Próximo">
                                     <color key="titleColor" red="0.97879068250000001" green="0.99911791090000002" blue="0.99032899480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="createUser:" destination="NGe-8F-LxO" eventType="touchUpInside" id="ve3-Iq-kXs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dPb-5d-eMY"/>
@@ -2145,7 +2151,7 @@ Personalize seu App para começar:</string>
                         <outlet property="photoButton" destination="6FQ-2S-wOF" id="y7b-Tn-LFo"/>
                         <outlet property="saveUserButton" destination="txj-xV-91w" id="ABk-Tn-EmC"/>
                         <outlet property="topLayoutConstraint" destination="sXv-wX-jqA" id="1yg-NZ-Jk4"/>
-                        <outlet property="userNameTextField" destination="VQ0-C7-Opm" id="hTX-xL-XJc"/>
+                        <outlet property="userNameTextField" destination="VQ0-C7-Opm" id="zeC-0h-G7M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMY-OM-Jav" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
