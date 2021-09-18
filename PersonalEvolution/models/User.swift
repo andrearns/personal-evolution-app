@@ -11,6 +11,6 @@ import UIKit
 struct User: Identifiable {
     var id = UUID()
     var name: String
-    var image: UIImage?
+    var imageData: Data?
     var recordID: CKRecord.ID?
 }

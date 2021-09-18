@@ -21,7 +21,7 @@ class EvolutionViewController: UIViewController, ChartViewDelegate{
     @IBOutlet weak var streakHabit2: UILabel!
     @IBOutlet weak var streakHabit3: UILabel!
     
-    
+    var currentUser = User(name: "", imageData: nil, recordID: nil)
     
     let yValues: [ChartDataEntry] = [
         ChartDataEntry(x: 0.0, y: 0.0),
@@ -42,7 +42,10 @@ class EvolutionViewController: UIViewController, ChartViewDelegate{
         weekMoodContainer.layer.cornerRadius = 15
         weekMoodContainer.dropShadow()
         
-        // Do any additional setup after loading the view.
+        self.currentUser.name = UserSingleton.shared.name!
+        self.currentUser.imageData = UserSingleton.shared.imageData!
+        self.currentUser.recordID = UserSingleton.shared.recordID ?? UserSingleton.shared.fetchUserRecordID()
+        print("Current user: \(self.currentUser)")
     }
     
     

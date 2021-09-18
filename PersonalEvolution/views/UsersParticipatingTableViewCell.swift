@@ -20,7 +20,7 @@ class UsersParticipatingTableViewCell: UITableViewCell {
     
     func setup(user: User) {
         self.user = user
-        userImageView.image = user.image
+        userImageView.image = UIImage(data: user.imageData!)
         usernameLabel.text = user.name
     }
 }

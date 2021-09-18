@@ -13,8 +13,8 @@ struct Checkin: Identifiable {
     var id = UUID()
     var image: UIImage?
     var description: String
-    var user: User?
     var date: Date
     var recordID: CKRecord.ID?
     var habitRef: CKRecord.Reference?
+    var userRef: CKRecord.Reference?
 }

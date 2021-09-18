@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var topLayoutConstraint: NSLayoutConstraint!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
-    var newUser = User(name: "", image: nil, recordID: nil)
+    var newUser = User(name: "", imageData: nil, recordID: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
         
         let cameraViewController = CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: true, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
             self?.photoButton.setImage(image, for: .normal)
-            self?.newUser.image = image
+            self?.newUser.imageData = image?.pngData()
             self?.dismiss(animated: true, completion: nil)
         }
         
@@ -73,13 +73,23 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func createUser(_ sender: Any) {
-        newUser.name = userNameTextField.text ?? ""
-        
-        CloudKitHelper.save(user: newUser)
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
-        present(vc!, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.newUser.name = self.userNameTextField.text ?? ""
+            let compressedImage = UIImage(data: self.newUser.imageData!)?.jpegData(compressionQuality: 0.2)
+            self.newUser.imageData = compressedImage?.base64EncodedData()
+            
+            CloudKitHelper.save(user: self.newUser)
+            
+            
+            UserSingleton.shared.setName(name: self.newUser.name)
+            UserSingleton.shared.setUserImageData(imageData: (self.newUser.imageData)!)
+            UserSingleton.shared.name = self.newUser.name
+            UserSingleton.shared.imageData = self.newUser.imageData
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "TabBar") as? UITabBarController
+            self.present(vc!, animated: true, completion: nil)
+        }
     }
     
     @IBAction func verifyIfUsernameAlreadyExist(_ sender: Any) {

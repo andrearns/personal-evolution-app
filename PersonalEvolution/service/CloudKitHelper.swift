@@ -210,7 +210,7 @@ struct CloudKitHelper {
                     return
                 }
                 
-                let checkin = Checkin(image: image, description: description, user: nil, date: record.creationDate!, recordID: id, habitRef: habitRef)
+                let checkin = Checkin(image: image, description: description, date: record.creationDate!, recordID: id, habitRef: habitRef)
                 completion(.success(checkin))
             }
         }
@@ -263,12 +263,43 @@ struct CloudKitHelper {
     
     // MARK: - User
     
-    // Read
+    static func fetchUsersRecordID(completion: @escaping (Result<User, Error>) -> ()) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: RecordType.User, predicate: predicate)
+    
+        let operation = CKQueryOperation(query: query)
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let name = record["Name"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                let user = User(name: name, imageData: nil, recordID: id)
+                
+                completion(.success(user))
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        
+        publicDatabase.add(operation)
+    }
+    
     static func fetchUsers(completion: @escaping (Result<User, Error>) -> ()) {
         let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: RecordType.Checkin, predicate: predicate)
+        let query = CKQuery(recordType: RecordType.User, predicate: predicate)
     
-        
         let operation = CKQueryOperation(query: query)
         operation.desiredKeys = ["Name", "Image"]
         
@@ -287,9 +318,9 @@ struct CloudKitHelper {
                 }
                 
                 let data = NSData(contentsOf: (file.fileURL)!)
-                let image = UIImage(data: data! as Data)
+                let imageData = UIImage(data: data! as Data)?.pngData()
                 
-                let user = User(name: name, image: image, recordID: id)
+                let user = User(name: name, imageData: imageData, recordID: id)
                 completion(.success(user))
             }
         }
@@ -309,7 +340,7 @@ struct CloudKitHelper {
     static func save(user: User) {
         let userRecord = CKRecord(recordType: RecordType.User)
         
-        let data = user.image?.pngData()
+        let data = user.imageData
         let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
         do {
             try data?.write(to: url!, options: [])
@@ -321,6 +352,9 @@ struct CloudKitHelper {
         userRecord["Name"] = user.name as String
         
         publicDatabase.save(userRecord) { record, error in
+            UserSingleton.shared.setUserRecordID(recordID: userRecord.recordID)
+            UserSingleton.shared.recordID = userRecord.recordID
+            print("RecordID saved on Singleton")
             do { try FileManager().removeItem(at: url!) }
             catch let error { print("Error deleting temp file: \(error)")}
         }

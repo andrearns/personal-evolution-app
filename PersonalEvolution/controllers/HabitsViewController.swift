@@ -9,11 +9,14 @@ import UIKit
 import iCarousel
 
 class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, iCarouselDataSource, iCarouselDelegate {
+    
     @IBOutlet weak var dailyComment: UIView!
     @IBOutlet weak var dailyMood: UIView!
     @IBOutlet var habitsTableView: UITableView!
+    @IBOutlet var usernameLabel: UILabel!
     
     var habitsList: [Habit] = []
+    var currentUser = User(name: "", imageData: nil, recordID: nil)
     
     private let database = CKContainer(identifier: "iCloud.PersonalEvolution").publicCloudDatabase
     
@@ -36,6 +39,14 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         fetchHabits()
         self.habitsTableView.reloadData()
+        
+        self.currentUser.name = UserSingleton.shared.name!
+        self.currentUser.imageData = UserSingleton.shared.imageData!
+        self.currentUser.recordID = UserSingleton.shared.recordID ?? UserSingleton.shared.fetchUserRecordID()
+        print("Current user: \(self.currentUser)")
+        
+        self.usernameLabel.text = self.currentUser.name
+       
     }
     
     func updateMoodPanel(index : Int){
