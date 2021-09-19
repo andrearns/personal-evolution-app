@@ -30,11 +30,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.habitsTableView.delegate = self
         
         view.addSubview(carousel)
-        carousel.frame = CGRect(x: 0, y: 155, width: view.frame.size.width, height: 70)
-        carousel.dataSource = self
-        carousel.delegate = self
-        carousel.stopAtItemBoundary = true
-        carousel.scrollToItem(at: 2, animated: true)
+        setupCarousel()
         
         fetchHabits()
         self.habitsTableView.reloadData()
@@ -105,8 +101,23 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return view
     }()
     
+    func setupCarousel(){
+        carousel.frame = CGRect(x: 0, y: 195, width: view.frame.size.width, height: 70)
+        carousel.dataSource = self
+        carousel.delegate = self
+        carousel.stopAtItemBoundary = true
+        
+        carousel.scrollToItem(at: (currentDay() - 1), animated: true)
+    }
+    
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return 30
+        
+        let calendar = Calendar.current
+        let date = Date()
+        
+        let interval = calendar.dateInterval(of: .month, for: date)!
+        let days = calendar.dateComponents([.day], from: interval.start, to: interval.end).day!
+        return days
     }
     
     func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
@@ -115,7 +126,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
         switch (option) {
-        case .spacing: return 1.045 // 2 points spacing
+        case .spacing: return 1.045 // 1.045 points spacing
 
             default: return value
         }
@@ -219,6 +230,28 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
         }
+    }
+    @IBAction func blueMoodDay(_ sender: Any) {
+        openPopUp()
+    }
+    @IBAction func purpleMoodDay(_ sender: Any) {
+        openPopUp()
+    }
+    @IBAction func greenMoodDay(_ sender: Any) {
+        openPopUp()
+    }
+    @IBAction func pinkMoodDay(_ sender: Any) {
+        openPopUp()
+    }
+    @IBAction func yellowMoodDay(_ sender: Any) {
+        openPopUp()
+    }
+    
+    func openPopUp(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "DailyMoodPopUp") as? PopUpDailyMoodViewController
+        
+        present(vc!, animated: true)
     }
 }
 
