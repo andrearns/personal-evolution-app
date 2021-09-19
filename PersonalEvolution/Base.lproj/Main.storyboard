@@ -16,7 +16,7 @@
             <objects>
                 <viewController storyboardIdentifier="Habits" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="HabitsViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="exC-iw-eQy">
@@ -55,35 +55,35 @@
                                                             <rect key="frame" x="31" y="60" width="55" height="55"/>
                                                             <state key="normal" image="BlueBallShadow"/>
                                                             <connections>
-                                                                <action selector="blueMoodDay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S0H-Hv-PkP"/>
+                                                                <action selector="openPopUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hq9-Sf-sVr"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1W-qY-zZS">
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1W-qY-zZS">
                                                             <rect key="frame" x="101" y="60" width="55" height="55"/>
                                                             <state key="normal" image="PurpleBallShadow"/>
                                                             <connections>
-                                                                <action selector="purpleMoodDay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xsh-Xp-Pk0"/>
+                                                                <action selector="openPopUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="szy-wv-KiF"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEG-FS-XOG">
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEG-FS-XOG">
                                                             <rect key="frame" x="171" y="60" width="55" height="55"/>
                                                             <state key="normal" image="GreenBallShadow"/>
                                                             <connections>
-                                                                <action selector="greenMoodDay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n61-Mf-Enm"/>
+                                                                <action selector="openPopUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="It1-bf-D54"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuN-A7-t5r">
+                                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuN-A7-t5r">
                                                             <rect key="frame" x="241" y="60" width="55" height="55"/>
                                                             <state key="normal" image="PinkBallShadow"/>
                                                             <connections>
-                                                                <action selector="pinkMoodDay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BSV-1L-E0N"/>
+                                                                <action selector="openPopUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IIE-r3-opu"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukh-8T-UTf">
+                                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukh-8T-UTf">
                                                             <rect key="frame" x="311" y="60" width="55" height="55"/>
                                                             <state key="normal" image="YellowBallShadow"/>
                                                             <connections>
-                                                                <action selector="yellowMoodDay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4mk-qd-X3J"/>
+                                                                <action selector="openPopUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q9f-Wx-Qsv"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>

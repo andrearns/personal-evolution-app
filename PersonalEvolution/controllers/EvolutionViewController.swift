@@ -21,6 +21,7 @@ class EvolutionViewController: UIViewController, ChartViewDelegate{
     @IBOutlet weak var streakHabit2: UILabel!
     @IBOutlet weak var streakHabit3: UILabel!
     
+    var dailyMoods: [DailyMood] = []
     var currentUser = User(name: "", imageData: nil, recordID: nil)
     
     let yValues: [ChartDataEntry] = [
@@ -48,8 +49,31 @@ class EvolutionViewController: UIViewController, ChartViewDelegate{
         print("Current user: \(self.currentUser)")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchDailyMoods()
+    }
     
-    
+    func fetchDailyMoods() {
+        DispatchQueue.main.async {
+            var dailyMoods: [DailyMood] = []
+            CloudKitHelper.fetchDailyMoods { (result) in
+                switch result {
+                case .success(let newItem):
+                    dailyMoods.append(newItem)
+                    print(newItem)
+                    print("Successfully fetched daily mood")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.dailyMoods = dailyMoods.filter({ dailyMood in
+                    dailyMood.userRef?.recordID == self.currentUser.recordID
+                })
+            }
+        }
+    }
 
     func setupEvolutionChart() {
         evoutionChart.backgroundColor = UIColor(named: "ChartColorBG")!
