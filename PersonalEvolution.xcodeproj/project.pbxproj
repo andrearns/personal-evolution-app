@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E4FF3AC26EA439B00437262 /* EvolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4FF3AB26EA439B00437262 /* EvolutionViewController.swift */; };
 		0E5147F626F3C40400D57BB0 /* PopUpDailyMoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5147F526F3C40400D57BB0 /* PopUpDailyMoodViewController.swift */; };
+		0E5147F826F5101100D57BB0 /* DailyMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5147F726F5101100D57BB0 /* DailyMood.swift */; };
 		0E85D58B26E958F1001A814F /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85D58A26E958F1001A814F /* Day.swift */; };
 		0E98C19026E1577A00C6FFF8 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98C18F26E1577A00C6FFF8 /* Month.swift */; };
 		5B0CE72B26DDCD040065E1A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE72A26DDCD040065E1A9 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		0E4FF3AB26EA439B00437262 /* EvolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionViewController.swift; sourceTree = "<group>"; };
 		0E5147F526F3C40400D57BB0 /* PopUpDailyMoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpDailyMoodViewController.swift; sourceTree = "<group>"; };
+		0E5147F726F5101100D57BB0 /* DailyMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMood.swift; sourceTree = "<group>"; };
 		0E85D58A26E958F1001A814F /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		0E98C18F26E1577A00C6FFF8 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		4516008CEF580DC2A9A4A3E1 /* Pods-PersonalEvolution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.debug.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				0E85D58A26E958F1001A814F /* Day.swift */,
 				0E98C18F26E1577A00C6FFF8 /* Month.swift */,
 				5B27FC7526EDBAF600C917D9 /* DayOfWeek.swift */,
+				0E5147F726F5101100D57BB0 /* DailyMood.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				5B2D539726E6D6D200558BDD /* CheckinViewController.swift in Sources */,
 				5B0CE74A26DDD1250065E1A9 /* HabitTableViewCell.swift in Sources */,
 				0E4FF3AC26EA439B00437262 /* EvolutionViewController.swift in Sources */,
+				0E5147F826F5101100D57BB0 /* DailyMood.swift in Sources */,
 				5B27FC8326F2AB0100C917D9 /* UsersParticipatingTableViewCell.swift in Sources */,
 				0E98C19026E1577A00C6FFF8 /* Month.swift in Sources */,
 				C66A54BF26F5338800B63CE8 /* LoginViewController.swift in Sources */,
