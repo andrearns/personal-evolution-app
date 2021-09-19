@@ -10,6 +10,7 @@ class CreateOrEditHabitViewController: UIViewController {
     @IBOutlet var descriptionPlaceholderLabel: UILabel!
     @IBOutlet var addImageButton: UIButton!
     @IBOutlet var daysOfWeekCollectionView: UICollectionView!
+    @IBOutlet var enterWithPasswordButton: UIButton!
     
     var onSave: (() -> Void)?
     var currentMode: CreateOrEditMode {
@@ -40,6 +41,9 @@ class CreateOrEditHabitViewController: UIViewController {
         habitNameTextField.attributedPlaceholder = NSAttributedString(string: "Nome do hábito", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
         addImageButton.layer.cornerRadius = 15
         createButton.layer.cornerRadius = 15
+        createButton.dropShadow()
+        enterWithPasswordButton.layer.cornerRadius = 15
+        enterWithPasswordButton.dropShadow()
         descriptionTextView.layer.cornerRadius = 15
         descriptionTextView.leftSpace()
         descriptionTextView.addDoneButton(title: "Pronto", target: self, selector: #selector(tapDone(sender:)))
@@ -61,7 +65,7 @@ class CreateOrEditHabitViewController: UIViewController {
             habitNameTextField.text = habit?.name
             descriptionTextView.text = habit?.description
             descriptionTextView.textColor = UIColor.black
-            let buttonImage = CropImage.shared.crop(image: (habit?.image)!, aspectRatio: 1.5)
+            let buttonImage = CropImage.shared.crop(image: (habit?.image)!, aspectRatio: 1.2)
             addImageButton.setBackgroundImage(buttonImage, for: .normal)
             createButton.setTitle("Salvar", for: .normal)
             self.newHabit = self.habit!
@@ -116,6 +120,12 @@ class CreateOrEditHabitViewController: UIViewController {
             
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func enterWithPassword(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "EnterWithPasswordPopUp") as? EnterWithPasswordPopUpViewController
+        self.present(vc!, animated: true, completion: nil)
     }
 }
  

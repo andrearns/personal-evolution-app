@@ -41,6 +41,8 @@
 		5B2E5F2026F6512E00BEAE3D /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F1F26F6512E00BEAE3D /* UserSingleton.swift */; };
 		5B2E5F2326F668B100BEAE3D /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F2226F668B100BEAE3D /* NavigationManager.swift */; };
 		5B2E5F2526F66A0C00BEAE3D /* InitialLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */; };
+		5B923CFF26F6F16E00CE9D4D /* Audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B923CFE26F6F16D00CE9D4D /* Audio1.mp3 */; };
+		5B923D0126F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B923D0026F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift */; };
 		6A47017C35D818D27B4D8171 /* Pods_PersonalEvolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */; };
 		C66A54BF26F5338800B63CE8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A54BE26F5338800B63CE8 /* LoginViewController.swift */; };
 		EC71C83526F26FA80010F929 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */; };
@@ -87,6 +89,8 @@
 		5B2E5F1F26F6512E00BEAE3D /* UserSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		5B2E5F2226F668B100BEAE3D /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLoadingViewController.swift; sourceTree = "<group>"; };
+		5B923CFE26F6F16D00CE9D4D /* Audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Audio1.mp3; path = ../../../../../Downloads/Audio1.mp3; sourceTree = "<group>"; };
+		5B923D0026F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterWithPasswordPopUpViewController.swift; sourceTree = "<group>"; };
 		8BAE0C3BCDF072B7B5D56EDD /* Pods-PersonalEvolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.release.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.release.xcconfig"; sourceTree = "<group>"; };
 		C66A54BE26F5338800B63CE8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 		5B0CE72926DDCD040065E1A9 /* PersonalEvolution */ = {
 			isa = PBXGroup;
 			children = (
+				5B923CFE26F6F16D00CE9D4D /* Audio1.mp3 */,
 				5B27FC7726EEB8B200C917D9 /* utils */,
 				5B1A9A7926E146FA0001F3CF /* service */,
 				5B0CE74826DDD0E70065E1A9 /* models */,
@@ -163,6 +168,7 @@
 				0E5147F526F3C40400D57BB0 /* PopUpDailyMoodViewController.swift */,
 				C66A54BE26F5338800B63CE8 /* LoginViewController.swift */,
 				5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */,
+				5B923D0026F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -177,7 +183,6 @@
 				EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */,
 				5B27FC8226F2AB0100C917D9 /* UsersParticipatingTableViewCell.swift */,
 				5B2E5F1226F420BB00BEAE3D /* LoadingView.swift */,
-				EC71C83626F3CCC30010F929 /* FullScreenImageViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 		5B2E5F2626F6727900BEAE3D /* Single Habit */ = {
 			isa = PBXGroup;
 			children = (
+				EC71C83626F3CCC30010F929 /* FullScreenImageViewController.swift */,
 				5B0CE74226DDCEA00065E1A9 /* SingleHabitViewController.swift */,
 				5B2D539626E6D6D200558BDD /* CheckinViewController.swift */,
 				5B27FC8026F2A98100C917D9 /* UsersParticipatingListViewController.swift */,
@@ -297,6 +303,7 @@
 				5B0CE73726DDCD050065E1A9 /* LaunchScreen.storyboard in Resources */,
 				5B0CE73426DDCD050065E1A9 /* Assets.xcassets in Resources */,
 				5B0CE73226DDCD040065E1A9 /* Main.storyboard in Resources */,
+				5B923CFF26F6F16E00CE9D4D /* Audio1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +359,7 @@
 				5B2E5F2026F6512E00BEAE3D /* UserSingleton.swift in Sources */,
 				5B0CE72B26DDCD040065E1A9 /* AppDelegate.swift in Sources */,
 				0E85D58B26E958F1001A814F /* Day.swift in Sources */,
+				5B923D0126F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift in Sources */,
 				5B27FC7226EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift in Sources */,
 				5B27FC8126F2A98200C917D9 /* UsersParticipatingListViewController.swift in Sources */,
 				5B0CE72D26DDCD040065E1A9 /* SceneDelegate.swift in Sources */,

@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import CloudKit
+
 struct DailyMood {
-    var id: UUID
+    var id = UUID()
     var mood: Int
     var commentary: String
     var date: Date
+    var userRef: CKRecord.Reference?
+    var recordID: CKRecord.ID?
 }

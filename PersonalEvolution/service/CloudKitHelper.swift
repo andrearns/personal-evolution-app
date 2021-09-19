@@ -18,6 +18,7 @@ struct CloudKitHelper {
         static let Habit = "Habit"
         static let Checkin = "Checkin"
         static let User = "User"
+        static let DailyMood = "DailyMood"
     }
     
     // Errors
@@ -47,6 +48,9 @@ struct CloudKitHelper {
         habitRecord.setValue(habit.name, forKey: "Name")
         habitRecord.setValue(habit.description, forKey: "Description")
         habitRecord.setValue(habit.frequency, forKey: "Frequency")
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let password = String((0..<4).map{ _ in letters.randomElement()! })
+        habitRecord["Password"] = password as String
         
         publicDatabase.save(habitRecord) { record, error in
             do { try FileManager().removeItem(at: url!) }
@@ -55,14 +59,15 @@ struct CloudKitHelper {
     }
     
     // Read
-    static func fetchHabits(completion: @escaping (Result<Habit, Error>) -> ()) {
-        let predicate = NSPredicate(value: true)
-        let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+    
+    static func searchHabitWithPassword(password: String, completion: @escaping (Result<Habit, Error>) -> ()) {
+        let predicate = NSPredicate(format: "Password == %@", password)
         let query = CKQuery(recordType: RecordType.Habit, predicate: predicate)
-        query.sortDescriptors = [sort]
         
         let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["Name", "Description", "Image", "Frequency"]
+        operation.desiredKeys = ["Name", "Description", "Image", "Frequency", "Password"]
+        
+        var result = Habit(recordID: nil, name: "", image: nil, description: "", checkinRefs: nil, frequency: [], password: "")
         
         operation.recordFetchedBlock = { record in
             DispatchQueue.main.async {
@@ -92,7 +97,77 @@ struct CloudKitHelper {
                     return
                 }
                 
-                let habit = Habit(recordID: id, name: name, image: image, description: description, frequency: frequency)
+                guard let password = record["Password"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar o password do hábito")
+                    return
+                }
+                
+                result.name = name
+                result.description = description
+                result.image = image
+                result.frequency = frequency
+                result.password = password
+                result.recordID = id
+                completion(.success(result))
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        publicDatabase.add(operation)
+    }
+    
+    static func fetchHabits(completion: @escaping (Result<Habit, Error>) -> ()) {
+        let predicate = NSPredicate(value: true)
+        let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+        let query = CKQuery(recordType: RecordType.Habit, predicate: predicate)
+        query.sortDescriptors = [sort]
+        
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["Name", "Description", "Image", "Frequency", "Password"]
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let name = record["Name"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let description = record["Description"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let file = record["Image"] as? CKAsset else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                let data = NSData(contentsOf: (file.fileURL)!)
+                let image = UIImage(data: data! as Data)
+                
+                guard let frequency = record["Frequency"] as? [Int] else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar a frequência")
+                    return
+                }
+                
+                guard let password = record["Password"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar o password do hábito")
+                    return
+                }
+                
+                let habit = Habit(recordID: id, name: name, image: image, description: description, frequency: frequency, password: password)
                 completion(.success(habit))
             }
         }
@@ -297,6 +372,53 @@ struct CloudKitHelper {
         publicDatabase.add(operation)
     }
     
+    static func searchUserWithRecordID(recordID: CKRecord.ID, completion: @escaping (Result<User, Error>) -> ()) {
+        let predicate = NSPredicate(format: "%K == %@", "recordID", CKRecord.Reference(recordID: recordID, action: .none))
+        let query = CKQuery(recordType: RecordType.User, predicate: predicate)
+        
+        var result = User(name: "", imageData: nil, recordID: nil)
+        
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["Name", "Image"]
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let name = record["Name"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let file = record["Image"] as? CKAsset else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+
+                let data = NSData(contentsOf: (file.fileURL)!)
+                let image = UIImage(data: data! as Data)
+                
+                
+                DispatchQueue.main.async {
+                    result.recordID = id
+                    result.name = name
+                    result.imageData = image?.jpegData(compressionQuality: 0.2)
+                    completion(.success(result))
+                }
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        publicDatabase.add(operation)
+    }
+    
     static func fetchUsers(completion: @escaping (Result<User, Error>) -> ()) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: RecordType.User, predicate: predicate)
@@ -385,5 +507,68 @@ struct CloudKitHelper {
     static func modify(user: User, completion: @escaping (Result<User, Error>) -> ()) {
         
     }
+    
+    // MARK: - Daily Mood
+    static func fetchDailyMoods(completion: @escaping (Result<DailyMood, Error>) -> ()) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: RecordType.DailyMood, predicate: predicate)
+    
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["Commentary", "Mood", "UserRef"]
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let commentary = record["Commentary"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let mood = record["Mood"] as? Int else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let userRef = record["UserRef"] as? CKRecord.Reference else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar a a referência do usuário")
+                    return
+                }
+                
+                let dailyMood = DailyMood(mood: mood, commentary: commentary, date: record.creationDate!, userRef: userRef, recordID: id)
+                completion(.success(dailyMood))
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        publicDatabase.add(operation)
+    }
+    
+    // Create
+    static func save(dailyMood: DailyMood, userRecordID: CKRecord.ID) {
+        let dailyMoodRecord = CKRecord(recordType: RecordType.DailyMood)
+        
+        dailyMoodRecord["Commentary"] = dailyMood.commentary as String
+        dailyMoodRecord["Mood"] = dailyMood.mood as Int
+        dailyMoodRecord["UserRef"] = CKRecord.Reference(recordID: userRecordID, action: .deleteSelf)
+        
+        publicDatabase.save(dailyMoodRecord) { record, error in
+            if error != nil {
+                print(error as Any)
+            } else {
+                print("Daily mood successfully saved on CloudKit")
+                print(record as Any)
+            }
+        }
+    }
+    
     
 }

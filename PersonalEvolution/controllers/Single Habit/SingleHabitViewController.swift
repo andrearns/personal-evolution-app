@@ -55,6 +55,9 @@ class SingleHabitViewController: UIViewController {
         playGroupRetrospectiveButton.dropShadow()
         playPersonalRetrospectiveButton.dropShadow()
         inviteButton.dropShadow()
+        for i in 0..<8 {
+            usersProfileImageButtons[i].layer.zPosition = 5
+        }
         
         if habit.image != nil {
             habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)
@@ -144,7 +147,7 @@ class SingleHabitViewController: UIViewController {
         }
     }
     
-    @IBAction func backToHabits(_ sender: Any) {
+    @IBAction func backToHabits(_ sender: UIButton) {
         if navigationController?.viewControllers == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "TabBar") as? UITabBarController
@@ -155,7 +158,7 @@ class SingleHabitViewController: UIViewController {
         }
     }
     
-    @IBAction func checkin(_ sender: Any) {
+    @IBAction func checkin(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "Checkin") as? CheckinViewController
         vc!.habit = self.habit
@@ -172,7 +175,7 @@ class SingleHabitViewController: UIViewController {
         present(vc!, animated: true)
     }
     
-    @IBAction func editHabit(_ sender: Any) {
+    @IBAction func editHabit(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "CreateOrEditHabit") as? CreateOrEditHabitViewController
         vc?.habit = self.habit
