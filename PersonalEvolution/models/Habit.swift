@@ -15,6 +15,7 @@ struct Habit: Identifiable {
     var description: String
     var checkinRefs: [CKRecord.Reference]?
     var frequency: [Int] = [0, 0, 0, 0, 0, 0, 0]
+    var password: String = ""
 //    var streak: Int
 //    var checkinList: [Checkin]
 //    var users: [User]

@@ -48,6 +48,9 @@ struct CloudKitHelper {
         habitRecord.setValue(habit.name, forKey: "Name")
         habitRecord.setValue(habit.description, forKey: "Description")
         habitRecord.setValue(habit.frequency, forKey: "Frequency")
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let password = String((0..<4).map{ _ in letters.randomElement()! })
+        habitRecord["Password"] = password as String
         
         publicDatabase.save(habitRecord) { record, error in
             do { try FileManager().removeItem(at: url!) }
@@ -63,7 +66,7 @@ struct CloudKitHelper {
         query.sortDescriptors = [sort]
         
         let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["Name", "Description", "Image", "Frequency"]
+        operation.desiredKeys = ["Name", "Description", "Image", "Frequency", "Password"]
         
         operation.recordFetchedBlock = { record in
             DispatchQueue.main.async {
@@ -93,7 +96,13 @@ struct CloudKitHelper {
                     return
                 }
                 
-                let habit = Habit(recordID: id, name: name, image: image, description: description, frequency: frequency)
+                guard let password = record["Password"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar o password do hábito")
+                    return
+                }
+                
+                let habit = Habit(recordID: id, name: name, image: image, description: description, frequency: frequency, password: password)
                 completion(.success(habit))
             }
         }
