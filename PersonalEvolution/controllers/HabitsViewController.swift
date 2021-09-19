@@ -14,6 +14,8 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var dailyMood: UIView!
     @IBOutlet var habitsTableView: UITableView!
     @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet var dailyCommentBackgroundView: UIView!
+    @IBOutlet var carouselView: UIView!
     
     var habitsList: [Habit] = []
     var currentUser = User(name: "", imageData: nil, recordID: nil)
@@ -23,6 +25,8 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dailyCommentBackgroundView.layer.cornerRadius = 15
+        
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(swipeDownToReload), for: .valueChanged)
         self.habitsTableView.refreshControl = control
@@ -30,7 +34,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.habitsTableView.dataSource = self
         self.habitsTableView.delegate = self
         
-        view.addSubview(carousel)
+        carouselView.addSubview(carousel)
         setupCarousel()
         
         fetchHabits()
@@ -111,7 +115,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }()
     
     func setupCarousel(){
-        carousel.frame = CGRect(x: 0, y: 195, width: view.frame.size.width, height: 70)
+        carousel.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 70)
         carousel.dataSource = self
         carousel.delegate = self
         carousel.stopAtItemBoundary = true
