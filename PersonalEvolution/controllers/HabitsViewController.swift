@@ -40,13 +40,13 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         fetchHabits()
         self.habitsTableView.reloadData()
         
-        self.currentUser.name = UserSingleton.shared.name!
-        self.currentUser.imageData = UserSingleton.shared.imageData!
-        self.currentUser.recordID = UserSingleton.shared.recordID ?? UserSingleton.shared.fetchUserRecordID()
-        print("Current user: \(self.currentUser)")
-        
-        self.usernameLabel.text = self.currentUser.name
-       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.currentUser.name = UserSingleton.shared.fetchName() ?? UserSingleton.shared.name!
+            self.currentUser.imageData = UserSingleton.shared.fetchUserImageData() ?? UserSingleton.shared.imageData!
+            self.currentUser.recordID = UserSingleton.shared.fetchUserRecordID() ?? UserSingleton.shared.recordID
+            self.usernameLabel.text = self.currentUser.name
+            print("Current user: \(self.currentUser)")
+        }
     }
     
     func updateMoodPanel(index : Int){

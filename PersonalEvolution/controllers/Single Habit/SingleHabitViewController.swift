@@ -24,27 +24,7 @@ class SingleHabitViewController: UIViewController {
     @IBOutlet var groupGalleryButtons: [UIButton]!
     @IBOutlet var usersProfileImageButtons: [UIButton]!
     
-    var personalCheckins: [Checkin] = [
-        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 1", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 2", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 3", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 4", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 5", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 6", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 1", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 2", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 3", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 4", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 5", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 6", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 1", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 2", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 3", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 4", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 5", date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 6", date: Date()),
-    ]
-    
+    var personalCheckins: [Checkin] = []
     var groupCheckins: [Checkin] = []
     
     var usersParticipating: [User] = [
@@ -80,18 +60,16 @@ class SingleHabitViewController: UIViewController {
             habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)
         }
         
-        self.currentUser.name = UserSingleton.shared.name!
-        self.currentUser.imageData = UserSingleton.shared.imageData!
-        self.currentUser.recordID = UserSingleton.shared.recordID ?? UserSingleton.shared.fetchUserRecordID()
         print(self.currentUser)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         DispatchQueue.main.async {
+            self.currentUser.name = UserSingleton.shared.name!
+            self.currentUser.imageData = UserSingleton.shared.imageData!
+            self.currentUser.recordID = UserSingleton.shared.recordID ?? UserSingleton.shared.fetchUserRecordID()
             self.fetchHabitCheckinList()
-            self.drawGallery(buttons: self.personalGalleryButtons, checkins: self.personalCheckins)
-            self.drawUserImages(buttons: self.usersProfileImageButtons, users: self.usersParticipating)
         }
     }
     
@@ -110,7 +88,14 @@ class SingleHabitViewController: UIViewController {
                 self.groupCheckins = checkinList.filter {
                     $0.habitRef?.recordID == self.habit.recordID
                 }
-                self.drawGallery(buttons: self.groupGalleryButtons, checkins: self.groupCheckins)
+                self.personalCheckins = self.groupCheckins.filter {
+                    $0.userRef?.recordID == self.currentUser.recordID
+                }
+                DispatchQueue.main.async {
+                    self.drawGallery(buttons: self.personalGalleryButtons, checkins: self.personalCheckins)
+                    self.drawGallery(buttons: self.groupGalleryButtons, checkins: self.groupCheckins)
+                    self.drawUserImages(buttons: self.usersProfileImageButtons, users: self.usersParticipating)
+                }
                 print(self.groupCheckins)
             }
         }

@@ -85,7 +85,7 @@ class CheckinViewController: UIViewController {
     @IBAction func saveCheckin(_ sender: Any) {
         newCheckin.image = addImageButton.currentBackgroundImage
         newCheckin.description = descriptionTextField.text!
-        CloudKitHelper.save(checkin: newCheckin, habit: self.habit)
+        CloudKitHelper.save(checkin: newCheckin, habit: self.habit, userRecordID: self.currentUser.recordID!)
         print("Checkin done at \(Date())")
         self.dismiss(animated: true)
     }

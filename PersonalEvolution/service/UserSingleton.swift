@@ -48,8 +48,12 @@ struct UserSingleton {
     
     func fetchUserRecordID() -> CKRecord.ID? {
         let data = UserDefaults.standard.object(forKey: "User RecordID")
-        let record = try? NSKeyedUnarchiver.unarchivedObject(ofClass: CKRecord.ID.self, from: data as! Data)
-        return record
+        if data != nil {
+            let recordID = try? NSKeyedUnarchiver.unarchivedObject(ofClass: CKRecord.ID.self, from: data as! Data)
+            return recordID
+        } else {
+            return nil
+        }
     }
     
 }

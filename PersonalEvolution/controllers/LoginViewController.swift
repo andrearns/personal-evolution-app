@@ -80,7 +80,6 @@ class LoginViewController: UIViewController {
             
             CloudKitHelper.save(user: self.newUser)
             
-            
             UserSingleton.shared.setName(name: self.newUser.name)
             UserSingleton.shared.setUserImageData(imageData: (self.newUser.imageData)!)
             UserSingleton.shared.name = self.newUser.name

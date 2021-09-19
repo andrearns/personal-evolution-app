@@ -185,7 +185,7 @@ struct CloudKitHelper {
         query.sortDescriptors = [sort]
         
         let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["Description", "Image", "HabitRef"]
+        operation.desiredKeys = ["Description", "Image", "HabitRef", "UserRef"]
         
         operation.recordFetchedBlock = { record in
             DispatchQueue.main.async {
@@ -210,7 +210,13 @@ struct CloudKitHelper {
                     return
                 }
                 
-                let checkin = Checkin(image: image, description: description, date: record.creationDate!, recordID: id, habitRef: habitRef)
+                guard let userRef = record["UserRef"] as? CKRecord.Reference else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar a a referência do usuário")
+                    return
+                }
+                
+                let checkin = Checkin(image: image, description: description, date: record.creationDate!, recordID: id, habitRef: habitRef, userRef: userRef)
                 completion(.success(checkin))
             }
         }
@@ -227,10 +233,9 @@ struct CloudKitHelper {
     }
     
     // Create
-    static func save(checkin: Checkin, habit: Habit) {
+    static func save(checkin: Checkin, habit: Habit, userRecordID: CKRecord.ID) {
         
         let checkinRecord = CKRecord(recordType: RecordType.Checkin)
-        let habitRecord = CKRecord(recordType: RecordType.Habit)
         
         let data = checkin.image?.pngData()
         let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
@@ -243,11 +248,7 @@ struct CloudKitHelper {
         checkinRecord["Image"] = CKAsset(fileURL: url!)
         checkinRecord["Description"] = checkin.description as String
         checkinRecord["HabitRef"] = CKRecord.Reference(recordID: habit.recordID!, action: .deleteSelf)
-        
-        var checkinRefs = habit.checkinRefs
-        checkinRefs?.append(CKRecord.Reference(record: checkinRecord, action: .deleteSelf))
-        habitRecord["CheckinRefs"] = checkinRefs
-        
+        checkinRecord["UserRef"] = CKRecord.Reference(recordID: userRecordID, action: .deleteSelf)
         
         publicDatabase.save(checkinRecord) { record, error in
             do { try FileManager().removeItem(at: url!) }
@@ -355,6 +356,7 @@ struct CloudKitHelper {
             UserSingleton.shared.setUserRecordID(recordID: userRecord.recordID)
             UserSingleton.shared.recordID = userRecord.recordID
             print("RecordID saved on Singleton")
+            
             do { try FileManager().removeItem(at: url!) }
             catch let error { print("Error deleting temp file: \(error)")}
         }
