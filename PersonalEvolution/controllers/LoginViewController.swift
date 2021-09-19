@@ -75,8 +75,13 @@ class LoginViewController: UIViewController {
     @IBAction func createUser(_ sender: Any) {
         DispatchQueue.main.async {
             self.newUser.name = self.userNameTextField.text ?? ""
-            let compressedImage = UIImage(data: self.newUser.imageData!)?.jpegData(compressionQuality: 0.2)
-            self.newUser.imageData = compressedImage?.base64EncodedData()
+            var compressedImageData: Data? = nil
+            if self.newUser.imageData != nil {
+                compressedImageData = UIImage(data: self.newUser.imageData!)?.jpegData(compressionQuality: 0.2)
+            } else {
+                compressedImageData = UIImage(named: "defaultpopupImage")?.jpegData(compressionQuality: 0.2)
+            }
+            self.newUser.imageData = compressedImageData?.base64EncodedData()
             
             CloudKitHelper.save(user: self.newUser)
             

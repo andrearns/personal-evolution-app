@@ -14,14 +14,19 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var dailyMood: UIView!
     @IBOutlet var habitsTableView: UITableView!
     @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet var dailyCommentBackgroundView: UIView!
+    @IBOutlet var carouselView: UIView!
     
     var habitsList: [Habit] = []
     var currentUser = User(name: "", imageData: nil, recordID: nil)
+    var dailyMoods: [DailyMood] = []
     
     private let database = CKContainer(identifier: "iCloud.PersonalEvolution").publicCloudDatabase
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dailyCommentBackgroundView.layer.cornerRadius = 15
         
         let control = UIRefreshControl()
         control.addTarget(self, action: #selector(swipeDownToReload), for: .valueChanged)
@@ -30,10 +35,11 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.habitsTableView.dataSource = self
         self.habitsTableView.delegate = self
         
-        view.addSubview(carousel)
+        carouselView.addSubview(carousel)
         setupCarousel()
         
         fetchHabits()
+        fetchDailyMoods()
         self.habitsTableView.reloadData()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -71,6 +77,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @objc func swipeDownToReload() {
         self.habitsTableView.refreshControl?.beginRefreshing()
         self.fetchHabits()
+        self.fetchDailyMoods()
         self.habitsTableView.refreshControl?.endRefreshing()
     }
     
@@ -102,6 +109,27 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func fetchDailyMoods() {
+        DispatchQueue.main.async {
+            var dailyMoods: [DailyMood] = []
+            CloudKitHelper.fetchDailyMoods { (result) in
+                switch result {
+                case .success(let newItem):
+                    dailyMoods.append(newItem)
+                    print(newItem)
+                    print("Successfully fetched daily mood")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.dailyMoods = dailyMoods.filter({ dailyMood in
+                    dailyMood.userRef?.recordID == self.currentUser.recordID
+                })
+            }
+        }
+    }
+    
     // MARK: - Carousel
     
     let carousel: iCarousel = {
@@ -111,7 +139,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }()
     
     func setupCarousel(){
-        carousel.frame = CGRect(x: 0, y: 195, width: view.frame.size.width, height: 70)
+        carousel.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 70)
         carousel.dataSource = self
         carousel.delegate = self
         carousel.stopAtItemBoundary = true
@@ -159,7 +187,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             label.textColor = .white
             label.font = UIFont.systemFont(ofSize: 22)
             return view
-        }else {
+        } else {
             let view = setupCarouselView()
             let label = setupCarouselLabel(view: view)
             
@@ -240,28 +268,14 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-    @IBAction func blueMoodDay(_ sender: Any) {
-        openPopUp()
-    }
-    @IBAction func purpleMoodDay(_ sender: Any) {
-        openPopUp()
-    }
-    @IBAction func greenMoodDay(_ sender: Any) {
-        openPopUp()
-    }
-    @IBAction func pinkMoodDay(_ sender: Any) {
-        openPopUp()
-    }
-    @IBAction func yellowMoodDay(_ sender: Any) {
-        openPopUp()
-    }
     
-    func openPopUp(){
+    @IBAction func openPopUp(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "DailyMoodPopUp") as? PopUpDailyMoodViewController
-        
+        vc?.mood = sender.tag
         present(vc!, animated: true)
     }
+    
 }
 
 

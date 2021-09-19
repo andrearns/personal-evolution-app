@@ -160,15 +160,13 @@
 		5B0CE74426DDCEF20065E1A9 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5B2E5F2626F6727900BEAE3D /* Single Habit */,
+				5B923D0226F7B7F000CE9D4D /* Pop ups */,
 				5B1A9A7526E0109A0001F3CF /* CreateOrEditHabitViewController.swift */,
 				5B0CE74526DDCFEA0065E1A9 /* HabitsViewController.swift */,
-				5B2E5F2626F6727900BEAE3D /* Single Habit */,
-				5B2D539C26E86DC800558BDD /* PopUpViewController.swift */,
 				0E4FF3AB26EA439B00437262 /* EvolutionViewController.swift */,
-				0E5147F526F3C40400D57BB0 /* PopUpDailyMoodViewController.swift */,
 				C66A54BE26F5338800B63CE8 /* LoginViewController.swift */,
 				5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */,
-				5B923D0026F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -230,6 +228,16 @@
 				5B27FC7C26F13EDE00C917D9 /* PhotoGalleryViewController.swift */,
 			);
 			path = "Single Habit";
+			sourceTree = "<group>";
+		};
+		5B923D0226F7B7F000CE9D4D /* Pop ups */ = {
+			isa = PBXGroup;
+			children = (
+				5B2D539C26E86DC800558BDD /* PopUpViewController.swift */,
+				0E5147F526F3C40400D57BB0 /* PopUpDailyMoodViewController.swift */,
+				5B923D0026F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift */,
+			);
+			path = "Pop ups";
 			sourceTree = "<group>";
 		};
 		8FD78B2C48E638FB3E632D15 /* Pods */ = {

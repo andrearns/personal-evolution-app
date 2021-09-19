@@ -556,8 +556,8 @@ struct CloudKitHelper {
     static func save(dailyMood: DailyMood, userRecordID: CKRecord.ID) {
         let dailyMoodRecord = CKRecord(recordType: RecordType.DailyMood)
         
-        dailyMoodRecord["Commentary"] = dailyMood.commentary as String
-        dailyMoodRecord["Mood"] = dailyMood.mood as Int
+        dailyMoodRecord["Commentary"] = dailyMood.commentary! as String
+        dailyMoodRecord["Mood"] = dailyMood.mood! as Int
         dailyMoodRecord["UserRef"] = CKRecord.Reference(recordID: userRecordID, action: .deleteSelf)
         
         publicDatabase.save(dailyMoodRecord) { record, error in
