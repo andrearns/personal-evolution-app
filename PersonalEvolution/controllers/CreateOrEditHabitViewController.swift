@@ -125,7 +125,7 @@ class CreateOrEditHabitViewController: UIViewController {
     @IBAction func enterWithPassword(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "EnterWithPasswordPopUp") as? EnterWithPasswordPopUpViewController
-        present(vc!, animated: true, completion: nil)
+        self.present(vc!, animated: true, completion: nil)
     }
 }
  

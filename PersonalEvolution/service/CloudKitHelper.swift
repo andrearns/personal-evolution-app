@@ -59,6 +59,71 @@ struct CloudKitHelper {
     }
     
     // Read
+    
+    static func searchHabitWithPassword(password: String, completion: @escaping (Result<Habit, Error>) -> ()) {
+        let predicate = NSPredicate(format: "Password == %@", password)
+        let query = CKQuery(recordType: RecordType.Habit, predicate: predicate)
+        
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["Name", "Description", "Image", "Frequency", "Password"]
+        
+        var result = Habit(recordID: nil, name: "", image: nil, description: "", checkinRefs: nil, frequency: [], password: "")
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let name = record["Name"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let description = record["Description"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let file = record["Image"] as? CKAsset else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                let data = NSData(contentsOf: (file.fileURL)!)
+                let image = UIImage(data: data! as Data)
+                
+                guard let frequency = record["Frequency"] as? [Int] else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar a frequência")
+                    return
+                }
+                
+                guard let password = record["Password"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar o password do hábito")
+                    return
+                }
+                
+                result.name = name
+                result.description = description
+                result.image = image
+                result.frequency = frequency
+                result.password = password
+                result.recordID = id
+                completion(.success(result))
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        publicDatabase.add(operation)
+    }
+    
     static func fetchHabits(completion: @escaping (Result<Habit, Error>) -> ()) {
         let predicate = NSPredicate(value: true)
         let sort = NSSortDescriptor(key: "creationDate", ascending: false)

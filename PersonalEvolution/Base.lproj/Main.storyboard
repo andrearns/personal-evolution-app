@@ -16,7 +16,7 @@
             <objects>
                 <viewController storyboardIdentifier="Habits" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="HabitsViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="exC-iw-eQy">
@@ -1086,6 +1086,7 @@
                             <constraint firstItem="qz0-eZ-qBp" firstAttribute="centerX" secondItem="Flh-Zx-rXF" secondAttribute="centerX" id="fif-a4-2Na"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Nzk-Is-FMh"/>
                     <connections>
                         <outlet property="joinButton" destination="LIr-Fg-p9H" id="j79-Mj-6m4"/>
                         <outlet property="passwordTextField" destination="Ca8-RM-ALZ" id="txq-xA-i3o"/>
@@ -1094,7 +1095,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLM-ET-93v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1560" y="1777"/>
+            <point key="canvasLocation" x="2489.2307692307691" y="1776.5402843601894"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="mRJ-z2-LS4">
@@ -1189,7 +1190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mwi-Ls-JQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3118" y="1777"/>
+            <point key="canvasLocation" x="4046.1538461538462" y="1776.5402843601894"/>
         </scene>
         <!--Photo Gallery View Controller-->
         <scene sceneID="SWc-Qd-2S2">
@@ -1623,7 +1624,8 @@
                             <constraint firstItem="aqh-fO-amy" firstAttribute="top" secondItem="nxw-7s-8tv" secondAttribute="bottom" constant="24" id="yyR-Cc-Fdo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Novo hábito" image="plus.circle.fill" catalog="system" id="w1J-o6-P5n"/>
+                    <tabBarItem key="tabBarItem" title="Novo hábito" image="plus.circle.fill" catalog="system" selectedImage="plus.circle.fill" id="YoS-49-xlf"/>
+                    <navigationItem key="navigationItem" id="Ja9-18-gXO"/>
                     <connections>
                         <outlet property="addImageButton" destination="nxw-7s-8tv" id="9Ny-fq-NCs"/>
                         <outlet property="createButton" destination="aqh-fO-amy" id="hbS-fs-yPm"/>
@@ -1636,7 +1638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syK-9K-SN4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-955" y="-468"/>
+            <point key="canvasLocation" x="-95" y="-468"/>
         </scene>
         <!--Evolução-->
         <scene sceneID="Cnj-SW-4Xj">
@@ -1951,7 +1953,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="At2-WP-REm" kind="relationship" relationship="viewControllers" id="iYw-KC-uEB"/>
-                        <segue destination="CB4-kc-nFb" kind="relationship" relationship="viewControllers" id="KG2-6u-5w6"/>
+                        <segue destination="CB4-kc-nFb" kind="relationship" relationship="viewControllers" id="8ow-cg-OG4"/>
                         <segue destination="ovN-Px-5P4" kind="relationship" relationship="viewControllers" id="0zs-yQ-V9g"/>
                     </connections>
                 </tabBarController>
@@ -2076,7 +2078,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORM-FK-ShT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2334" y="1777"/>
+            <point key="canvasLocation" x="3263.0769230769229" y="1776.5402843601894"/>
         </scene>
         <!--Full Screen Image View Controller-->
         <scene sceneID="1u8-po-qo9">
