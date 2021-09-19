@@ -18,6 +18,7 @@ struct CloudKitHelper {
         static let Habit = "Habit"
         static let Checkin = "Checkin"
         static let User = "User"
+        static let DailyMood = "DailyMood"
     }
     
     // Errors
@@ -385,5 +386,68 @@ struct CloudKitHelper {
     static func modify(user: User, completion: @escaping (Result<User, Error>) -> ()) {
         
     }
+    
+    // MARK: - Daily Mood
+    static func fetchDailyMoods(completion: @escaping (Result<DailyMood, Error>) -> ()) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: RecordType.DailyMood, predicate: predicate)
+    
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["Commentary", "Mood", "UserRef"]
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let commentary = record["Commentary"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let mood = record["Mood"] as? Int else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let userRef = record["UserRef"] as? CKRecord.Reference else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar a a referência do usuário")
+                    return
+                }
+                
+                let dailyMood = DailyMood(mood: mood, commentary: commentary, date: record.creationDate!, userRef: userRef, recordID: id)
+                completion(.success(dailyMood))
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        publicDatabase.add(operation)
+    }
+    
+    // Create
+    static func save(dailyMood: DailyMood, userRecordID: CKRecord.ID) {
+        let dailyMoodRecord = CKRecord(recordType: RecordType.DailyMood)
+        
+        dailyMoodRecord["Commentary"] = dailyMood.commentary as String
+        dailyMoodRecord["Mood"] = dailyMood.mood as Int
+        dailyMoodRecord["UserRef"] = CKRecord.Reference(recordID: userRecordID, action: .deleteSelf)
+        
+        publicDatabase.save(dailyMoodRecord) { record, error in
+            if error != nil {
+                print(error as Any)
+            } else {
+                print("Daily mood successfully saved on CloudKit")
+                print(record as Any)
+            }
+        }
+    }
+    
     
 }
