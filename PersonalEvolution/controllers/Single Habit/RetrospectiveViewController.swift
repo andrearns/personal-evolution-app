@@ -51,7 +51,7 @@ class RetrospectiveViewController: UIViewController {
             VideoGenerator.scaleWidth = 1000
             VideoGenerator.shouldOptimiseImageForVideo = true
             
-            VideoGenerator.current.generate(withImages: self.images, andAudios: [audioURL], andType: .singleAudioMultipleImage, { (progress) in
+            VideoGenerator.current.generate(withImages: self.images.reversed(), andAudios: [audioURL], andType: .singleAudioMultipleImage, { (progress) in
                 print(progress)
             }) { (result) in
                 LoadingView.unlockView()
