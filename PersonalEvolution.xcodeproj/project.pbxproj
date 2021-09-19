@@ -43,6 +43,7 @@
 		5B2E5F2526F66A0C00BEAE3D /* InitialLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */; };
 		5B923CFF26F6F16E00CE9D4D /* Audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B923CFE26F6F16D00CE9D4D /* Audio1.mp3 */; };
 		5B923D0126F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B923D0026F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift */; };
+		5B923D0426F7E26000CE9D4D /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B923D0326F7E26000CE9D4D /* OnboardingViewController.swift */; };
 		6A47017C35D818D27B4D8171 /* Pods_PersonalEvolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */; };
 		C66A54BF26F5338800B63CE8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A54BE26F5338800B63CE8 /* LoginViewController.swift */; };
 		EC71C83526F26FA80010F929 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */; };
@@ -91,6 +92,7 @@
 		5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLoadingViewController.swift; sourceTree = "<group>"; };
 		5B923CFE26F6F16D00CE9D4D /* Audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Audio1.mp3; path = ../../../../../Downloads/Audio1.mp3; sourceTree = "<group>"; };
 		5B923D0026F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterWithPasswordPopUpViewController.swift; sourceTree = "<group>"; };
+		5B923D0326F7E26000CE9D4D /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8BAE0C3BCDF072B7B5D56EDD /* Pods-PersonalEvolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.release.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.release.xcconfig"; sourceTree = "<group>"; };
 		C66A54BE26F5338800B63CE8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				0E4FF3AB26EA439B00437262 /* EvolutionViewController.swift */,
 				C66A54BE26F5338800B63CE8 /* LoginViewController.swift */,
 				5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */,
+				5B923D0326F7E26000CE9D4D /* OnboardingViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				5B27FC7626EDBAF600C917D9 /* DayOfWeek.swift in Sources */,
 				5B27FC7D26F13EDE00C917D9 /* PhotoGalleryViewController.swift in Sources */,
 				5B2E5F2326F668B100BEAE3D /* NavigationManager.swift in Sources */,
+				5B923D0426F7E26000CE9D4D /* OnboardingViewController.swift in Sources */,
 				5B2D539926E6FEDA00558BDD /* Checkin.swift in Sources */,
 				5B2D539B26E6FF4100558BDD /* User.swift in Sources */,
 			);
