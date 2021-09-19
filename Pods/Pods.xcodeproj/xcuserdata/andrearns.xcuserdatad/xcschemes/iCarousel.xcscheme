@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3D151B72D5CE9336C8AD8927D077A295"
-               BuildableName = "ALCameraViewController.framework"
-               BlueprintName = "ALCameraViewController"
+               BlueprintIdentifier = "548E0F26A10990707D8D4870D2490ACC"
+               BuildableName = "iCarousel.framework"
+               BlueprintName = "iCarousel"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
