@@ -13,7 +13,7 @@ class FullScreenImageViewController: UIViewController {
     @IBOutlet var imageSubtitle: UILabel!
     @IBOutlet var imageUser: UILabel!
     @IBOutlet var userImageView: UIImageView!
-    var user = User(name: "claudin", image: UIImage(named: "defaultpopupImage"))
+    var user = User(name: "claudin", imageData: UIImage(named: "defaultpopupImage")?.pngData())
     var checkin: Checkin!
     
     override func viewDidLoad() {
@@ -23,6 +23,6 @@ class FullScreenImageViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         imageUser.text = "\(user.name) - \(dateFormatter.string(from: checkin.date))"
-        userImageView.image = user.image
+        userImageView.image = UIImage(data: user.imageData!)
     }
 }

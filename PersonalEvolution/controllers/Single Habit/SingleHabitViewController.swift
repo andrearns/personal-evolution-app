@@ -11,7 +11,8 @@ import CloudKit
 class SingleHabitViewController: UIViewController {
 
     var habit: Habit!
-
+    var currentUser = User(name: "", imageData: nil, recordID: nil)
+    
     @IBOutlet var habitTitleLabel: UILabel!
     @IBOutlet var habitImageView: UIImageView!
     @IBOutlet var habitDescriptionLabel: UILabel!
@@ -23,42 +24,22 @@ class SingleHabitViewController: UIViewController {
     @IBOutlet var groupGalleryButtons: [UIButton]!
     @IBOutlet var usersProfileImageButtons: [UIButton]!
     
-    var personalCheckins: [Checkin] = [
-        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 1", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 2", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 3", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 4", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 5", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 6", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 1", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 2", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 3", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 4", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 5", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 6", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest"), description: "descrição 1", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 2", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 3", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest4"), description: "descrição 4", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest3"), description: "descrição 5", user: nil, date: Date()),
-        Checkin(image: UIImage(named: "galleryImageTest2"), description: "descrição 6", user: nil, date: Date()),
-    ]
-    
+    var personalCheckins: [Checkin] = []
     var groupCheckins: [Checkin] = []
     
     var usersParticipating: [User] = [
-        User(name: "André", image: UIImage(named: "profileImageTest")),
-        User(name: "Bruno", image: UIImage(named: "profileImageTest")),
-        User(name: "Carol", image: UIImage(named: "profileImageTest")),
-        User(name: "Nati", image: UIImage(named: "profileImageTest")),
-        User(name: "Rafael", image: UIImage(named: "profileImageTest")),
-        User(name: "Alfredo", image: UIImage(named: "profileImageTest")),
-        User(name: "Jorginho", image: UIImage(named: "profileImageTest")),
-        User(name: "Babiruba", image: UIImage(named: "profileImageTest")),
-        User(name: "Jujubinha", image: UIImage(named: "profileImageTest")),
-        User(name: "Princesa caroço", image: UIImage(named: "profileImageTest")),
-        User(name: "Rei gelado", image: UIImage(named: "profileImageTest")),
-        User(name: "Flin", image: UIImage(named: "profileImageTest")),
+        User(name: "André", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Bruno", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Carol", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Nati", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Rafael", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Alfredo", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Jorginho", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Babiruba", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Jujubinha", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Princesa caroço", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Rei gelado", imageData: UIImage(named: "profileImageTest")?.pngData()),
+        User(name: "Flin", imageData: UIImage(named: "profileImageTest")?.pngData()),
     ]
     
     override func viewDidLoad() {
@@ -78,14 +59,17 @@ class SingleHabitViewController: UIViewController {
         if habit.image != nil {
             habitImageView.image = CropImage.shared.crop(image: habit.image!, aspectRatio: 1.5)
         }
+        
+        print(self.currentUser)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         DispatchQueue.main.async {
+            self.currentUser.name = UserSingleton.shared.name!
+            self.currentUser.imageData = UserSingleton.shared.imageData!
+            self.currentUser.recordID = UserSingleton.shared.recordID ?? UserSingleton.shared.fetchUserRecordID()
             self.fetchHabitCheckinList()
-            self.drawGallery(buttons: self.personalGalleryButtons, checkins: self.personalCheckins)
-            self.drawUserImages(buttons: self.usersProfileImageButtons, users: self.usersParticipating)
         }
     }
     
@@ -104,7 +88,14 @@ class SingleHabitViewController: UIViewController {
                 self.groupCheckins = checkinList.filter {
                     $0.habitRef?.recordID == self.habit.recordID
                 }
-                self.drawGallery(buttons: self.groupGalleryButtons, checkins: self.groupCheckins)
+                self.personalCheckins = self.groupCheckins.filter {
+                    $0.userRef?.recordID == self.currentUser.recordID
+                }
+                DispatchQueue.main.async {
+                    self.drawGallery(buttons: self.personalGalleryButtons, checkins: self.personalCheckins)
+                    self.drawGallery(buttons: self.groupGalleryButtons, checkins: self.groupCheckins)
+                    self.drawUserImages(buttons: self.usersProfileImageButtons, users: self.usersParticipating)
+                }
                 print(self.groupCheckins)
             }
         }
@@ -136,7 +127,7 @@ class SingleHabitViewController: UIViewController {
     func drawUserImages(buttons: [UIButton], users: [User]) {
         if users.count > 7 {
             for i in 0..<7 {
-                buttons[i].setBackgroundImage(users[i].image, for: .normal)
+                buttons[i].setBackgroundImage(UIImage(data: users[i].imageData!), for: .normal)
                 buttons[i].tag = 1
             }
             buttons[7].layer.borderWidth = 2
@@ -147,7 +138,7 @@ class SingleHabitViewController: UIViewController {
             buttons[7].tag = 1
         } else {
             for i in 0..<users.count {
-                buttons[i].setBackgroundImage(users[i].image, for: .normal)
+                buttons[i].setBackgroundImage(UIImage(data: users[i].imageData!), for: .normal)
                 buttons[i].tag = 1
             }
         }

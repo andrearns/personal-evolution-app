@@ -12,7 +12,6 @@
 		0E5147F826F5101100D57BB0 /* DailyMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5147F726F5101100D57BB0 /* DailyMood.swift */; };
 		0E85D58B26E958F1001A814F /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85D58A26E958F1001A814F /* Day.swift */; };
 		0E98C19026E1577A00C6FFF8 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98C18F26E1577A00C6FFF8 /* Month.swift */; };
-		0E98C19226E158A400C6FFF8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E98C19126E158A400C6FFF8 /* DashboardViewController.swift */; };
 		5B0CE72B26DDCD040065E1A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE72A26DDCD040065E1A9 /* AppDelegate.swift */; };
 		5B0CE72D26DDCD040065E1A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0CE72C26DDCD040065E1A9 /* SceneDelegate.swift */; };
 		5B0CE73226DDCD040065E1A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B0CE73026DDCD040065E1A9 /* Main.storyboard */; };
@@ -39,6 +38,9 @@
 		5B2D539B26E6FF4100558BDD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539A26E6FF4100558BDD /* User.swift */; };
 		5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D539C26E86DC800558BDD /* PopUpViewController.swift */; };
 		5B2E5F1326F420BB00BEAE3D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F1226F420BB00BEAE3D /* LoadingView.swift */; };
+		5B2E5F2026F6512E00BEAE3D /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F1F26F6512E00BEAE3D /* UserSingleton.swift */; };
+		5B2E5F2326F668B100BEAE3D /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F2226F668B100BEAE3D /* NavigationManager.swift */; };
+		5B2E5F2526F66A0C00BEAE3D /* InitialLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */; };
 		6A47017C35D818D27B4D8171 /* Pods_PersonalEvolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */; };
 		C66A54BF26F5338800B63CE8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A54BE26F5338800B63CE8 /* LoginViewController.swift */; };
 		EC71C83526F26FA80010F929 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */; };
@@ -51,7 +53,6 @@
 		0E5147F726F5101100D57BB0 /* DailyMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMood.swift; sourceTree = "<group>"; };
 		0E85D58A26E958F1001A814F /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		0E98C18F26E1577A00C6FFF8 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
-		0E98C19126E158A400C6FFF8 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		4516008CEF580DC2A9A4A3E1 /* Pods-PersonalEvolution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.debug.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.debug.xcconfig"; sourceTree = "<group>"; };
 		50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersonalEvolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0CE72726DDCD040065E1A9 /* PersonalEvolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalEvolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +84,9 @@
 		5B2D539A26E6FF4100558BDD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B2D539C26E86DC800558BDD /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		5B2E5F1226F420BB00BEAE3D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		5B2E5F1F26F6512E00BEAE3D /* UserSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
+		5B2E5F2226F668B100BEAE3D /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLoadingViewController.swift; sourceTree = "<group>"; };
 		8BAE0C3BCDF072B7B5D56EDD /* Pods-PersonalEvolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.release.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.release.xcconfig"; sourceTree = "<group>"; };
 		C66A54BE26F5338800B63CE8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -151,18 +155,14 @@
 		5B0CE74426DDCEF20065E1A9 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5B0CE74226DDCEA00065E1A9 /* SingleHabitViewController.swift */,
-				5B0CE74526DDCFEA0065E1A9 /* HabitsViewController.swift */,
 				5B1A9A7526E0109A0001F3CF /* CreateOrEditHabitViewController.swift */,
-				5B2D539626E6D6D200558BDD /* CheckinViewController.swift */,
+				5B0CE74526DDCFEA0065E1A9 /* HabitsViewController.swift */,
+				5B2E5F2626F6727900BEAE3D /* Single Habit */,
 				5B2D539C26E86DC800558BDD /* PopUpViewController.swift */,
-				0E98C19126E158A400C6FFF8 /* DashboardViewController.swift */,
 				0E4FF3AB26EA439B00437262 /* EvolutionViewController.swift */,
-				5B27FC7C26F13EDE00C917D9 /* PhotoGalleryViewController.swift */,
-				5B27FC7E26F1423F00C917D9 /* RetrospectiveViewController.swift */,
 				0E5147F526F3C40400D57BB0 /* PopUpDailyMoodViewController.swift */,
-				5B27FC8026F2A98100C917D9 /* UsersParticipatingListViewController.swift */,
 				C66A54BE26F5338800B63CE8 /* LoginViewController.swift */,
+				5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -200,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				5B1A9A7A26E1470C0001F3CF /* CloudKitHelper.swift */,
+				5B2E5F1F26F6512E00BEAE3D /* UserSingleton.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -208,8 +209,21 @@
 			isa = PBXGroup;
 			children = (
 				5B27FC7826EEB8E000C917D9 /* CropImage.swift */,
+				5B2E5F2226F668B100BEAE3D /* NavigationManager.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		5B2E5F2626F6727900BEAE3D /* Single Habit */ = {
+			isa = PBXGroup;
+			children = (
+				5B0CE74226DDCEA00065E1A9 /* SingleHabitViewController.swift */,
+				5B2D539626E6D6D200558BDD /* CheckinViewController.swift */,
+				5B27FC8026F2A98100C917D9 /* UsersParticipatingListViewController.swift */,
+				5B27FC7E26F1423F00C917D9 /* RetrospectiveViewController.swift */,
+				5B27FC7C26F13EDE00C917D9 /* PhotoGalleryViewController.swift */,
+			);
+			path = "Single Habit";
 			sourceTree = "<group>";
 		};
 		8FD78B2C48E638FB3E632D15 /* Pods */ = {
@@ -335,8 +349,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2E5F2026F6512E00BEAE3D /* UserSingleton.swift in Sources */,
 				5B0CE72B26DDCD040065E1A9 /* AppDelegate.swift in Sources */,
-				0E98C19226E158A400C6FFF8 /* DashboardViewController.swift in Sources */,
 				0E85D58B26E958F1001A814F /* Day.swift in Sources */,
 				5B27FC7226EDA68600C917D9 /* DaysOfWeekCollectionViewCell.swift in Sources */,
 				5B27FC8126F2A98200C917D9 /* UsersParticipatingListViewController.swift in Sources */,
@@ -360,10 +374,12 @@
 				5B2D539D26E86DC800558BDD /* PopUpViewController.swift in Sources */,
 				5B27FC7F26F1424000C917D9 /* RetrospectiveViewController.swift in Sources */,
 				5B1A9A7B26E1470C0001F3CF /* CloudKitHelper.swift in Sources */,
+				5B2E5F2526F66A0C00BEAE3D /* InitialLoadingViewController.swift in Sources */,
 				5B2E5F1326F420BB00BEAE3D /* LoadingView.swift in Sources */,
 				5B0CE74626DDCFEA0065E1A9 /* HabitsViewController.swift in Sources */,
 				5B27FC7626EDBAF600C917D9 /* DayOfWeek.swift in Sources */,
 				5B27FC7D26F13EDE00C917D9 /* PhotoGalleryViewController.swift in Sources */,
+				5B2E5F2326F668B100BEAE3D /* NavigationManager.swift in Sources */,
 				5B2D539926E6FEDA00558BDD /* Checkin.swift in Sources */,
 				5B2D539B26E6FF4100558BDD /* User.swift in Sources */,
 			);

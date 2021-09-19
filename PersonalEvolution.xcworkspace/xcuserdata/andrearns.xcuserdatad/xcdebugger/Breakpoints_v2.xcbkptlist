@@ -14,8 +14,8 @@
             filePath = "PersonalEvolution/service/CloudKitHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "fetchHabits(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,49 +23,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EEDA332E-64C7-41E5-9130-6DDEFCCE6EE1"
+            uuid = "7A21DE4D-E18D-434C-8417-925F8D29248B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PersonalEvolution/controllers/SingleHabitViewController.swift"
+            filePath = "PersonalEvolution/service/CloudKitHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "openPhotoGallery(_:)"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
+            landmarkName = "save(user:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EEDA332E-64C7-41E5-9130-6DDEFCCE6EE1 - 5c0e2ed287588e54"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in closure #1 () -&gt; () in PersonalEvolution.SingleHabitViewController.fetchHabitCheckinList() -&gt; ()"
-                  moduleName = "PersonalEvolution"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrearns/Development/swift/Apple%20Developer%20Academy/PersonalEvolution/PersonalEvolution/controllers/SingleHabitViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "68">
-               </Location>
-               <Location
-                  uuid = "EEDA332E-64C7-41E5-9130-6DDEFCCE6EE1 - 57f7ba1d262a2a04"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (PersonalEvolution.Checkin) -&gt; Swift.Bool in closure #2 () -&gt; () in closure #1 () -&gt; () in PersonalEvolution.SingleHabitViewController.fetchHabitCheckinList() -&gt; ()"
-                  moduleName = "PersonalEvolution"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrearns/Development/swift/Apple%20Developer%20Academy/PersonalEvolution/PersonalEvolution/controllers/SingleHabitViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "156">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D054EE3D-3229-418E-8C5A-66EAC930836C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PersonalEvolution/service/CloudKitHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
+            landmarkName = "save(user:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

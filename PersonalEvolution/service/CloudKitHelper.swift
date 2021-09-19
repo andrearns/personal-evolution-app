@@ -17,6 +17,7 @@ struct CloudKitHelper {
     struct RecordType {
         static let Habit = "Habit"
         static let Checkin = "Checkin"
+        static let User = "User"
     }
     
     // Errors
@@ -184,7 +185,7 @@ struct CloudKitHelper {
         query.sortDescriptors = [sort]
         
         let operation = CKQueryOperation(query: query)
-        operation.desiredKeys = ["Description", "Image", "HabitRef"]
+        operation.desiredKeys = ["Description", "Image", "HabitRef", "UserRef"]
         
         operation.recordFetchedBlock = { record in
             DispatchQueue.main.async {
@@ -209,7 +210,13 @@ struct CloudKitHelper {
                     return
                 }
                 
-                let checkin = Checkin(image: image, description: description, user: nil, date: record.creationDate!, recordID: id, habitRef: habitRef)
+                guard let userRef = record["UserRef"] as? CKRecord.Reference else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    print("Erro para puxar a a referência do usuário")
+                    return
+                }
+                
+                let checkin = Checkin(image: image, description: description, date: record.creationDate!, recordID: id, habitRef: habitRef, userRef: userRef)
                 completion(.success(checkin))
             }
         }
@@ -226,10 +233,9 @@ struct CloudKitHelper {
     }
     
     // Create
-    static func save(checkin: Checkin, habit: Habit) {
+    static func save(checkin: Checkin, habit: Habit, userRecordID: CKRecord.ID) {
         
         let checkinRecord = CKRecord(recordType: RecordType.Checkin)
-        let habitRecord = CKRecord(recordType: RecordType.Habit)
         
         let data = checkin.image?.pngData()
         let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
@@ -242,11 +248,7 @@ struct CloudKitHelper {
         checkinRecord["Image"] = CKAsset(fileURL: url!)
         checkinRecord["Description"] = checkin.description as String
         checkinRecord["HabitRef"] = CKRecord.Reference(recordID: habit.recordID!, action: .deleteSelf)
-        
-        var checkinRefs = habit.checkinRefs
-        checkinRefs?.append(CKRecord.Reference(record: checkinRecord, action: .deleteSelf))
-        habitRecord["CheckinRefs"] = checkinRefs
-        
+        checkinRecord["UserRef"] = CKRecord.Reference(recordID: userRecordID, action: .deleteSelf)
         
         publicDatabase.save(checkinRecord) { record, error in
             do { try FileManager().removeItem(at: url!) }
@@ -260,5 +262,128 @@ struct CloudKitHelper {
         
     }
     
+    // MARK: - User
+    
+    static func fetchUsersRecordID(completion: @escaping (Result<User, Error>) -> ()) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: RecordType.User, predicate: predicate)
+    
+        let operation = CKQueryOperation(query: query)
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let name = record["Name"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                let user = User(name: name, imageData: nil, recordID: id)
+                
+                completion(.success(user))
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        
+        publicDatabase.add(operation)
+    }
+    
+    static func fetchUsers(completion: @escaping (Result<User, Error>) -> ()) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: RecordType.User, predicate: predicate)
+    
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["Name", "Image"]
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let name = record["Name"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let file = record["Image"] as? CKAsset else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                let data = NSData(contentsOf: (file.fileURL)!)
+                let imageData = UIImage(data: data! as Data)?.pngData()
+                
+                let user = User(name: name, imageData: imageData, recordID: id)
+                completion(.success(user))
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        publicDatabase.add(operation)
+    }
+    
+    // Create
+    static func save(user: User) {
+        let userRecord = CKRecord(recordType: RecordType.User)
+        
+        let data = user.imageData
+        let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".dat")
+        do {
+            try data?.write(to: url!, options: [])
+        } catch let error as NSError {
+            print("Error! \(error)")
+            return
+        }
+        userRecord["Image"] = CKAsset(fileURL: url!)
+        userRecord["Name"] = user.name as String
+        
+        publicDatabase.save(userRecord) { record, error in
+            UserSingleton.shared.setUserRecordID(recordID: userRecord.recordID)
+            UserSingleton.shared.recordID = userRecord.recordID
+            print("RecordID saved on Singleton")
+            
+            do { try FileManager().removeItem(at: url!) }
+            catch let error { print("Error deleting temp file: \(error)")}
+        }
+    }
+    
+    // Validate username -> Does username already exist?
+//    static func doesNameAlreadyExist(username: String, equalTo: String, _ completion: @escaping (Bool) -> ()) {
+//        var result = false
+//
+//        let predicate = NSPredicate(format: "username == %@", equalTo)
+//        let query = CKQuery(recordType: "Name", predicate: predicate)
+//        publicDatabase.perform(query, inZoneWith: nil) { results, error in
+//
+//            if results != nil {
+//                print(results?.count)
+//                if results?.count == 1 {
+//                    print(results?.count)
+//                    result = true
+//                }
+//            }
+//        }
+//        completion(result)
+//    }
+    
+    // Update
+    static func modify(user: User, completion: @escaping (Result<User, Error>) -> ()) {
+        
+    }
     
 }

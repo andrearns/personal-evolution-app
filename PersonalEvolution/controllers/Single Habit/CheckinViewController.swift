@@ -18,10 +18,17 @@ class CheckinViewController: UIViewController {
     @IBOutlet var topLayoutConstraint: NSLayoutConstraint!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
-    var newCheckin = Checkin(image: nil, description: "", user: nil, date: Date())
+    var newCheckin = Checkin(image: nil, description: "", date: Date())
+    var currentUser = User(name: "", imageData: nil, recordID: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.currentUser.name = UserSingleton.shared.name!
+        self.currentUser.imageData = UserSingleton.shared.imageData!
+        self.currentUser.recordID = UserSingleton.shared.recordID ?? UserSingleton.shared.fetchUserRecordID()
+        
+        print(self.currentUser)
         
         addImageButton.layer.cornerRadius = 15
         saveButton.layer.cornerRadius = 15
@@ -62,7 +69,7 @@ class CheckinViewController: UIViewController {
     }
     
     @IBAction func addImage(_ sender: Any) {
-        let croppingParameters = CroppingParameters(isEnabled: true, allowResizing: false, allowMoving: true, minimumSize: CGSize(width: 300, height: 150))
+        let croppingParameters = CroppingParameters(isEnabled: true, allowResizing: false, allowMoving: true, minimumSize: CGSize(width: 300, height: 300))
         
         let cameraViewController = CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: false, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
             self?.addImageButton.setBackgroundImage(image, for: .normal)
@@ -78,7 +85,7 @@ class CheckinViewController: UIViewController {
     @IBAction func saveCheckin(_ sender: Any) {
         newCheckin.image = addImageButton.currentBackgroundImage
         newCheckin.description = descriptionTextField.text!
-        CloudKitHelper.save(checkin: newCheckin, habit: self.habit)
+        CloudKitHelper.save(checkin: newCheckin, habit: self.habit, userRecordID: self.currentUser.recordID!)
         print("Checkin done at \(Date())")
         self.dismiss(animated: true)
     }
