@@ -372,6 +372,53 @@ struct CloudKitHelper {
         publicDatabase.add(operation)
     }
     
+    static func searchUserWithRecordID(recordID: CKRecord.ID, completion: @escaping (Result<User, Error>) -> ()) {
+        let predicate = NSPredicate(format: "%K == %@", "recordID", CKRecord.Reference(recordID: recordID, action: .none))
+        let query = CKQuery(recordType: RecordType.User, predicate: predicate)
+        
+        var result = User(name: "", imageData: nil, recordID: nil)
+        
+        let operation = CKQueryOperation(query: query)
+        operation.desiredKeys = ["Name", "Image"]
+        
+        operation.recordFetchedBlock = { record in
+            DispatchQueue.main.async {
+                let id = record.recordID
+                
+                guard let name = record["Name"] as? String else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+                
+                guard let file = record["Image"] as? CKAsset else {
+                    completion(.failure(CloudKitHelperError.castFailure))
+                    return
+                }
+
+                let data = NSData(contentsOf: (file.fileURL)!)
+                let image = UIImage(data: data! as Data)
+                
+                
+                DispatchQueue.main.async {
+                    result.recordID = id
+                    result.name = name
+                    result.imageData = image?.jpegData(compressionQuality: 0.2)
+                    completion(.success(result))
+                }
+            }
+        }
+        
+        operation.queryCompletionBlock = { (_, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+            }
+        }
+        publicDatabase.add(operation)
+    }
+    
     static func fetchUsers(completion: @escaping (Result<User, Error>) -> ()) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: RecordType.User, predicate: predicate)

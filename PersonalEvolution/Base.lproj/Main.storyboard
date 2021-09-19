@@ -16,7 +16,7 @@
             <objects>
                 <viewController storyboardIdentifier="Habits" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="HabitsViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="exC-iw-eQy">
@@ -2098,15 +2098,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AoI-GL-w4k">
-                                <rect key="frame" x="16" y="650.66666666666663" width="44" height="44"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AoI-GL-w4k">
+                                <rect key="frame" x="16" y="649.66666666666663" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AoI-GL-w4k" secondAttribute="height" multiplier="1:1" id="0uT-iD-j8c"/>
                                     <constraint firstAttribute="height" constant="44" id="StA-lN-KOY"/>
                                 </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3P2-jf-ZPf">
-                                <rect key="frame" x="75" y="650.66666666666663" width="331" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3P2-jf-ZPf">
+                                <rect key="frame" x="76" y="648.66666666666663" width="330" height="46"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2116,13 +2117,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UtO-my-8qb" firstAttribute="trailing" secondItem="oEP-kR-Teq" secondAttribute="trailing" constant="16" id="8dA-kh-Mlt"/>
-                            <constraint firstItem="3P2-jf-ZPf" firstAttribute="leading" secondItem="AoI-GL-w4k" secondAttribute="trailing" constant="15" id="HKt-LU-MSP"/>
+                            <constraint firstItem="3P2-jf-ZPf" firstAttribute="leading" secondItem="AoI-GL-w4k" secondAttribute="trailing" constant="16" id="HKt-LU-MSP"/>
                             <constraint firstItem="UtO-my-8qb" firstAttribute="bottom" secondItem="SaL-fd-OfJ" secondAttribute="bottom" id="Hca-iK-6Nt"/>
                             <constraint firstItem="SaL-fd-OfJ" firstAttribute="leading" secondItem="UtO-my-8qb" secondAttribute="leading" id="HwP-9p-BOn"/>
                             <constraint firstItem="UtO-my-8qb" firstAttribute="trailing" secondItem="SaL-fd-OfJ" secondAttribute="trailing" id="KeZ-mp-nV1"/>
                             <constraint firstItem="UtO-my-8qb" firstAttribute="bottom" secondItem="oEP-kR-Teq" secondAttribute="bottom" constant="24" id="Ll0-46-O23"/>
                             <constraint firstItem="oEP-kR-Teq" firstAttribute="top" secondItem="3P2-jf-ZPf" secondAttribute="bottom" constant="15" id="POw-No-xlJ"/>
-                            <constraint firstItem="oEP-kR-Teq" firstAttribute="top" secondItem="AoI-GL-w4k" secondAttribute="bottom" constant="15" id="RNv-1L-LXL"/>
+                            <constraint firstItem="oEP-kR-Teq" firstAttribute="top" secondItem="AoI-GL-w4k" secondAttribute="bottom" constant="16" id="RNv-1L-LXL"/>
                             <constraint firstItem="3P2-jf-ZPf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SaL-fd-OfJ" secondAttribute="trailing" constant="16" id="egG-eO-Cla"/>
                             <constraint firstItem="3P2-jf-ZPf" firstAttribute="centerY" secondItem="AoI-GL-w4k" secondAttribute="centerY" id="hum-e4-Hh0"/>
                             <constraint firstItem="SaL-fd-OfJ" firstAttribute="top" secondItem="UtO-my-8qb" secondAttribute="top" id="opf-k1-PFI"/>
