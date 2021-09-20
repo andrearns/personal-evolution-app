@@ -33,7 +33,7 @@ class PopUpViewController: UIViewController {
         if popUp.type == .inviteFriends {
             print("Abrir compartilhamento")
             
-            let message = "Junte-se a mim para fazermos juntos o hábito de \(habit.name). Use o código *\(String(describing: habit.password))* para entrar no grupo dentro do app WeDo."
+            let message = "Join me in the habit \(habit.name). Enter in my group using the code *\(String(describing: habit.password))* inside the Wedo app."
             let image : UIImage = habit.image!
             
             if let link = NSURL(string: "https://andrearns.com.br") {

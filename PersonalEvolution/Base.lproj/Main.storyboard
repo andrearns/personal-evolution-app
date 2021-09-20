@@ -14,9 +14,9 @@
         <!--Habits View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Habits" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="HabitsViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Habits" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="HabitsViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="exC-iw-eQy">
@@ -29,8 +29,8 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KoalaHello" translatesAutoresizingMaskIntoConstraints="NO" id="EQm-8h-TaM">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olá," textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIF-9H-aha">
-                                            <rect key="frame" x="16" y="47" width="48" height="31.333333333333329"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIF-9H-aha">
+                                            <rect key="frame" x="19.999999999999996" y="47" width="62.666666666666657" height="31.333333333333329"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Daily Mood Panel" translatesAutoresizingMaskIntoConstraints="NO" id="fni-eM-NSt">
                                                             <rect key="frame" x="16" y="0.0" width="358" height="127"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Como você está se sentindo hoje?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkZ-UB-yuW">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How are you feeling today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkZ-UB-yuW">
                                                             <rect key="frame" x="24" y="27" width="291" height="25"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -139,12 +139,12 @@
                                             </constraints>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regina" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRP-tc-Sk9">
-                                            <rect key="frame" x="16" y="77" width="161" height="31.333333333333329"/>
+                                            <rect key="frame" x="20" y="83.333333333333329" width="210.33333333333334" height="31.333333333333329"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Seus desafios de hoje:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpY-K9-FNR">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your habits today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpY-K9-FNR">
                                             <rect key="frame" x="8" y="381" width="390" height="43.333333333333343"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <nil key="textColor"/>
@@ -163,18 +163,18 @@
                                     <constraints>
                                         <constraint firstItem="aAo-xG-SyR" firstAttribute="leading" secondItem="WSL-IL-qGf" secondAttribute="leading" id="1mY-kr-AUD"/>
                                         <constraint firstAttribute="trailing" secondItem="i2r-Ff-WBh" secondAttribute="trailing" id="4r3-bS-5gF"/>
-                                        <constraint firstItem="EQm-8h-TaM" firstAttribute="leading" secondItem="qIF-9H-aha" secondAttribute="trailing" constant="-64" id="7eS-Zd-UQ7"/>
                                         <constraint firstItem="EQm-8h-TaM" firstAttribute="width" secondItem="WSL-IL-qGf" secondAttribute="width" multiplier="1.06154" constant="-24" id="8Jf-aQ-gdn"/>
                                         <constraint firstItem="EQm-8h-TaM" firstAttribute="top" secondItem="qIF-9H-aha" secondAttribute="bottom" constant="-78.333333333333329" id="Bf5-OM-qas"/>
                                         <constraint firstItem="EQm-8h-TaM" firstAttribute="leading" secondItem="WSL-IL-qGf" secondAttribute="leading" id="JqI-zg-iBP"/>
                                         <constraint firstItem="aAo-xG-SyR" firstAttribute="top" secondItem="WSL-IL-qGf" secondAttribute="top" constant="230" id="NXG-ci-8Yx"/>
-                                        <constraint firstItem="rRP-tc-Sk9" firstAttribute="leading" secondItem="qIF-9H-aha" secondAttribute="leading" id="NjH-ja-t1o"/>
-                                        <constraint firstItem="rRP-tc-Sk9" firstAttribute="top" secondItem="qIF-9H-aha" secondAttribute="bottom" constant="-1.3333333333333286" id="blh-2o-csi"/>
+                                        <constraint firstItem="qIF-9H-aha" firstAttribute="leading" secondItem="WSL-IL-qGf" secondAttribute="leading" constant="20" id="UpF-Bg-kc6"/>
+                                        <constraint firstItem="rRP-tc-Sk9" firstAttribute="top" secondItem="qIF-9H-aha" secondAttribute="bottom" constant="5" id="blh-2o-csi"/>
                                         <constraint firstItem="CpY-K9-FNR" firstAttribute="top" secondItem="aAo-xG-SyR" secondAttribute="bottom" constant="21" id="krR-Yb-oSf"/>
                                         <constraint firstItem="EQm-8h-TaM" firstAttribute="top" secondItem="WSL-IL-qGf" secondAttribute="top" id="nlR-WK-E1g"/>
                                         <constraint firstItem="i2r-Ff-WBh" firstAttribute="leading" secondItem="WSL-IL-qGf" secondAttribute="leading" id="o7d-gU-Yxx"/>
                                         <constraint firstItem="i2r-Ff-WBh" firstAttribute="top" secondItem="EQm-8h-TaM" secondAttribute="bottom" constant="16" id="pg3-zK-L0L"/>
                                         <constraint firstItem="CpY-K9-FNR" firstAttribute="leading" secondItem="WSL-IL-qGf" secondAttribute="leading" constant="16" id="q7O-Ty-a8N"/>
+                                        <constraint firstItem="rRP-tc-Sk9" firstAttribute="leading" secondItem="WSL-IL-qGf" secondAttribute="leading" constant="20" id="rF9-yd-MNz"/>
                                         <constraint firstItem="rRP-tc-Sk9" firstAttribute="width" secondItem="qIF-9H-aha" secondAttribute="width" multiplier="3.35417" id="wcG-TB-FGs"/>
                                         <constraint firstAttribute="trailing" secondItem="aAo-xG-SyR" secondAttribute="trailing" id="y5O-Dx-2d8"/>
                                     </constraints>
@@ -185,7 +185,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="habitCell" rowHeight="100" id="CHq-8F-WRi" customClass="HabitTableViewCell" customModule="PersonalEvolution" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="habitCell" rowHeight="100" id="CHq-8F-WRi" customClass="HabitTableViewCell" customModule="Wedo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="457.33333396911621" width="390" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CHq-8F-WRi" id="4KJ-Nj-XvE">
@@ -278,7 +278,7 @@
         <!--Single Habit View Controller-->
         <scene sceneID="lV9-wy-uQO">
             <objects>
-                <viewController storyboardIdentifier="singleHabit" modalPresentationStyle="fullScreen" id="jWD-OQ-VSO" customClass="SingleHabitViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="singleHabit" modalPresentationStyle="fullScreen" id="jWD-OQ-VSO" customClass="SingleHabitViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Akt-gQ-Uxw">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -503,7 +503,7 @@
                                             <constraint firstAttribute="height" constant="52" id="faY-Df-Juj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <state key="normal" title="Fazer checkin">
+                                        <state key="normal" title="Check-in">
                                             <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -526,8 +526,8 @@
                                             <action selector="inviteFriends:" destination="jWD-OQ-VSO" eventType="touchUpInside" id="1Cm-kE-1j6"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Galeria pessoal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZO-OS-Ded">
-                                        <rect key="frame" x="15.999999999999993" y="535.66666666666663" width="118.33333333333331" height="19.333333333333371"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZO-OS-Ded">
+                                        <rect key="frame" x="16" y="535.66666666666663" width="125" height="19.333333333333371"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -540,7 +540,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="    Retrospectiva pessoal">
+                                        <state key="normal" title="    Play personal retrospective">
                                             <imageReference key="image" image="play.circle.fill" catalog="system" symbolScale="large"/>
                                         </state>
                                         <connections>
@@ -651,7 +651,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="hon-S1-bQT" secondAttribute="height" multiplier="1:1" id="3oN-7G-RTE"/>
                                                         </constraints>
-                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" name="ChartColorBalls"/>
                                                         <state key="normal">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                                         </state>
@@ -803,8 +803,8 @@
                                             <constraint firstAttribute="width" secondItem="NxD-1g-Dg3" secondAttribute="height" multiplier="5:1" id="vur-1W-5ge"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Galeria do grupo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWA-r9-Wi7">
-                                        <rect key="frame" x="16" y="742.66666666666663" width="128.33333333333334" height="19.333333333333371"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWA-r9-Wi7">
+                                        <rect key="frame" x="16" y="742.66666666666663" width="105" height="19.333333333333371"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -817,7 +817,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="    Retrospectiva do grupo">
+                                        <state key="normal" title="    Play group retrospective">
                                             <imageReference key="image" image="play.circle.fill" catalog="system" symbolScale="large"/>
                                         </state>
                                         <connections>
@@ -870,10 +870,10 @@
                                 <rect key="frame" x="0.0" y="44" width="390" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNT-IC-5Lw">
-                                        <rect key="frame" x="15.999999999999993" y="15" width="119.33333333333331" height="20"/>
+                                        <rect key="frame" x="15.999999999999993" y="15" width="107.33333333333331" height="20"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="tintColor" name="Lilas"/>
-                                        <state key="normal" title="  Seus hábitos" image="chevron.left" catalog="system">
+                                        <state key="normal" title="  Your habits" image="chevron.left" catalog="system">
                                             <color key="titleColor" name="Lilas"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="semibold"/>
                                         </state>
@@ -882,9 +882,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsr-qj-9L5">
-                                        <rect key="frame" x="329" y="9" width="45" height="32"/>
+                                        <rect key="frame" x="344" y="9" width="30" height="32"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                        <state key="normal" title="Editar">
+                                        <state key="normal" title="Edit">
                                             <color key="titleColor" name="Lilas"/>
                                         </state>
                                         <connections>
@@ -953,19 +953,19 @@
         <!--Checkin View Controller-->
         <scene sceneID="kIi-YN-wC1">
             <objects>
-                <viewController storyboardIdentifier="Checkin" modalPresentationStyle="pageSheet" id="LG3-XS-VOK" customClass="CheckinViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Checkin" modalPresentationStyle="pageSheet" id="LG3-XS-VOK" customClass="CheckinViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qHi-yH-oi5">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fazer check-in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drb-lu-9mc">
-                                <rect key="frame" x="16" y="84" width="178.66666666666666" height="31.666666666666671"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Habit check-in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drb-lu-9mc">
+                                <rect key="frame" x="16" y="84" width="177.66666666666666" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Y6-CO-Z8o">
-                                <rect key="frame" x="16" y="139.66666666666663" width="358" height="358"/>
+                                <rect key="frame" x="16" y="140" width="358" height="358"/>
                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Y6-CO-Z8o" secondAttribute="height" multiplier="1:1" id="mue-Dp-LNB"/>
@@ -982,13 +982,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPw-Id-BUQ">
-                                <rect key="frame" x="16" y="597.66666666666663" width="358" height="52"/>
+                                <rect key="frame" x="16" y="598" width="358" height="52"/>
                                 <color key="backgroundColor" red="0.50980392159999999" green="0.87843137250000003" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="KMY-kL-1YN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Salvar">
+                                <state key="normal" title="Save">
                                     <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -996,8 +996,8 @@
                                     <action selector="saveCheckin:" destination="LG3-XS-VOK" eventType="touchUpInside" id="dFr-4x-4au"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Adicione uma descrição" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nrh-3N-uA3" customClass="CustomTextField" customModule="PersonalEvolution" customModuleProvider="target">
-                                <rect key="frame" x="16" y="521.66666666666663" width="358" height="52"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a short description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nrh-3N-uA3" customClass="CustomTextField" customModule="Wedo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="522" width="358" height="52"/>
                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="kr9-aD-9yt"/>
@@ -1040,7 +1040,7 @@
         <!--Enter With Password Pop Up View Controller-->
         <scene sceneID="VcS-zf-55x">
             <objects>
-                <viewController storyboardIdentifier="EnterWithPasswordPopUp" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="MqK-a5-1Tx" customClass="EnterWithPasswordPopUpViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EnterWithPasswordPopUp" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="MqK-a5-1Tx" customClass="EnterWithPasswordPopUpViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="CMA-4n-tuW">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1129,7 +1129,7 @@
         <!--Pop Up View Controller-->
         <scene sceneID="mRJ-z2-LS4">
             <objects>
-                <viewController storyboardIdentifier="Pop Up" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="G9D-LH-Q5R" customClass="PopUpViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Pop Up" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="G9D-LH-Q5R" customClass="PopUpViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="mUH-HJ-4zV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1224,7 +1224,7 @@
         <!--Photo Gallery View Controller-->
         <scene sceneID="SWc-Qd-2S2">
             <objects>
-                <viewController storyboardIdentifier="PhotoGallery" modalPresentationStyle="pageSheet" id="3hs-Va-wHB" customClass="PhotoGalleryViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoGallery" modalPresentationStyle="pageSheet" id="3hs-Va-wHB" customClass="PhotoGalleryViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tDE-pi-3HA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1245,7 +1245,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="Hk9-sI-hYD" customClass="GalleryCollectionViewCell" customModule="PersonalEvolution" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="Hk9-sI-hYD" customClass="GalleryCollectionViewCell" customModule="Wedo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1303,7 +1303,7 @@
         <!--Retrospective View Controller-->
         <scene sceneID="V6A-d4-9nm">
             <objects>
-                <viewController storyboardIdentifier="Retrospective" modalPresentationStyle="pageSheet" id="Wio-4B-Hdx" customClass="RetrospectiveViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Retrospective" modalPresentationStyle="pageSheet" id="Wio-4B-Hdx" customClass="RetrospectiveViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n4k-hu-lQL">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1333,7 +1333,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgF-oL-oN4">
-                                <rect key="frame" x="16" y="603.33333333333337" width="358" height="52"/>
+                                <rect key="frame" x="16" y="584.33333333333337" width="358" height="52"/>
                                 <color key="backgroundColor" red="0.50980392159999999" green="0.87843137250000003" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="stl-hS-YWr"/>
@@ -1348,8 +1348,8 @@
                                     <action selector="shareVideo:" destination="Wio-4B-Hdx" eventType="touchUpInside" id="Mb3-w5-0IG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parabéns pelo esforço! Sua jornada foi longa e você merece um parabéns por ter cultivado esse hábito :)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLB-l1-vhk">
-                                <rect key="frame" x="16" y="514" width="358" height="57.333333333333371"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations for your effort cultivating this habit!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLB-l1-vhk">
+                                <rect key="frame" x="16" y="514" width="358" height="38.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1386,7 +1386,7 @@
         <!--Users Participating List View Controller-->
         <scene sceneID="wIW-LI-50e">
             <objects>
-                <viewController storyboardIdentifier="usersParticipating" modalPresentationStyle="pageSheet" id="ish-aY-g4T" customClass="UsersParticipatingListViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="usersParticipating" modalPresentationStyle="pageSheet" id="ish-aY-g4T" customClass="UsersParticipatingListViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gps-Cg-eRx">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1409,7 +1409,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="usersParticipatingCell" id="zVc-RI-YQq" customClass="UsersParticipatingTableViewCell" customModule="PersonalEvolution" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="usersParticipatingCell" id="zVc-RI-YQq" customClass="UsersParticipatingTableViewCell" customModule="Wedo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.333333969116211" width="358" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zVc-RI-YQq" id="XHY-yK-d7N">
@@ -1467,16 +1467,16 @@
             </objects>
             <point key="canvasLocation" x="4773.913043478261" y="278.57142857142856"/>
         </scene>
-        <!--Novo hábito-->
+        <!--New habit-->
         <scene sceneID="tcg-R2-d3R">
             <objects>
-                <viewController storyboardIdentifier="CreateOrEditHabit" modalPresentationStyle="pageSheet" id="CB4-kc-nFb" customClass="CreateOrEditHabitViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateOrEditHabit" modalPresentationStyle="pageSheet" id="CB4-kc-nFb" customClass="CreateOrEditHabitViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dFV-6s-8NS">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Criar novo hábito" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcP-BR-8yW">
-                                <rect key="frame" x="20" y="64" width="207" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new habit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcP-BR-8yW">
+                                <rect key="frame" x="19.999999999999986" y="64" width="225.66666666666663" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="AKD-gr-dd5"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="hyb-Z6-Ktc"/>
@@ -1485,7 +1485,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome do hábito" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mik-vG-m8e" customClass="CustomTextField" customModule="PersonalEvolution" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Define a name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mik-vG-m8e" customClass="CustomTextField" customModule="Wedo" customModuleProvider="target">
                                 <rect key="frame" x="16" y="119" width="358" height="52"/>
                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                 <constraints>
@@ -1501,7 +1501,7 @@
                                     <constraint firstAttribute="height" constant="48" id="cFl-Gd-PNy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Criar hábito">
+                                <state key="normal" title="Create habit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1518,8 +1518,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="continue"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequência do hábito" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD0-Of-KQu">
-                                <rect key="frame" x="16" y="279" width="163" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD0-Of-KQu">
+                                <rect key="frame" x="16" y="279" width="83" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="a6X-tf-5ZY"/>
                                 </constraints>
@@ -1540,7 +1540,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DaysOfWeekCell" id="abW-Ge-6oW" customClass="DaysOfWeekCollectionViewCell" customModule="PersonalEvolution" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DaysOfWeekCell" id="abW-Ge-6oW" customClass="DaysOfWeekCollectionViewCell" customModule="Wedo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9ff-9d-544">
@@ -1614,7 +1614,7 @@
                                     <constraint firstAttribute="height" constant="48" id="UiI-pI-vSR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Entrar com código">
+                                <state key="normal" title="Join using with password">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1653,7 +1653,7 @@
                             <constraint firstItem="aqh-fO-amy" firstAttribute="top" secondItem="nxw-7s-8tv" secondAttribute="bottom" constant="24" id="yyR-Cc-Fdo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Novo hábito" image="plus.circle.fill" catalog="system" selectedImage="plus.circle.fill" id="YoS-49-xlf"/>
+                    <tabBarItem key="tabBarItem" title="New habit" image="plus.circle.fill" catalog="system" selectedImage="plus.circle.fill" id="YoS-49-xlf"/>
                     <navigationItem key="navigationItem" id="Ja9-18-gXO"/>
                     <connections>
                         <outlet property="addImageButton" destination="nxw-7s-8tv" id="9Ny-fq-NCs"/>
@@ -1669,10 +1669,10 @@
             </objects>
             <point key="canvasLocation" x="-95" y="-468"/>
         </scene>
-        <!--Evolução-->
+        <!--Evolution-->
         <scene sceneID="Cnj-SW-4Xj">
             <objects>
-                <viewController id="ovN-Px-5P4" customClass="EvolutionViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ovN-Px-5P4" customClass="EvolutionViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Wj-uf-czr">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1952,7 +1952,7 @@
                             <constraint firstItem="WoK-v1-mrY" firstAttribute="leading" secondItem="0O3-ut-vqr" secondAttribute="leading" constant="20" id="yrm-eW-fyn"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Evolução" image="person.fill" catalog="system" id="EyS-N7-lPJ"/>
+                    <tabBarItem key="tabBarItem" title="Evolution" image="person.fill" catalog="system" id="EyS-N7-lPJ"/>
                     <connections>
                         <outlet property="StreakContainer" destination="eSy-7o-ABy" id="dwt-TD-kK5"/>
                         <outlet property="WeekMoodContainer" destination="NYk-0s-bHH" id="bHy-qc-sjp"/>
@@ -1990,11 +1990,11 @@
             </objects>
             <point key="canvasLocation" x="-1843" y="281"/>
         </scene>
-        <!--Seus hábitos-->
+        <!--Your habits-->
         <scene sceneID="wXt-eW-OFx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="At2-WP-REm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Seus hábitos" image="house.fill" catalog="system" id="smX-ez-A2L"/>
+                    <tabBarItem key="tabBarItem" title="Your habits" image="house.fill" catalog="system" id="smX-ez-A2L"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lEE-mW-95r">
                         <autoresizingMask key="autoresizingMask"/>
@@ -2015,7 +2015,7 @@
         <!--Pop Up Daily Mood View Controller-->
         <scene sceneID="0nU-kg-Vms">
             <objects>
-                <viewController storyboardIdentifier="DailyMoodPopUp" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="poh-r7-Kfe" customClass="PopUpDailyMoodViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DailyMoodPopUp" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="poh-r7-Kfe" customClass="PopUpDailyMoodViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="nFe-Nc-Wxt">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2112,7 +2112,7 @@
         <!--Full Screen Image View Controller-->
         <scene sceneID="1u8-po-qo9">
             <objects>
-                <viewController storyboardIdentifier="FullScreenImageView" modalPresentationStyle="pageSheet" id="JEg-fN-7nJ" customClass="FullScreenImageViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FullScreenImageView" modalPresentationStyle="pageSheet" id="JEg-fN-7nJ" customClass="FullScreenImageViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zMW-IG-XjW">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2175,7 +2175,7 @@
         <!--Initial Loading View Controller-->
         <scene sceneID="ZdY-hu-ULj">
             <objects>
-                <viewController id="xRC-Rt-Ff7" customClass="InitialLoadingViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xRC-Rt-Ff7" customClass="InitialLoadingViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2rJ-SE-LpZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2185,29 +2185,143 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMP-ge-Zri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3677" y="281"/>
+            <point key="canvasLocation" x="-4391" y="281"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="9Pk-Vb-5hu">
+            <objects>
+                <viewController storyboardIdentifier="Onboarding" id="DOC-xA-Xhd" customClass="OnboardingViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dK5-CT-l6D">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFa-KM-6Cs">
+                                <rect key="frame" x="32" y="564" width="326" height="96"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dk-SH-nYn">
+                                <rect key="frame" x="70" y="104" width="250" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="cvR-PP-Grt"/>
+                                    <constraint firstAttribute="height" constant="70" id="ihf-NS-Ssg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-Fq-jIP">
+                                <rect key="frame" x="32" y="206" width="326" height="326"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gr3-Fq-jIP" secondAttribute="height" multiplier="1:1" id="Xma-s0-oOa"/>
+                                </constraints>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="0wS-4l-dac">
+                                <rect key="frame" x="134.66666666666666" y="750" width="121" height="30"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="q0G-iV-Szj"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euA-3l-rEv">
+                                <rect key="frame" x="95" y="676" width="200" height="50"/>
+                                <color key="backgroundColor" name="TextFieldBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="9u7-hm-Gpe"/>
+                                    <constraint firstAttribute="height" constant="50" id="zJl-rr-a0C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Começar">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NGe-8F-LxO" kind="show" id="LKg-X8-XuZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19D-zb-aqp">
+                                <rect key="frame" x="326" y="43" width="32" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NGe-8F-LxO" kind="show" id="JC1-1N-HPQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AG9-LN-d8r"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="0wS-4l-dac" firstAttribute="centerX" secondItem="AG9-LN-d8r" secondAttribute="centerX" id="4Z8-c8-LUv"/>
+                            <constraint firstItem="9dk-SH-nYn" firstAttribute="centerX" secondItem="AG9-LN-d8r" secondAttribute="centerX" id="6W4-w7-ljD"/>
+                            <constraint firstItem="euA-3l-rEv" firstAttribute="centerX" secondItem="AG9-LN-d8r" secondAttribute="centerX" id="IaI-F3-J80"/>
+                            <constraint firstItem="gr3-Fq-jIP" firstAttribute="leading" secondItem="AG9-LN-d8r" secondAttribute="leading" constant="32" id="P96-ZU-DD5"/>
+                            <constraint firstItem="AG9-LN-d8r" firstAttribute="trailing" secondItem="19D-zb-aqp" secondAttribute="trailing" constant="32" id="QWR-Pq-K3f"/>
+                            <constraint firstItem="AG9-LN-d8r" firstAttribute="top" secondItem="19D-zb-aqp" secondAttribute="top" constant="1" id="S0y-lb-zuJ"/>
+                            <constraint firstItem="AG9-LN-d8r" firstAttribute="trailing" secondItem="gr3-Fq-jIP" secondAttribute="trailing" constant="32" id="Wub-fQ-kzr"/>
+                            <constraint firstItem="9dk-SH-nYn" firstAttribute="top" secondItem="AG9-LN-d8r" secondAttribute="top" constant="60" id="ZWb-VE-WtI"/>
+                            <constraint firstItem="19D-zb-aqp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AG9-LN-d8r" secondAttribute="leading" constant="32" id="Zwl-gH-JLv"/>
+                            <constraint firstItem="lFa-KM-6Cs" firstAttribute="leading" secondItem="AG9-LN-d8r" secondAttribute="leading" constant="32" id="aD2-19-QBm"/>
+                            <constraint firstItem="gr3-Fq-jIP" firstAttribute="top" secondItem="9dk-SH-nYn" secondAttribute="bottom" constant="32" id="gri-3j-9tf"/>
+                            <constraint firstItem="lFa-KM-6Cs" firstAttribute="top" secondItem="gr3-Fq-jIP" secondAttribute="bottom" constant="32" id="ilr-8M-fWk"/>
+                            <constraint firstItem="AG9-LN-d8r" firstAttribute="bottom" secondItem="0wS-4l-dac" secondAttribute="bottom" constant="30" id="kqG-X7-68e"/>
+                            <constraint firstItem="euA-3l-rEv" firstAttribute="top" secondItem="lFa-KM-6Cs" secondAttribute="bottom" constant="16" id="lQL-CC-sFy"/>
+                            <constraint firstItem="AG9-LN-d8r" firstAttribute="trailing" secondItem="lFa-KM-6Cs" secondAttribute="trailing" constant="32" id="rNJ-Te-Ymz"/>
+                            <constraint firstItem="0wS-4l-dac" firstAttribute="top" secondItem="euA-3l-rEv" secondAttribute="bottom" constant="24" id="uUx-h1-sHq"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="x3p-vv-Awc" appends="YES" id="Ygk-jP-Goj"/>
+                            <outletCollection property="gestureRecognizers" destination="ZoK-hu-BqW" appends="YES" id="wKq-bk-Yo3"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="dK5-CT-l6D" id="Srf-5l-wG0"/>
+                        <outlet property="imageView" destination="gr3-Fq-jIP" id="JZ4-o9-xGN"/>
+                        <outlet property="pageControl" destination="0wS-4l-dac" id="ga2-1n-OaS"/>
+                        <outlet property="startButton" destination="euA-3l-rEv" id="EtM-Pu-01l"/>
+                        <outlet property="subtitleLabel" destination="lFa-KM-6Cs" id="6qd-Df-NLm"/>
+                        <outlet property="titleLabel" destination="9dk-SH-nYn" id="TkD-3p-at5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iB5-7R-xs1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="x3p-vv-Awc">
+                    <connections>
+                        <action selector="swipeRight:" destination="DOC-xA-Xhd" id="2oA-4b-U6e"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="ZoK-hu-BqW">
+                    <connections>
+                        <action selector="swipeLeft:" destination="DOC-xA-Xhd" id="BRk-ZS-Xuy"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-3566.1538461538462" y="280.80568720379148"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="atP-gR-NcA">
             <objects>
-                <viewController storyboardIdentifier="Login" id="NGe-8F-LxO" customClass="LoginViewController" customModule="PersonalEvolution" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="NGe-8F-LxO" customClass="LoginViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8qh-Q9-6Xw">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4J-1q-RAg">
-                                <rect key="frame" x="30" y="144" width="330" height="100"/>
+                                <rect key="frame" x="30" y="100" width="330" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="LS4-gV-me8"/>
                                 </constraints>
-                                <string key="text">Bem- vindo ao Wedo, 
-Personalize seu App para começar:</string>
+                                <string key="text">Welcome to Wedo, 
+create a user to start!</string>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                 <color key="textColor" red="0.98132756330000004" green="0.99921494720000004" blue="0.98579940929999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="highlightedColor" name="ChartColorBG"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FQ-2S-wOF">
-                                <rect key="frame" x="105" y="304" width="180" height="180"/>
+                                <rect key="frame" x="105" y="260" width="180" height="180"/>
                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="Ab7-2r-QjS"/>
@@ -2220,8 +2334,8 @@ Personalize seu App para começar:</string>
                                     <action selector="chooseUserImage:" destination="NGe-8F-LxO" eventType="touchUpInside" id="2Lq-Lr-qDO"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Adicionar um apelido" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQ0-C7-Opm">
-                                <rect key="frame" x="16" y="508" width="358" height="60"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a nickname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQ0-C7-Opm">
+                                <rect key="frame" x="16" y="464" width="358" height="60"/>
                                 <color key="backgroundColor" name="TextFieldBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="oNt-Vh-7qk"/>
@@ -2234,13 +2348,13 @@ Personalize seu App para começar:</string>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txj-xV-91w">
-                                <rect key="frame" x="16" y="592" width="358" height="60"/>
-                                <color key="backgroundColor" red="0.32363328959999998" green="0.98521453140000004" blue="0.84196615399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="16" y="548" width="358" height="60"/>
+                                <color key="backgroundColor" red="0.50980392159999999" green="0.87843137250000003" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="bbY-sc-sJ7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="Próximo">
+                                <state key="normal" title="Start">
                                     <color key="titleColor" red="0.97879068250000001" green="0.99911791090000002" blue="0.99032899480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -2265,6 +2379,7 @@ Personalize seu App para começar:</string>
                             <constraint firstItem="dPb-5d-eMY" firstAttribute="trailing" secondItem="Q4J-1q-RAg" secondAttribute="trailing" constant="30" id="xc5-c9-7m6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="cna-kv-hn0"/>
                     <connections>
                         <outlet property="keyboardHeightLayoutConstraint" destination="VM3-XH-1hr" id="qOX-G9-Mfe"/>
                         <outlet property="photoButton" destination="6FQ-2S-wOF" id="y7b-Tn-LFo"/>
@@ -2278,6 +2393,9 @@ Personalize seu App para começar:</string>
             <point key="canvasLocation" x="-2760" y="280.80568720379148"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LKg-X8-XuZ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="BlueBallShadow" width="55" height="55"/>
         <image name="Daily Mood Panel" width="382" height="127"/>
@@ -2305,6 +2423,9 @@ Personalize seu App para começar:</string>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="ChartColorBG">
             <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="ChartColorBalls">
+            <color red="0.55699998140335083" green="0.55699998140335083" blue="0.57300001382827759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ChartColorLine">
             <color red="0.68199998140335083" green="0.68199998140335083" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

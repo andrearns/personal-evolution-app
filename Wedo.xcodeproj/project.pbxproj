@@ -43,6 +43,7 @@
 		5B2E5F2526F66A0C00BEAE3D /* InitialLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */; };
 		5B923CFF26F6F16E00CE9D4D /* Audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B923CFE26F6F16D00CE9D4D /* Audio1.mp3 */; };
 		5B923D0126F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B923D0026F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift */; };
+		5B923D0426F7E26000CE9D4D /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B923D0326F7E26000CE9D4D /* OnboardingViewController.swift */; };
 		6A47017C35D818D27B4D8171 /* Pods_PersonalEvolution.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */; };
 		C66A54BF26F5338800B63CE8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66A54BE26F5338800B63CE8 /* LoginViewController.swift */; };
 		EC71C83526F26FA80010F929 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */; };
@@ -57,7 +58,7 @@
 		0E98C18F26E1577A00C6FFF8 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		4516008CEF580DC2A9A4A3E1 /* Pods-PersonalEvolution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.debug.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.debug.xcconfig"; sourceTree = "<group>"; };
 		50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersonalEvolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B0CE72726DDCD040065E1A9 /* PersonalEvolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalEvolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0CE72726DDCD040065E1A9 /* Wedo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wedo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0CE72A26DDCD040065E1A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B0CE72C26DDCD040065E1A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B0CE73126DDCD040065E1A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLoadingViewController.swift; sourceTree = "<group>"; };
 		5B923CFE26F6F16D00CE9D4D /* Audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Audio1.mp3; path = ../../../../../Downloads/Audio1.mp3; sourceTree = "<group>"; };
 		5B923D0026F7018900CE9D4D /* EnterWithPasswordPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterWithPasswordPopUpViewController.swift; sourceTree = "<group>"; };
+		5B923D0326F7E26000CE9D4D /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8BAE0C3BCDF072B7B5D56EDD /* Pods-PersonalEvolution.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.release.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.release.xcconfig"; sourceTree = "<group>"; };
 		C66A54BE26F5338800B63CE8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC71C83426F26FA80010F929 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -123,7 +125,7 @@
 		5B0CE72826DDCD040065E1A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B0CE72726DDCD040065E1A9 /* PersonalEvolution.app */,
+				5B0CE72726DDCD040065E1A9 /* Wedo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,6 +169,7 @@
 				0E4FF3AB26EA439B00437262 /* EvolutionViewController.swift */,
 				C66A54BE26F5338800B63CE8 /* LoginViewController.swift */,
 				5B2E5F2426F66A0C00BEAE3D /* InitialLoadingViewController.swift */,
+				5B923D0326F7E26000CE9D4D /* OnboardingViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -268,7 +271,7 @@
 			);
 			name = PersonalEvolution;
 			productName = PersonalEvolution;
-			productReference = 5B0CE72726DDCD040065E1A9 /* PersonalEvolution.app */;
+			productReference = 5B0CE72726DDCD040065E1A9 /* Wedo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -285,7 +288,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B0CE72226DDCD040065E1A9 /* Build configuration list for PBXProject "PersonalEvolution" */;
+			buildConfigurationList = 5B0CE72226DDCD040065E1A9 /* Build configuration list for PBXProject "Wedo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -396,6 +399,7 @@
 				5B27FC7626EDBAF600C917D9 /* DayOfWeek.swift in Sources */,
 				5B27FC7D26F13EDE00C917D9 /* PhotoGalleryViewController.swift in Sources */,
 				5B2E5F2326F668B100BEAE3D /* NavigationManager.swift in Sources */,
+				5B923D0426F7E26000CE9D4D /* OnboardingViewController.swift in Sources */,
 				5B2D539926E6FEDA00558BDD /* Checkin.swift in Sources */,
 				5B2D539B26E6FF4100558BDD /* User.swift in Sources */,
 			);
@@ -555,7 +559,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrearns.PersonalEvolution;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Wedo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -577,7 +581,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrearns.PersonalEvolution;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Wedo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -586,7 +590,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B0CE72226DDCD040065E1A9 /* Build configuration list for PBXProject "PersonalEvolution" */ = {
+		5B0CE72226DDCD040065E1A9 /* Build configuration list for PBXProject "Wedo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B0CE73926DDCD050065E1A9 /* Debug */,

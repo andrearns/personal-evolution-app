@@ -71,7 +71,7 @@ class CheckinViewController: UIViewController {
     @IBAction func addImage(_ sender: Any) {
         let croppingParameters = CroppingParameters(isEnabled: true, allowResizing: false, allowMoving: true, minimumSize: CGSize(width: 300, height: 300))
         
-        let cameraViewController = CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: false, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
+        let cameraViewController = CameraViewController(croppingParameters: croppingParameters, allowsLibraryAccess: true, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
             self?.addImageButton.setBackgroundImage(image, for: .normal)
             self?.newCheckin.image = image
             self?.addImageButton.setTitle("", for: .normal)

@@ -22,7 +22,7 @@ struct NavigationManager {
         case .home:
             viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabBar")
         case .onboarding:
-            viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "Login")
+            viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "Onboarding")
         }
         
         if let sceneDelegate = inController.view.window?.windowScene?.delegate as? SceneDelegate, let window = sceneDelegate.window {
