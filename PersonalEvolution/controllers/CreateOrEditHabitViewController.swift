@@ -38,7 +38,7 @@ class CreateOrEditHabitViewController: UIViewController {
         // UI
         daysOfWeekCollectionView.layer.cornerRadius = 15
         habitNameTextField.layer.cornerRadius = 15
-        habitNameTextField.attributedPlaceholder = NSAttributedString(string: "Nome do hábito", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+        habitNameTextField.attributedPlaceholder = NSAttributedString(string: "Add a name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
         addImageButton.layer.cornerRadius = 15
         createButton.layer.cornerRadius = 15
         createButton.dropShadow()
