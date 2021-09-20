@@ -1674,11 +1674,11 @@
             <objects>
                 <viewController id="ovN-Px-5P4" customClass="EvolutionViewController" customModule="Wedo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Wj-uf-czr">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JES-JI-B2O">
-                                <rect key="frame" x="0.0" y="44" width="390" height="1373"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="717"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AlZ-AN-Kdh">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="717.66666666666663"/>
@@ -2237,7 +2237,7 @@
                                     <constraint firstAttribute="height" constant="50" id="zJl-rr-a0C"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <state key="normal" title="Começar">
+                                <state key="normal" title="Start">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>

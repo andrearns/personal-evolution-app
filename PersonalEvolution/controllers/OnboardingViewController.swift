@@ -20,11 +20,11 @@ class OnboardingViewController: UIViewController {
     
     
     var pages: [OnboardingPage] = [
-        OnboardingPage(title: "Desenvolvimento  e hábitos", subtitle: "A melhor forma de efetivar o desenvolvimento pessoal é por meio de hábitos. Estamos aqui para de ajudar", image: UIImage(named: "onboarding1")!, backgroundColor: UIColor(red: 253/255, green: 205/255, blue: 221/255, alpha: 1)),
-        OnboardingPage(title: "Desafios & Frequência", subtitle: "Você pode criar desafios com total liberdade e selecionar a repetição dele durante os dias da semana!", image: UIImage(named: "onboarding2")!, backgroundColor: UIColor(red: 195/255, green: 158/255, blue: 237/255, alpha: 1)),
-        OnboardingPage(title: "Colaboração & Compartilhamento", subtitle: "Crie metas e compartilhe com seus amigos, assim juntos vocês podem se ajudar a se manter mais motivado.", image: UIImage(named: "onboarding3")!, backgroundColor: UIColor(red: 125/255, green: 226/255, blue: 240/255, alpha: 1)),
-        OnboardingPage(title: "Registre & Acompanhe", subtitle: "Você pode registrar como se sente diariamente além do seu progresso nos desafios. Depois verifique sua evolução.", image: UIImage(named: "onboarding4")!, backgroundColor: UIColor(red: 130/255, green: 224/255, blue: 179/255, alpha: 1)),
-        OnboardingPage(title: "Registro & Galeria ", subtitle: "Ao fazer check-in nos desafios você pode acrescentar imagens. Gera uma retrospectiva e visualize sua jornada.", image: UIImage(named: "onboarding5")!, backgroundColor:  UIColor(red: 255/255, green: 217/255, blue: 121/255, alpha: 1)),
+        OnboardingPage(title: "Improvement and Habits", subtitle: "The best way to effectuate personal growth is through habits. And we’re here to help you improve them with you.", image: UIImage(named: "onboarding1")!, backgroundColor: UIColor(red: 253/255, green: 205/255, blue: 221/255, alpha: 1)),
+        OnboardingPage(title: "Challenges and Frequency", subtitle: "You can create challenges with full freedom and define its frequency by choosing the days of the week you’ll want to repeat!", image: UIImage(named: "onboarding2")!, backgroundColor: UIColor(red: 195/255, green: 158/255, blue: 237/255, alpha: 1)),
+        OnboardingPage(title: "Collaboration and Sharing", subtitle: "Create goals and share them with your friends, that way you can keep each other motivated.", image: UIImage(named: "onboarding3")!, backgroundColor: UIColor(red: 125/255, green: 226/255, blue: 240/255, alpha: 1)),
+        OnboardingPage(title: "Register and Follow up", subtitle: "You can record how you feel on a daily basis, as well as your progress on challenges. All your records will be available in the “evolution” section.", image: UIImage(named: "onboarding4")!, backgroundColor: UIColor(red: 130/255, green: 224/255, blue: 179/255, alpha: 1)),
+        OnboardingPage(title: "Retrospective and Gallery ", subtitle: "By checking-in your challenges you can add photos, the app will generate a retrospective and you can visualize your self- improvement journey.", image: UIImage(named: "onboarding5")!, backgroundColor:  UIColor(red: 255/255, green: 217/255, blue: 121/255, alpha: 1)),
     ]
     
     var frame = CGRect.zero
