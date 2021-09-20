@@ -24,7 +24,7 @@ class CreateOrEditHabitViewController: UIViewController {
     
     var newHabit = Habit(name: "", image: nil, description: "")
     
-    var daysOfWeek: [DayOfWeek] = [DayOfWeek(name: "Dom"), DayOfWeek(name: "Seg"), DayOfWeek(name: "Ter"), DayOfWeek(name: "Qua"), DayOfWeek(name: "Qui"), DayOfWeek(name: "Sex"), DayOfWeek(name: "Sáb")]
+    var daysOfWeek: [DayOfWeek] = [DayOfWeek(name: "Sun"), DayOfWeek(name: "Mon"), DayOfWeek(name: "Tue"), DayOfWeek(name: "Wed"), DayOfWeek(name: "Thu"), DayOfWeek(name: "Fri"), DayOfWeek(name: "Sat")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class CreateOrEditHabitViewController: UIViewController {
         // UI
         daysOfWeekCollectionView.layer.cornerRadius = 15
         habitNameTextField.layer.cornerRadius = 15
-        habitNameTextField.attributedPlaceholder = NSAttributedString(string: "Nome do hábito", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
+        habitNameTextField.attributedPlaceholder = NSAttributedString(string: "Add a name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray])
         addImageButton.layer.cornerRadius = 15
         createButton.layer.cornerRadius = 15
         createButton.dropShadow()
@@ -56,18 +56,18 @@ class CreateOrEditHabitViewController: UIViewController {
         
         // Fill fields if edit mode is on
         if currentMode == .create {
-            titleLabel.text = "Criar novo hábito"
-            descriptionTextView.text = "Digite aqui a descrição e as regras"
+            titleLabel.text = "Create new habit"
+            descriptionTextView.text = "Add here a description or rules"
             descriptionTextView.textColor = UIColor.systemGray
-            createButton.setTitle("Criar hábito", for: .normal)
+            createButton.setTitle("Create habit", for: .normal)
         } else if currentMode == .edit {
-            titleLabel.text = "Editar hábito"
+            titleLabel.text = "Edit habit"
             habitNameTextField.text = habit?.name
             descriptionTextView.text = habit?.description
             descriptionTextView.textColor = UIColor.black
             let buttonImage = CropImage.shared.crop(image: (habit?.image)!, aspectRatio: 1.2)
             addImageButton.setBackgroundImage(buttonImage, for: .normal)
-            createButton.setTitle("Salvar", for: .normal)
+            createButton.setTitle("Save", for: .normal)
             self.newHabit = self.habit!
         }
     }
@@ -144,7 +144,7 @@ extension CreateOrEditHabitViewController: UITextFieldDelegate, UITextViewDelega
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Digite aqui a descrição e as regras"
+            textView.text = "Add a description or rules"
             textView.textColor = UIColor.systemGray
         }
     }

@@ -20,6 +20,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var habitsList: [Habit] = []
     var currentUser = User(name: "", imageData: nil, recordID: nil)
     var dailyMoods: [DailyMood] = []
+    var date = Date()
     
     private let database = CKContainer(identifier: "iCloud.PersonalEvolution").publicCloudDatabase
     
