@@ -27,7 +27,7 @@ class PopUpDailyMoodViewController: UIViewController {
         container.layer.cornerRadius = 15
         commentDailyMood.delegate = self
         commentDailyMood.leftSpace()
-        commentDailyMood.addDoneButton(title: "Pronto", target: self, selector: #selector(tapDone(sender:)))
+        commentDailyMood.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         
         // Do any additional setup after loading the view.
         print(mood)
@@ -36,7 +36,7 @@ class PopUpDailyMoodViewController: UIViewController {
         self.currentUser.imageData = UserSingleton.shared.imageData!
         self.currentUser.recordID = UserSingleton.shared.recordID ?? UserSingleton.shared.fetchUserRecordID()
         
-        commentDailyMood.text = "Digite aqui a descrição e as regras"
+        commentDailyMood.text = "Add a memory" 
         commentDailyMood.textColor = UIColor.systemGray
         
         print(self.currentUser)
@@ -75,7 +75,7 @@ extension PopUpDailyMoodViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Digite aqui como você está se sentindo"
+            textView.text = "Add a memory"
             textView.textColor = UIColor.systemGray
         }
     }

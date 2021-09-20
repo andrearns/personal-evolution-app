@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:PersonalEvolution.xcodeproj">
+      location = "group:/Users/andrearns/Development/swift/Apple Developer Academy/PersonalEvolution/Wedo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

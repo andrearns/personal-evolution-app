@@ -31,9 +31,9 @@ class RetrospectiveViewController: UIViewController {
         playVideoButton.setBackgroundImage(checkinsList[checkinsList.count - 1].image, for: .normal)
         
         if retrospectiveType == .personal {
-            retrospectiveTitleLabel.text = "Sua retrospectiva"
+            retrospectiveTitleLabel.text = "Your retrospective"
         } else if retrospectiveType == .group {
-            retrospectiveTitleLabel.text = "Retrospectiva do grupo"
+            retrospectiveTitleLabel.text = "Group retrospective"
         }
         
         for i in 0..<checkinsList.count {
@@ -59,7 +59,6 @@ class RetrospectiveViewController: UIViewController {
                 case .success(let url):
                     self.videoURL = url
                     print(url)
-                    self.createAlertView(message: "Finished video generation")
                 case .failure(let error):
                     print(error)
                     self.createAlertView(message: error.localizedDescription)

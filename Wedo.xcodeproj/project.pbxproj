@@ -58,7 +58,7 @@
 		0E98C18F26E1577A00C6FFF8 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		4516008CEF580DC2A9A4A3E1 /* Pods-PersonalEvolution.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalEvolution.debug.xcconfig"; path = "Target Support Files/Pods-PersonalEvolution/Pods-PersonalEvolution.debug.xcconfig"; sourceTree = "<group>"; };
 		50871E6C2BE27C6EB91AAC09 /* Pods_PersonalEvolution.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PersonalEvolution.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B0CE72726DDCD040065E1A9 /* PersonalEvolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalEvolution.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0CE72726DDCD040065E1A9 /* Wedo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wedo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0CE72A26DDCD040065E1A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B0CE72C26DDCD040065E1A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B0CE73126DDCD040065E1A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		5B0CE72826DDCD040065E1A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B0CE72726DDCD040065E1A9 /* PersonalEvolution.app */,
+				5B0CE72726DDCD040065E1A9 /* Wedo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 			);
 			name = PersonalEvolution;
 			productName = PersonalEvolution;
-			productReference = 5B0CE72726DDCD040065E1A9 /* PersonalEvolution.app */;
+			productReference = 5B0CE72726DDCD040065E1A9 /* Wedo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -288,7 +288,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B0CE72226DDCD040065E1A9 /* Build configuration list for PBXProject "PersonalEvolution" */;
+			buildConfigurationList = 5B0CE72226DDCD040065E1A9 /* Build configuration list for PBXProject "Wedo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -559,7 +559,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrearns.PersonalEvolution;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Wedo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -581,7 +581,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrearns.PersonalEvolution;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Wedo;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -590,7 +590,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B0CE72226DDCD040065E1A9 /* Build configuration list for PBXProject "PersonalEvolution" */ = {
+		5B0CE72226DDCD040065E1A9 /* Build configuration list for PBXProject "Wedo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B0CE73926DDCD050065E1A9 /* Debug */,
