@@ -21,22 +21,17 @@ class EvolutionViewController: UIViewController, ChartViewDelegate{
     @IBOutlet weak var streakHabit2: UILabel!
     @IBOutlet weak var streakHabit3: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     var dailyMoods: [DailyMood] = []
     var currentUser = User(name: "", imageData: nil, recordID: nil)
     
-    let yValues: [ChartDataEntry] = [
-        ChartDataEntry(x: 0.0, y: 0.0),
-        ChartDataEntry(x: 1.0, y: 4.0),
-        ChartDataEntry(x: 2.0, y: 3.0),
-        ChartDataEntry(x: 3.0, y: 2.0),
-        ChartDataEntry(x: 4.0, y: 4.0),
-        ChartDataEntry(x: 5.0, y: 4.0),
-        ChartDataEntry(x: 6.0, y: 1.0)
-    ]
+    var yValues: [ChartDataEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupEvolutionChart()
+        setWeekMood()
         setData()
         
         streakContainer.layer.cornerRadius = 15
@@ -48,6 +43,28 @@ class EvolutionViewController: UIViewController, ChartViewDelegate{
         self.currentUser.recordID = UserSingleton.shared.recordID ?? UserSingleton.shared.fetchUserRecordID()
         print("Current user: \(self.currentUser)")
     }
+    
+    
+    func setWeekMood(){
+        let date = Date()
+
+        for (i, dailyMood) in dailyMoods.enumerated(){
+            if Calendar.current.isDate(date, equalTo: dailyMood.date!, toGranularity: .weekOfYear) && yValues.count <= 7{
+                yValues.append(ChartDataEntry(x: Double(i), y: Double(dailyMood.mood!)))
+            }
+        }
+        
+        yValues = [ChartDataEntry(x: 1, y: 0),
+                   ChartDataEntry(x: 2, y: 1),
+                   ChartDataEntry(x: 3, y: 1),
+                   ChartDataEntry(x: 4, y: 4),
+                   ChartDataEntry(x: 5, y: 3),
+                   ChartDataEntry(x: 6, y: 2),
+                   ChartDataEntry(x: 7, y: 4)
+                ]
+    }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -84,9 +101,13 @@ class EvolutionViewController: UIViewController, ChartViewDelegate{
         evoutionChart.leftAxis.enabled = false
         evoutionChart.xAxis.enabled = false
         evoutionChart.legend.enabled = false
+        evoutionChart.dragEnabled = false
+        evoutionChart.scaleXEnabled = false
+        evoutionChart.scaleYEnabled = false
         
         let xAxis = evoutionChart.xAxis
         xAxis.setLabelCount(5, force: true)
+        
         
         
         let yAxis = evoutionChart.leftAxis
@@ -108,6 +129,7 @@ class EvolutionViewController: UIViewController, ChartViewDelegate{
         set1.lineWidth = 1
         set1.setColor(UIColor(named: "ChartColorLine")!)
         set1.setCircleColor(UIColor(named: "ChartColorBalls")!)
+        
         
         let data = LineChartData(dataSet: set1)
         data.setDrawValues(false)
